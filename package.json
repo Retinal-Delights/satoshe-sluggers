@@ -2,6 +2,7 @@
   "name": "satoshe-sluggers",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@latest",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
