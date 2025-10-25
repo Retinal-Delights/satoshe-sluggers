@@ -57,6 +57,7 @@ function MyNFTsContent() {
   useEffect(() => {
     const loadUserData = async () => {
       if (!account?.address) {
+        setOwnedNFTs([]);
         setIsLoading(false);
         return;
       }
@@ -66,7 +67,8 @@ function MyNFTsContent() {
         // TODO: Implement actual wallet NFT fetching
         // For now, show empty array - no demo/placeholder NFTs
         setOwnedNFTs([]);
-      } catch {
+      } catch (error) {
+        console.error("Error loading owned NFTs:", error);
         setOwnedNFTs([]);
       } finally {
         setIsLoading(false);
@@ -93,30 +95,39 @@ function MyNFTsContent() {
 
   // Get active NFTs based on tab
   const getActiveNFTs = () => {
-    if (activeTab === "owned") {
-      return ownedNFTs.map((nft: NFT) => ({
-        id: nft.tokenId || nft.id,
-        tokenId: nft.tokenId || nft.id,
-        name: nft.name || `Satoshe Slugger #${(parseInt(nft.tokenId || nft.id) + 1)}`,
-        image: nft.image || "/placeholder-nft.webp",
-        price: "0",
-        highestBid: "",
-        rarity: (nft.rarity as string) || "Common",
-        isListed: false,
-      }))
-    } else if (activeTab === "favorites") {
-      return favorites.map((fav) => ({
-        id: (parseInt(fav.tokenId) + 1).toString(), // Use card number for navigation
-        tokenId: fav.tokenId,
-        name: fav.name,
-        image: fav.image,
-        price: "0",
-        highestBid: "",
-        rarity: fav.rarity || "Common",
-        isListed: false,
-        isLocallyUnfavorited: locallyUnfavorited.has(fav.tokenId), // Add flag for visual state
-      }))
-    } else {
+    try {
+      if (activeTab === "owned") {
+        // Ensure ownedNFTs is an array before mapping
+        const safeOwnedNFTs = Array.isArray(ownedNFTs) ? ownedNFTs : []
+        return safeOwnedNFTs.map((nft: NFT) => ({
+          id: nft.tokenId || nft.id,
+          tokenId: nft.tokenId || nft.id,
+          name: nft.name || `Satoshe Slugger #${(parseInt(nft.tokenId || nft.id) + 1)}`,
+          image: nft.image || "/placeholder-nft.webp",
+          price: "0",
+          highestBid: "",
+          rarity: (nft.rarity as string) || "Common",
+          isListed: false,
+        }))
+      } else if (activeTab === "favorites") {
+        // Ensure favorites is an array before mapping
+        const safeFavorites = Array.isArray(favorites) ? favorites : []
+        return safeFavorites.map((fav) => ({
+          id: (parseInt(fav.tokenId) + 1).toString(), // Use card number for navigation
+          tokenId: fav.tokenId,
+          name: fav.name,
+          image: fav.image,
+          price: "0",
+          highestBid: "",
+          rarity: fav.rarity || "Common",
+          isListed: false,
+          isLocallyUnfavorited: locallyUnfavorited.has(fav.tokenId), // Add flag for visual state
+        }))
+      } else {
+        return []
+      }
+    } catch (error) {
+      console.error("Error in getActiveNFTs:", error)
       return []
     }
   }
@@ -163,13 +174,20 @@ function MyNFTsContent() {
               onClick={() => setActiveTab("owned")}
             >
               <Package className={`w-4 h-4 ${activeTab === "owned" ? "text-[#ff0099]" : ""}`} />
-              Owned ({ownedNFTs?.length || 0})
+              Owned ({Array.isArray(ownedNFTs) ? ownedNFTs.length : 0})
             </button>
           </div>
         </div>
 
         {/* NFT Grid */}
-        {activeNFTs.length === 0 ? (
+        {!Array.isArray(activeNFTs) ? (
+          <div className="text-center py-20">
+            <p className="text-red-400 mb-4">Error loading NFTs. Please try refreshing the page.</p>
+            <Button onClick={() => window.location.reload()} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 text-xs font-medium rounded">
+              Refresh Page
+            </Button>
+          </div>
+        ) : activeNFTs.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-neutral-400 mb-4">
               {activeTab === "favorites"
