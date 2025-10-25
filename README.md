@@ -268,7 +268,7 @@ Enable debug logging by setting `NODE_ENV=development` in your environment.
 
 ## 📄 License
 
-This project is proprietary software owned by Retinal Delights © 2024. All rights reserved.
+This project is proprietary software owned by Retinal Delights © 2025. All Rights Reserved.
 
 ## 🆘 Support
 
@@ -288,4 +288,5 @@ For technical support or questions:
 ---
 
 **2025 © Retinal Delights, Inc.  All Rights Reserved.**
+
 **Created with ♥ in Los Angeles, by kwoerd**
