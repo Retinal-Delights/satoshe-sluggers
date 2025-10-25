@@ -15,6 +15,7 @@ export interface FavoriteNFT {
 export function useFavorites() {
   const account = useActiveAccount();
   const [favorites, setFavorites] = useState<FavoriteNFT[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const prevAddressRef = useRef<string | null>(null);
 
   // Get storage key for current wallet
@@ -32,9 +33,11 @@ export function useFavorites() {
     }
     
     prevAddressRef.current = currentAddress;
+    setIsLoading(true);
     
     if (!currentAddress) {
       setFavorites([]);
+      setIsLoading(false);
       return;
     }
 
@@ -50,6 +53,8 @@ export function useFavorites() {
     } catch {
       // Error loading favorites from localStorage - continue with empty array
       setFavorites([]);
+    } finally {
+      setIsLoading(false);
     }
   }, [account?.address]);
 
@@ -106,6 +111,7 @@ export function useFavorites() {
 
   return {
     favorites,
+    isLoading,
     addToFavorites,
     removeFromFavorites,
     isFavorited,

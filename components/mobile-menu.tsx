@@ -226,7 +226,7 @@ export function MobileMenu({ isWalletConnected = false, hasUserActivity = false 
 
   return (
     <div className="lg:hidden flex items-center gap-2 sm:gap-4">
-      {walletConnected && userActivity && (
+      {walletConnected && (
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -245,21 +245,10 @@ export function MobileMenu({ isWalletConnected = false, hasUserActivity = false 
               </Link>
             </TooltipTrigger>
             <TooltipContent>
-              <p>My NFTs</p>
+              <p>{userActivity ? "My NFTs" : "Profile"}</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-      )}
-      {walletConnected && !userActivity && (
-        <div className="flex items-center justify-center">
-          <Image
-            src="/icons/profile-icons/pink-profile-icon-48.png"
-            alt="Wallet Connected"
-            width={24}
-            height={24}
-            className="w-6 h-6"
-          />
-        </div>
       )}
       <Button
         variant="ghost"

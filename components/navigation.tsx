@@ -16,7 +16,7 @@ interface NavigationProps {
 
 export default function Navigation({ activePage = "home" }: NavigationProps) {
   const account = useActiveAccount()
-  const { favorites } = useFavorites()
+  const { favorites, isLoading } = useFavorites()
   
   // Check if user has any activity (favorites or owned NFTs)
   const hasUserActivity = favorites.length > 0
@@ -58,8 +58,8 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
         )}
       </nav>
       <div className="flex items-center gap-2 sm:gap-3">
-        {/* Profile icon - clickable when wallet connected and has activity */}
-        {isWalletConnected && hasUserActivity && (
+        {/* Profile icon - always clickable when wallet connected */}
+        {isWalletConnected && (
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -78,22 +78,10 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
-                <p>My NFTs</p>
+                <p>{hasUserActivity ? "My NFTs" : "Profile"}</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-        )}
-        {/* Static profile icon when wallet connected but no activity */}
-        {isWalletConnected && !hasUserActivity && (
-          <div className="hidden lg:flex items-center justify-center">
-            <Image
-              src="/icons/profile-icons/pink-profile-icon-48.png"
-              alt="Wallet Connected"
-              width={24}
-              height={24}
-              className="w-6 h-6"
-            />
-          </div>
         )}
                 <div className="hidden lg:block">
                   <SimpleConnectButton />
