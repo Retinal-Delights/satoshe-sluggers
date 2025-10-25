@@ -96,4 +96,5 @@ next-env.d.ts
 ../../../.ssh/
 ../../../.storybook/
 ../../../.viminfo
-../../../.yarnrc
+../../../.yarnrcpackage-lock.json
+node_modules
