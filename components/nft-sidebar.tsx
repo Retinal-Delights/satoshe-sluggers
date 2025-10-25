@@ -400,7 +400,7 @@ const FALLBACK_OPTIONS = {
   background: ["Field", "Dugout", "Stadium", "Sky", "Night"],
   skinTone: ["Light", "Medium", "Dark", "Tan"],
   shirt: ["White", "Gray", "Black", "Blue", "Red"],
-  eyewear: ["Eyeglasses", "Confetti Shades", "Diamond Shades", "Eyeblack", "Gold Shades", "Sunglasses"],
+  eyewear: ["Eyeglasses", "Eyewear Confetti Shades", "Eyewear Diamond Shades", "Eyewear Eyeblack", "Eyewear Gold Shades", "Sunglasses"],
   hair: [
     { name: "Banana Clip", options: ["Black", "Blonde", "Blue", "Brown", "Confetti", "Gold", "Grey", "Pink", "Purple", "Red"] },
     { name: "Bob", options: ["Black", "Blonde", "Blue", "Brown", "Diamond", "Grey", "Pink", "Purple", "Red"] },
