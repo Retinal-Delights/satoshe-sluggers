@@ -43,26 +43,16 @@ function MyNFTsContent() {
     }
   }, [tabParam])
 
-  // Clean up locally unfavorited NFTs when switching tabs or navigating away
-  useEffect(() => {
-    if (activeTab !== "favorites") {
-      // Actually remove from favorites when switching away from favorites tab
-      locallyUnfavorited.forEach(tokenId => {
-        removeFromFavorites(tokenId)
-      })
-      setLocallyUnfavorited(new Set())
-    }
-  }, [activeTab, locallyUnfavorited])
-
-  // Clean up on unmount
+  // Only clean up locally unfavorited NFTs when the page is actually refreshed or navigated away
+  // This allows users to see their "soft unfavorited" NFTs until they refresh
   useEffect(() => {
     return () => {
-      // Actually remove from favorites when component unmounts
+      // Actually remove from favorites when component unmounts (page refresh/navigation)
       locallyUnfavorited.forEach(tokenId => {
         removeFromFavorites(tokenId)
       })
     }
-  }, [locallyUnfavorited])
+  }, [locallyUnfavorited, removeFromFavorites])
 
   useEffect(() => {
     const loadUserData = async () => {
@@ -166,7 +156,7 @@ function MyNFTsContent() {
               onClick={() => setActiveTab("favorites")}
             >
               <Heart className={`w-4 h-4 ${activeTab === "favorites" ? "fill-[#ff0099] text-[#ff0099]" : ""}`} />
-              Favorites ({favorites.length})
+              Favorites ({favorites.length - locallyUnfavorited.size})
             </button>
             <button
               className={`py-2 px-4 flex items-center gap-2 ${activeTab === "owned" ? "border-b-2 border-[#ff0099] text-offwhite font-medium" : "text-neutral-400 hover:text-offwhite"}`}
@@ -228,7 +218,14 @@ function MyNFTsContent() {
 
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-medium text-base">{nft.name}</h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-medium text-base">{nft.name}</h3>
+                      {(nft as NFT).isLocallyUnfavorited && (
+                        <span className="text-xs text-neutral-500 bg-neutral-800 px-2 py-1 rounded">
+                          Unfavorited
+                        </span>
+                      )}
+                    </div>
                     {activeTab === "favorites" && (
                       <button
                         onClick={() => (nft as NFT).isLocallyUnfavorited ? handleRefavorite(nft.tokenId) : handleUnfavorite(nft.tokenId)}
