@@ -92,7 +92,9 @@ function FilterSection({
 
   const getCount = (option: string) => {
     const key = getTraitKey(title)
-    return traitCounts[key]?.[option]
+    // Normalize rarity tier values for lookup (remove " (Ultra-Legendary)" suffix)
+    const normalizedOption = option === "Grand Slam (Ultra-Legendary)" ? "Grand Slam" : option
+    return traitCounts[key]?.[normalizedOption]
   }
 
   return (

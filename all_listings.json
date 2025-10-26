@@ -1,0 +1,3602 @@
+[
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "0",
+      "metadata": {
+        "id": "0",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/0"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/0",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413519",
+    "id": "0",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053547",
+    "status": "ACTIVE",
+    "tokenId": "0",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "1",
+      "metadata": {
+        "id": "1",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/1"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/1",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "333000000000000000"
+    },
+    "endTimeInSeconds": "2075413526",
+    "id": "1",
+    "isReservedListing": false,
+    "pricePerToken": "333000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053585",
+    "status": "ACTIVE",
+    "tokenId": "1",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "2",
+      "metadata": {
+        "id": "2",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/2"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/2",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413532",
+    "id": "2",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053621",
+    "status": "ACTIVE",
+    "tokenId": "2",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "3",
+      "metadata": {
+        "id": "3",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/3"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/3",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413539",
+    "id": "3",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053659",
+    "status": "ACTIVE",
+    "tokenId": "3",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "4",
+      "metadata": {
+        "id": "4",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/4"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/4",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413545",
+    "id": "4",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053695",
+    "status": "ACTIVE",
+    "tokenId": "4",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "5",
+      "metadata": {
+        "id": "5",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/5"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/5",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.0777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "77700000000000000"
+    },
+    "endTimeInSeconds": "2075413552",
+    "id": "5",
+    "isReservedListing": false,
+    "pricePerToken": "77700000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053731",
+    "status": "ACTIVE",
+    "tokenId": "5",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "6",
+      "metadata": {
+        "id": "6",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/6"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/6",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413558",
+    "id": "6",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053768",
+    "status": "ACTIVE",
+    "tokenId": "6",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "7",
+      "metadata": {
+        "id": "7",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/7"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/7",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413565",
+    "id": "7",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053804",
+    "status": "ACTIVE",
+    "tokenId": "7",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "8",
+      "metadata": {
+        "id": "8",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/8"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/8",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413571",
+    "id": "8",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053841",
+    "status": "ACTIVE",
+    "tokenId": "8",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "9",
+      "metadata": {
+        "id": "9",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/9"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/9",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.0777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "77700000000000000"
+    },
+    "endTimeInSeconds": "2075413578",
+    "id": "9",
+    "isReservedListing": false,
+    "pricePerToken": "77700000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053878",
+    "status": "ACTIVE",
+    "tokenId": "9",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "10",
+      "metadata": {
+        "id": "10",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/10"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/10",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413584",
+    "id": "10",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053914",
+    "status": "ACTIVE",
+    "tokenId": "10",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "11",
+      "metadata": {
+        "id": "11",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/11"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/11",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413590",
+    "id": "11",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053950",
+    "status": "ACTIVE",
+    "tokenId": "11",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "12",
+      "metadata": {
+        "id": "12",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/12"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/12",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413591",
+    "id": "12",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760053981",
+    "status": "ACTIVE",
+    "tokenId": "12",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "13",
+      "metadata": {
+        "id": "13",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/13"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/13",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "333000000000000000"
+    },
+    "endTimeInSeconds": "2075413597",
+    "id": "13",
+    "isReservedListing": false,
+    "pricePerToken": "333000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054017",
+    "status": "ACTIVE",
+    "tokenId": "13",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "14",
+      "metadata": {
+        "id": "14",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/14"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/14",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413604",
+    "id": "14",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054053",
+    "status": "ACTIVE",
+    "tokenId": "14",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "15",
+      "metadata": {
+        "id": "15",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/15"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/15",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413610",
+    "id": "15",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054090",
+    "status": "ACTIVE",
+    "tokenId": "15",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "16",
+      "metadata": {
+        "id": "16",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/16"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/16",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "333000000000000000"
+    },
+    "endTimeInSeconds": "2075413617",
+    "id": "16",
+    "isReservedListing": false,
+    "pricePerToken": "333000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054127",
+    "status": "ACTIVE",
+    "tokenId": "16",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "17",
+      "metadata": {
+        "id": "17",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/17"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/17",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413624",
+    "id": "17",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054163",
+    "status": "ACTIVE",
+    "tokenId": "17",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "18",
+      "metadata": {
+        "id": "18",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/18"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/18",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "333000000000000000"
+    },
+    "endTimeInSeconds": "2075413630",
+    "id": "18",
+    "isReservedListing": false,
+    "pricePerToken": "333000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054200",
+    "status": "ACTIVE",
+    "tokenId": "18",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "19",
+      "metadata": {
+        "id": "19",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/19"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/19",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413636",
+    "id": "19",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054236",
+    "status": "ACTIVE",
+    "tokenId": "19",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "20",
+      "metadata": {
+        "id": "20",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/20"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/20",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413643",
+    "id": "20",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054273",
+    "status": "ACTIVE",
+    "tokenId": "20",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "21",
+      "metadata": {
+        "id": "21",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/21"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/21",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413649",
+    "id": "21",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054309",
+    "status": "ACTIVE",
+    "tokenId": "21",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "22",
+      "metadata": {
+        "id": "22",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/22"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/22",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413656",
+    "id": "22",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054346",
+    "status": "ACTIVE",
+    "tokenId": "22",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "23",
+      "metadata": {
+        "id": "23",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/23"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/23",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413662",
+    "id": "23",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054382",
+    "status": "ACTIVE",
+    "tokenId": "23",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "24",
+      "metadata": {
+        "id": "24",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/24"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/24",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413669",
+    "id": "24",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054419",
+    "status": "ACTIVE",
+    "tokenId": "24",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "25",
+      "metadata": {
+        "id": "25",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/25"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/25",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413675",
+    "id": "25",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054455",
+    "status": "ACTIVE",
+    "tokenId": "25",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "26",
+      "metadata": {
+        "id": "26",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/26"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/26",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413682",
+    "id": "26",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054492",
+    "status": "ACTIVE",
+    "tokenId": "26",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "27",
+      "metadata": {
+        "id": "27",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/27"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/27",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413688",
+    "id": "27",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054528",
+    "status": "ACTIVE",
+    "tokenId": "27",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "28",
+      "metadata": {
+        "id": "28",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/28"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/28",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.0333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "33300000000000000"
+    },
+    "endTimeInSeconds": "2075413695",
+    "id": "28",
+    "isReservedListing": false,
+    "pricePerToken": "33300000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054564",
+    "status": "ACTIVE",
+    "tokenId": "28",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "29",
+      "metadata": {
+        "id": "29",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/29"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/29",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413695",
+    "id": "29",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054595",
+    "status": "ACTIVE",
+    "tokenId": "29",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "30",
+      "metadata": {
+        "id": "30",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/30"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/30",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413702",
+    "id": "30",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054632",
+    "status": "ACTIVE",
+    "tokenId": "30",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "31",
+      "metadata": {
+        "id": "31",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/31"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/31",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413703",
+    "id": "31",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054662",
+    "status": "ACTIVE",
+    "tokenId": "31",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "33",
+      "metadata": {
+        "id": "33",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/33"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/33",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413710",
+    "id": "32",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054730",
+    "status": "ACTIVE",
+    "tokenId": "33",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "34",
+      "metadata": {
+        "id": "34",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/34"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/34",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413717",
+    "id": "33",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054767",
+    "status": "ACTIVE",
+    "tokenId": "34",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "35",
+      "metadata": {
+        "id": "35",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/35"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/35",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413723",
+    "id": "34",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054803",
+    "status": "ACTIVE",
+    "tokenId": "35",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "36",
+      "metadata": {
+        "id": "36",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/36"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/36",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413730",
+    "id": "35",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054839",
+    "status": "ACTIVE",
+    "tokenId": "36",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "37",
+      "metadata": {
+        "id": "37",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/37"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/37",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413736",
+    "id": "36",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054876",
+    "status": "ACTIVE",
+    "tokenId": "37",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "38",
+      "metadata": {
+        "id": "38",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/38"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/38",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413743",
+    "id": "37",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054913",
+    "status": "ACTIVE",
+    "tokenId": "38",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "39",
+      "metadata": {
+        "id": "39",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/39"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/39",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413750",
+    "id": "38",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054949",
+    "status": "ACTIVE",
+    "tokenId": "39",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "40",
+      "metadata": {
+        "id": "40",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/40"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/40",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413756",
+    "id": "39",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760054986",
+    "status": "ACTIVE",
+    "tokenId": "40",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "41",
+      "metadata": {
+        "id": "41",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/41"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/41",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413763",
+    "id": "40",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055022",
+    "status": "ACTIVE",
+    "tokenId": "41",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "42",
+      "metadata": {
+        "id": "42",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/42"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/42",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413770",
+    "id": "41",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055059",
+    "status": "ACTIVE",
+    "tokenId": "42",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "43",
+      "metadata": {
+        "id": "43",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/43"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/43",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.0777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "77700000000000000"
+    },
+    "endTimeInSeconds": "2075413776",
+    "id": "42",
+    "isReservedListing": false,
+    "pricePerToken": "77700000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055096",
+    "status": "ACTIVE",
+    "tokenId": "43",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "44",
+      "metadata": {
+        "id": "44",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/44"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/44",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413783",
+    "id": "43",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055133",
+    "status": "ACTIVE",
+    "tokenId": "44",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "45",
+      "metadata": {
+        "id": "45",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/45"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/45",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "1",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "1000000000000000000"
+    },
+    "endTimeInSeconds": "2075413789",
+    "id": "44",
+    "isReservedListing": false,
+    "pricePerToken": "1000000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055169",
+    "status": "ACTIVE",
+    "tokenId": "45",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "46",
+      "metadata": {
+        "id": "46",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/46"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/46",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413796",
+    "id": "45",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055206",
+    "status": "ACTIVE",
+    "tokenId": "46",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "47",
+      "metadata": {
+        "id": "47",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/47"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/47",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413803",
+    "id": "46",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055242",
+    "status": "ACTIVE",
+    "tokenId": "47",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "48",
+      "metadata": {
+        "id": "48",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/48"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/48",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413810",
+    "id": "47",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055279",
+    "status": "ACTIVE",
+    "tokenId": "48",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "49",
+      "metadata": {
+        "id": "49",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/49"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/49",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "333000000000000000"
+    },
+    "endTimeInSeconds": "2075413816",
+    "id": "48",
+    "isReservedListing": false,
+    "pricePerToken": "333000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055316",
+    "status": "ACTIVE",
+    "tokenId": "49",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "50",
+      "metadata": {
+        "id": "50",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/50"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/50",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413824",
+    "id": "49",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055353",
+    "status": "ACTIVE",
+    "tokenId": "50",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "51",
+      "metadata": {
+        "id": "51",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/51"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/51",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "333000000000000000"
+    },
+    "endTimeInSeconds": "2075413830",
+    "id": "50",
+    "isReservedListing": false,
+    "pricePerToken": "333000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055390",
+    "status": "ACTIVE",
+    "tokenId": "51",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "52",
+      "metadata": {
+        "id": "52",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/52"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/52",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413837",
+    "id": "51",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055427",
+    "status": "ACTIVE",
+    "tokenId": "52",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "53",
+      "metadata": {
+        "id": "53",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/53"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/53",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413844",
+    "id": "52",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055463",
+    "status": "ACTIVE",
+    "tokenId": "53",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "54",
+      "metadata": {
+        "id": "54",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/54"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/54",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413850",
+    "id": "53",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055500",
+    "status": "ACTIVE",
+    "tokenId": "54",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "55",
+      "metadata": {
+        "id": "55",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/55"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/55",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413856",
+    "id": "54",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055536",
+    "status": "ACTIVE",
+    "tokenId": "55",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "56",
+      "metadata": {
+        "id": "56",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/56"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/56",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413863",
+    "id": "55",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055573",
+    "status": "ACTIVE",
+    "tokenId": "56",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "57",
+      "metadata": {
+        "id": "57",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/57"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/57",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075413869",
+    "id": "56",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055609",
+    "status": "ACTIVE",
+    "tokenId": "57",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "58",
+      "metadata": {
+        "id": "58",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/58"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/58",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413875",
+    "id": "57",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055645",
+    "status": "ACTIVE",
+    "tokenId": "58",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "59",
+      "metadata": {
+        "id": "59",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/59"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/59",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413882",
+    "id": "58",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055682",
+    "status": "CANCELLED",
+    "tokenId": "59",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "60",
+      "metadata": {
+        "id": "60",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/60"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/60",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413888",
+    "id": "59",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055718",
+    "status": "ACTIVE",
+    "tokenId": "60",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "61",
+      "metadata": {
+        "id": "61",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/61"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/61",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413895",
+    "id": "60",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055755",
+    "status": "ACTIVE",
+    "tokenId": "61",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "62",
+      "metadata": {
+        "id": "62",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/62"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/62",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413902",
+    "id": "61",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055791",
+    "status": "ACTIVE",
+    "tokenId": "62",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "63",
+      "metadata": {
+        "id": "63",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/63"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/63",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413908",
+    "id": "62",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055828",
+    "status": "ACTIVE",
+    "tokenId": "63",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "64",
+      "metadata": {
+        "id": "64",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/64"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/64",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413915",
+    "id": "63",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055864",
+    "status": "ACTIVE",
+    "tokenId": "64",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "65",
+      "metadata": {
+        "id": "65",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/65"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/65",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413921",
+    "id": "64",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055901",
+    "status": "ACTIVE",
+    "tokenId": "65",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "66",
+      "metadata": {
+        "id": "66",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/66"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/66",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413928",
+    "id": "65",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055938",
+    "status": "ACTIVE",
+    "tokenId": "66",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "67",
+      "metadata": {
+        "id": "67",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/67"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/67",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413929",
+    "id": "66",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760055968",
+    "status": "ACTIVE",
+    "tokenId": "67",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "68",
+      "metadata": {
+        "id": "68",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/68"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/68",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413936",
+    "id": "67",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056005",
+    "status": "ACTIVE",
+    "tokenId": "68",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "69",
+      "metadata": {
+        "id": "69",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/69"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/69",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413942",
+    "id": "68",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056042",
+    "status": "ACTIVE",
+    "tokenId": "69",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "70",
+      "metadata": {
+        "id": "70",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/70"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/70",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "333000000000000000"
+    },
+    "endTimeInSeconds": "2075413949",
+    "id": "69",
+    "isReservedListing": false,
+    "pricePerToken": "333000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056078",
+    "status": "ACTIVE",
+    "tokenId": "70",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "71",
+      "metadata": {
+        "id": "71",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/71"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/71",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413955",
+    "id": "70",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056115",
+    "status": "ACTIVE",
+    "tokenId": "71",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "72",
+      "metadata": {
+        "id": "72",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/72"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/72",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413962",
+    "id": "71",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056152",
+    "status": "ACTIVE",
+    "tokenId": "72",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "73",
+      "metadata": {
+        "id": "73",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/73"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/73",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.0333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "33300000000000000"
+    },
+    "endTimeInSeconds": "2075413969",
+    "id": "72",
+    "isReservedListing": false,
+    "pricePerToken": "33300000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056188",
+    "status": "ACTIVE",
+    "tokenId": "73",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "74",
+      "metadata": {
+        "id": "74",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/74"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/74",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413975",
+    "id": "73",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056225",
+    "status": "ACTIVE",
+    "tokenId": "74",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "75",
+      "metadata": {
+        "id": "75",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/75"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/75",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413982",
+    "id": "74",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056261",
+    "status": "ACTIVE",
+    "tokenId": "75",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "76",
+      "metadata": {
+        "id": "76",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/76"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/76",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413988",
+    "id": "75",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056298",
+    "status": "ACTIVE",
+    "tokenId": "76",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "77",
+      "metadata": {
+        "id": "77",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/77"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/77",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075413995",
+    "id": "76",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056334",
+    "status": "ACTIVE",
+    "tokenId": "77",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "78",
+      "metadata": {
+        "id": "78",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/78"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/78",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414001",
+    "id": "77",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056371",
+    "status": "ACTIVE",
+    "tokenId": "78",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "79",
+      "metadata": {
+        "id": "79",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/79"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/79",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414007",
+    "id": "78",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056407",
+    "status": "ACTIVE",
+    "tokenId": "79",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "80",
+      "metadata": {
+        "id": "80",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/80"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/80",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414014",
+    "id": "79",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056444",
+    "status": "ACTIVE",
+    "tokenId": "80",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "81",
+      "metadata": {
+        "id": "81",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/81"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/81",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075414021",
+    "id": "80",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056480",
+    "status": "ACTIVE",
+    "tokenId": "81",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "82",
+      "metadata": {
+        "id": "82",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/82"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/82",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414027",
+    "id": "81",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056517",
+    "status": "ACTIVE",
+    "tokenId": "82",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "83",
+      "metadata": {
+        "id": "83",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/83"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/83",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075414034",
+    "id": "82",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056554",
+    "status": "ACTIVE",
+    "tokenId": "83",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "84",
+      "metadata": {
+        "id": "84",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/84"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/84",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075414041",
+    "id": "83",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056591",
+    "status": "ACTIVE",
+    "tokenId": "84",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "85",
+      "metadata": {
+        "id": "85",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/85"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/85",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414048",
+    "id": "84",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056627",
+    "status": "ACTIVE",
+    "tokenId": "85",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "86",
+      "metadata": {
+        "id": "86",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/86"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/86",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414054",
+    "id": "85",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056664",
+    "status": "ACTIVE",
+    "tokenId": "86",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "87",
+      "metadata": {
+        "id": "87",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/87"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/87",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414061",
+    "id": "86",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056701",
+    "status": "ACTIVE",
+    "tokenId": "87",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "88",
+      "metadata": {
+        "id": "88",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/88"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/88",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.0333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "33300000000000000"
+    },
+    "endTimeInSeconds": "2075414068",
+    "id": "87",
+    "isReservedListing": false,
+    "pricePerToken": "33300000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056737",
+    "status": "ACTIVE",
+    "tokenId": "88",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "89",
+      "metadata": {
+        "id": "89",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/89"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/89",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "333000000000000000"
+    },
+    "endTimeInSeconds": "2075414075",
+    "id": "88",
+    "isReservedListing": false,
+    "pricePerToken": "333000000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056774",
+    "status": "ACTIVE",
+    "tokenId": "89",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "90",
+      "metadata": {
+        "id": "90",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/90"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/90",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414082",
+    "id": "89",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056811",
+    "status": "ACTIVE",
+    "tokenId": "90",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "91",
+      "metadata": {
+        "id": "91",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/91"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/91",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414088",
+    "id": "90",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056848",
+    "status": "ACTIVE",
+    "tokenId": "91",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "92",
+      "metadata": {
+        "id": "92",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/92"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/92",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414096",
+    "id": "91",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056884",
+    "status": "ACTIVE",
+    "tokenId": "92",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "93",
+      "metadata": {
+        "id": "93",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/93"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/93",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414102",
+    "id": "92",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056921",
+    "status": "ACTIVE",
+    "tokenId": "93",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "94",
+      "metadata": {
+        "id": "94",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/94"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/94",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075414109",
+    "id": "93",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056958",
+    "status": "ACTIVE",
+    "tokenId": "94",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "95",
+      "metadata": {
+        "id": "95",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/95"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/95",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414117",
+    "id": "94",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760056997",
+    "status": "ACTIVE",
+    "tokenId": "95",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "96",
+      "metadata": {
+        "id": "96",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/96"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/96",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414119",
+    "id": "95",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760057028",
+    "status": "ACTIVE",
+    "tokenId": "96",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "97",
+      "metadata": {
+        "id": "97",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/97"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/97",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414127",
+    "id": "96",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760057066",
+    "status": "ACTIVE",
+    "tokenId": "97",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "98",
+      "metadata": {
+        "id": "98",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/98"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/98",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00777",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "7770000000000000"
+    },
+    "endTimeInSeconds": "2075414133",
+    "id": "97",
+    "isReservedListing": false,
+    "pricePerToken": "7770000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760057103",
+    "status": "ACTIVE",
+    "tokenId": "98",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "99",
+      "metadata": {
+        "id": "99",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/99"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/99",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414145",
+    "id": "98",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760057142",
+    "status": "ACTIVE",
+    "tokenId": "99",
+    "type": "direct-listing"
+  },
+  {
+    "asset": {
+      "chainId": 8453,
+      "id": "100",
+      "metadata": {
+        "id": "100",
+        "type": "ERC721",
+        "uri": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/100"
+      },
+      "owner": null,
+      "tokenAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+      "tokenURI": "ipfs://QmNMFNLD6U5xHcgzgBf6kBabwS54JyLTuPbtqcHp7wtUXR/100",
+      "type": "ERC721"
+    },
+    "assetContractAddress": "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc",
+    "creatorAddress": "0xD3aaf32FfBFFaF3Fc35aCA6bfcC487f83c6a17Ec",
+    "currencyContractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+    "currencyValuePerToken": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 8453,
+      "displayValue": "0.00333",
+      "tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      "value": "3330000000000000"
+    },
+    "endTimeInSeconds": "2075414152",
+    "id": "99",
+    "isReservedListing": false,
+    "pricePerToken": "3330000000000000",
+    "quantity": "1",
+    "startTimeInSeconds": "1760057181",
+    "status": "ACTIVE",
+    "tokenId": "100",
+    "type": "direct-listing"
+  }
+]
