@@ -1,8 +1,7 @@
 import { config } from "dotenv";
-import { createThirdwebClient, sendTransaction } from "thirdweb";
+import { createThirdwebClient, sendTransaction, prepareContractCall } from "thirdweb";
 import { privateKeyToAccount } from "thirdweb/wallets";
 import { getContract } from "thirdweb";
-import { createListing } from "thirdweb/extensions/marketplace";
 import fs from "fs/promises";
 import { defineChain } from "thirdweb/chains";
 import path from "path";
@@ -14,6 +13,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const CHAIN = defineChain(8453);
 const MARKETPLACE_ADDRESS = "0x187A56dDfCcc96AA9f4FaAA8C0fE57388820A817";
 const NFT_COLLECTION_ADDRESS = "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc";
+const CURRENCY_ADDRESS = "0x4200000000000000000000000000000000000006"; // Base ETH
 
 async function main() {
   if (!PRIVATE_KEY) throw new Error("Set PRIVATE_KEY");
@@ -73,33 +73,39 @@ async function main() {
       console.log(`\n[${i + 1}/${nfts.length}] Creating listing: ${nft.name} (Token ${nft.token_id})`);
       console.log(`  Price: ${nft.expected_price_eth} ETH`);
       
-      const createTx = createListing({
+      const now = Math.floor(Date.now() / 1000);
+      
+      const tx = prepareContractCall({
         contract: marketplace,
-        assetContractAddress: NFT_COLLECTION_ADDRESS,
-        tokenId: BigInt(nft.token_id),
-        pricePerToken: BigInt(Math.floor(Number(nft.expected_price_eth) * 1e18)),
-        quantity: 1n,
-        currencyContractAddress: "0x0000000000000000000000000000000000000000",
+        method: "function createListing((address assetContract, uint256 tokenId, uint256 quantity, address currency, uint256 pricePerToken, uint256 startTimestamp, uint256 endTimestamp, address recipient))",
+        params: [{
+          assetContract: NFT_COLLECTION_ADDRESS,
+          tokenId: BigInt(nft.token_id),
+          quantity: 1n,
+          currency: CURRENCY_ADDRESS,
+          pricePerToken: BigInt(Math.floor(Number(nft.expected_price_eth) * 1e18)),
+          startTimestamp: BigInt(now),
+          endTimestamp: BigInt(now + 60 * 60 * 24 * 365),
+          recipient: "0x0000000000000000000000000000000000000000",
+        }],
       });
       
-      const createResult = await sendTransaction({
-        transaction: createTx,
-        account,
-      });
+      const result = await sendTransaction({ transaction: tx, account });
+      const receipt = await result.wait();
       
-      // Wait for confirmation
-      await createResult.wait();
-      
-      console.log(`✓ Listed: ${createResult.receipt.transactionHash}`);
+      console.log(`✓ Transaction confirmed:`);
+      console.log(`  TX Hash: ${receipt.transactionHash}`);
+      console.log(`  Gas Used: ${receipt.gasUsed?.toString() ?? 'N/A'}`);
       
       results.successful.push({
         ...nft,
         new_listing_id: null, // Will need to fetch this
-        tx_hash: createResult.receipt.transactionHash,
+        tx_hash: receipt.transactionHash,
+        gas_used: receipt.gasUsed?.toString() ?? 'N/A',
       });
 
-      // Wait between transactions
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      // Wait between transactions (10 seconds as recommended)
+      await new Promise(resolve => setTimeout(resolve, 10000));
     } catch (err) {
       console.error(`✗ Error:`, err.message);
       results.failed.push({

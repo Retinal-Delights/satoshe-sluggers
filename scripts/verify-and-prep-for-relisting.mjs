@@ -44,12 +44,12 @@ async function main() {
 
     // Filter out:
     // 1. Retinal Delight NFTs that are already correctly listed
-    // 2. Anything after listing ID 7776
+    // 2. Test NFTs (59, 1515)
+    // 3. Already relisted Grand Slam NFTs (1131, 1639, 1907)
+    // 4. Anything after listing ID 7776
     const toRelist = nfts.filter(nft => {
-      const nftNumber = nft.token_id + 1; // Convert token_id to NFT number
-      
-      // Skip if this is a correctly-relisted Retinal Delight NFT
-      if (retinalDelightCorrect.has(nft.token_id)) {
+      // Skip if this token_id is already correctly listed
+      if (alreadyCorrectlyListed.has(nft.token_id)) {
         return false;
       }
       
