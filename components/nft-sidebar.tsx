@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useMemo } from "react"
 import { ChevronDown, ChevronRight, Search, X, ArrowDown, ArrowUp, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import { Input } from "@/components/ui/input"
@@ -97,6 +97,15 @@ function FilterSection({
     return traitCounts[key]?.[normalizedOption]
   }
 
+  // Sort options based on sortOrder when sortable is true
+  const sortedOptions = useMemo(() => {
+    if (!sortable || sortOrder === "commonToRare") {
+      return options
+    }
+    // Reverse the array for "Rare to Common" order
+    return [...options].reverse()
+  }, [options, sortOrder, sortable])
+
   return (
     <div className={`${isOpen ? 'pt-3 pb-3' : 'pt-1'}`}>
       <button
@@ -152,7 +161,7 @@ function FilterSection({
           )}
 
       <div className="space-y-0.5">
-            {options.map((option) => {
+            {sortedOptions.map((option) => {
               const optValue = typeof option === 'string' ? option : option.value
               const optDisplay = typeof option === 'string' ? option : option.display
               const count = getCount(optValue)

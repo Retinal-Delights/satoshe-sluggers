@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "token_id": 0,
     "name": "Satoshe Slugger #1",
@@ -357,8 +357,7 @@
     "token_id": 59,
     "name": "Satoshe Slugger #60",
     "rarity_tier": "Ground Ball",
-    "price_eth": 0.000001,
-    "listing_id": 7827
+    "price_eth": 0.00333
   },
   {
     "token_id": 60,
@@ -9094,8 +9093,7 @@
     "token_id": 1515,
     "name": "Satoshe Slugger #1516",
     "rarity_tier": "Ground Ball",
-    "price_eth": 0.000001,
-    "listing_id": 7828
+    "price_eth": 0.00333
   },
   {
     "token_id": 1516,

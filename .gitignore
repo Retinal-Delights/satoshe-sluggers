@@ -98,3 +98,4 @@ next-env.d.ts
 ../../../.viminfo
 ../../../.yarnrcpackage-lock.json
 node_modules
+all_listings.json

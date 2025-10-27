@@ -1,0 +1,24 @@
+[
+  {
+    "token_id": 6432,
+    "listing_id": "6430",
+    "name": "Satoshe Slugger #6433",
+    "rarity_tier": "Home Run",
+    "expected_price_eth": 0.333,
+    "actual_price_eth": 0.00333,
+    "price_difference_eth": 0.32967,
+    "dollar_difference": 791.2080000000001,
+    "error": "nonce too low: next nonce 20046, tx nonce 20045"
+  },
+  {
+    "token_id": 5051,
+    "listing_id": "5049",
+    "name": "Satoshe Slugger #5052",
+    "rarity_tier": "Triple",
+    "expected_price_eth": 0.0333,
+    "actual_price_eth": 0.00333,
+    "price_difference_eth": 0.029970000000000004,
+    "dollar_difference": 71.92800000000001,
+    "error": "nonce too low: next nonce 20136, tx nonce 20135"
+  }
+]

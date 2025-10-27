@@ -1,0 +1,52 @@
+{
+  "Over-the-Fence Shot": {
+    "total_mispriced": 137,
+    "needs_relisting": 137,
+    "already_relisted": 0
+  },
+  "Home Run": {
+    "total_mispriced": 483,
+    "needs_relisting": 483,
+    "already_relisted": 0
+  },
+  "Stand-Up Double": {
+    "total_mispriced": 172,
+    "needs_relisting": 172,
+    "already_relisted": 0
+  },
+  "Line Drive": {
+    "total_mispriced": 133,
+    "needs_relisting": 133,
+    "already_relisted": 0
+  },
+  "Walk-Off Home Run": {
+    "total_mispriced": 38,
+    "needs_relisting": 38,
+    "already_relisted": 0
+  },
+  "Triple": {
+    "total_mispriced": 349,
+    "needs_relisting": 349,
+    "already_relisted": 0
+  },
+  "Base Hit": {
+    "total_mispriced": 172,
+    "needs_relisting": 172,
+    "already_relisted": 0
+  },
+  "Double": {
+    "total_mispriced": 177,
+    "needs_relisting": 177,
+    "already_relisted": 0
+  },
+  "Pinch Hit Home Run": {
+    "total_mispriced": 171,
+    "needs_relisting": 171,
+    "already_relisted": 0
+  },
+  "Grand Slam (Ultra-Legendary)": {
+    "total_mispriced": 33,
+    "needs_relisting": 33,
+    "already_relisted": 0
+  }
+}
