@@ -68,7 +68,7 @@ export default function NFTDetailPage() {
   const params = useParams<{ id: string }>();
   const tokenId = params.id;
   const [metadata, setMetadata] = useState<NFTData | null>(null);
-  const [imageUrl, setImageUrl] = useState<string>("/media/nfts/placeholder-nft.webp");
+  const [imageUrl, setImageUrl] = useState<string>("/nfts/placeholder-nft.webp");
   const [isLoading, setIsLoading] = useState(true);
   const [navigationTokens, setNavigationTokens] = useState<{prev: number | null, next: number | null}>({prev: null, next: null});
   const [isPurchased, setIsPurchased] = useState(false);
@@ -122,14 +122,14 @@ export default function NFTDetailPage() {
               setImageUrl(convertIpfsUrl(mediaUrl));
             } else {
               setMetadata(null);
-              setImageUrl("/media/nfts/placeholder-nft.webp");
+              setImageUrl("/nfts/placeholder-nft.webp");
             }
             clearTimeout(timeoutId);
             setIsLoading(false);
           })
           .catch(() => {
             setMetadata(null);
-            setImageUrl("/media/nfts/placeholder-nft.webp");
+            setImageUrl("/nfts/placeholder-nft.webp");
             clearTimeout(timeoutId);
             setIsLoading(false);
           });
@@ -409,12 +409,12 @@ export default function NFTDetailPage() {
             <div className="relative" style={{ aspectRatio: "2700/3000" }}>
               <div className="relative w-full h-full">
                 <Image
-                  src={imageUrl || "/media/nfts/placeholder-nft.webp"}
+                  src={imageUrl || "/nfts/placeholder-nft.webp"}
                   alt={metadata?.name || `SATOSHE SLUGGER #${parseInt(tokenId) + 1}`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain"
-                  onError={() => setImageUrl("/media/nfts/placeholder-nft.webp")}
+                  onError={() => setImageUrl("/nfts/placeholder-nft.webp")}
                 />
               </div>
             </div>
