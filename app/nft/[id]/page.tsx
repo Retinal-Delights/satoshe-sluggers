@@ -139,25 +139,29 @@ export default function NFTDetailPage() {
       try {
         const tokenIdNum = parseInt(tokenId) - 1;
         
-        // Try optimized pricing first
-        let response = await fetch('/data/pricing/optimized_pricing.json');
+        // Load token pricing mappings first (has updated listing IDs from CSV)
+        let response = await fetch('/data/pricing/token_pricing_mappings.json');
         if (response.ok) {
           const data = await response.json();
-          const pricing = data[tokenIdNum];
+          const pricing = data.find((item: { token_id: number }) => item.token_id === tokenIdNum);
           if (pricing) {
+            // Use listing_id from mappings if available, otherwise fallback to generated ID
+            const listingId = pricing.listing_id !== null && pricing.listing_id !== undefined 
+              ? pricing.listing_id 
+              : (tokenIdNum + 10000);
             setPricingData({
               price_eth: pricing.price_eth,
-              listing_id: pricing.listing_id || (tokenIdNum + 10000)
+              listing_id: listingId
             });
             return;
           }
         }
         
-        // Fallback to token pricing mappings
-        response = await fetch('/data/pricing/token_pricing_mappings.json');
+        // Fallback to optimized pricing (may not have listing IDs)
+        response = await fetch('/data/pricing/optimized_pricing.json');
         if (response.ok) {
           const data = await response.json();
-          const pricing = data.find((item: { token_id: number }) => item.token_id === tokenIdNum);
+          const pricing = data[tokenIdNum];
           if (pricing) {
             setPricingData({
               price_eth: pricing.price_eth,
@@ -386,7 +390,13 @@ export default function NFTDetailPage() {
 
             {/* Artist and Platform - Two Column Layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="flex items-center justify-between w-full px-4 py-3 bg-neutral-800 hover:bg-[#171717] border border-neutral-600 rounded transition-colors group">
+              <a
+                href="https://kristenwoerdeman.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between w-full px-4 py-3 bg-neutral-800 hover:bg-[#171717] border border-neutral-600 rounded transition-colors group cursor-pointer"
+                aria-label="Visit Kristen Woerdeman's website"
+              >
                 <div className="flex items-center gap-3">
                   <Image
                     src="/brands/kristen-woerdeman/kwoerd-circular-offwhite-32.png"
@@ -418,9 +428,15 @@ export default function NFTDetailPage() {
                   <polyline points="15 3 21 3 21 9"></polyline>
                   <line x1="10" y1="14" x2="21" y2="3"></line>
                 </svg>
-              </div>
+              </a>
 
-              <div className="flex items-center justify-between w-full px-4 py-3 bg-neutral-800 hover:bg-[#171717] border border-neutral-600 rounded transition-colors group">
+              <a
+                href="https://retinaldelights.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between w-full px-4 py-3 bg-neutral-800 hover:bg-[#171717] border border-neutral-600 rounded transition-colors group cursor-pointer"
+                aria-label="Visit Retinal Delights website"
+              >
                 <div className="flex items-center gap-3">
                   <Image
                     src="/brands/retinal-delights/retinal-delights-cicular-offwhite-32.png"
@@ -452,7 +468,7 @@ export default function NFTDetailPage() {
                   <polyline points="15 3 21 3 21 9"></polyline>
                   <line x1="10" y1="14" x2="21" y2="3"></line>
                 </svg>
-              </div>
+              </a>
             </div>
 
             {/* IPFS Links - CID Information */}
@@ -611,6 +627,15 @@ export default function NFTDetailPage() {
                 />
               </button>
             </div>
+
+            {/* Connect to Interact Message */}
+            {!isConnected && isForSale && (
+              <div className="bg-yellow-500/10 border border-yellow-500/20 rounded p-3 mb-4">
+                <p className="text-yellow-400 text-sm text-center">
+                  🔗 Connect your wallet to purchase this NFT
+                </p>
+              </div>
+            )}
 
             {/* Buy Now Section - Simplified */}
             {isForSale ? (

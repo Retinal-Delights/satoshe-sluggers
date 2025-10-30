@@ -1,94 +1,124 @@
-// components/navigation.tsx
 "use client"
 
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { MobileMenu } from "@/components/mobile-menu"
-import SimpleConnectButton from "@/components/simple-connect-button"
-import { NavLink } from "@/components/nav-link"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import ConnectWalletButton from "@/components/simple-connect-button"
 import { useActiveAccount } from "thirdweb/react"
-import { useFavorites } from "@/hooks/useFavorites"
 
 interface NavigationProps {
-  activePage?: "home" | "about" | "nfts" | "provenance" | "contact" | "my-nfts"
+  activePage?: "home" | "about" | "nfts" | "sell" | "my-nfts" | "contact"
 }
 
 export default function Navigation({ activePage = "home" }: NavigationProps) {
   const account = useActiveAccount()
-  const { favorites, isLoading } = useFavorites()
-  
-  // Check if user has any activity (favorites or owned NFTs)
-  const hasUserActivity = favorites.length > 0
-  const isWalletConnected = !!account?.address
 
   return (
-    <header id="navigation" className="border-b border-neutral-700 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 sm:py-4 flex items-center justify-between bg-neutral-950/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50">
+    <header className="border-b border-neutral-700 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 sm:py-4 flex items-center justify-between bg-neutral-950/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50">
       <div className="flex items-center">
         <a href="https://retinaldelights.io" target="_blank" rel="noopener noreferrer" className="flex items-center">
           <Image
-            src="/brands/retinal-delights/retinal-delights-nav-brand-white.svg"
+            src="/brands/retinal-delights/retinal_delights-horizontal-brand-offwhite-op.svg"
             alt="Retinal Delights"
             width={200}
             height={50}
             className="w-auto h-10 sm:h-12"
+            priority
           />
         </a>
       </div>
-      <nav className="hidden lg:flex items-center gap-4 lg:gap-5 xl:gap-6 2xl:gap-8 absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-        <NavLink href="/" isActive={activePage === "home"} ariaLabel="Navigate to home page">
+      <nav className="hidden lg:flex items-center gap-6 lg:gap-7 xl:gap-8 absolute left-1/2 transform -translate-x-1/2">
+        <Link
+          href="/"
+          className={`text-base font-medium relative group ${
+            activePage === "home" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
+          }`}
+        >
           HOME
-        </NavLink>
-        <NavLink href="/about" isActive={activePage === "about"} ariaLabel="Navigate to about page">
+          <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-out ${
+            activePage === "home" ? "w-full" : "w-0 group-hover:w-full"
+          }`} style={{ backgroundColor: activePage === "home" ? "#ff0099" : "#fffbeb" }}></span>
+        </Link>
+        <Link
+          href="/about"
+          className={`text-base font-medium relative group ${
+            activePage === "about" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
+          }`}
+        >
           ABOUT
-        </NavLink>
-        <NavLink href="/nfts" isActive={activePage === "nfts"} ariaLabel="Navigate to NFTs collection page">
+          <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-out ${
+            activePage === "about" ? "w-full" : "w-0 group-hover:w-full"
+          }`} style={{ backgroundColor: activePage === "about" ? "#ff0099" : "#fffbeb" }}></span>
+        </Link>
+        <Link
+          href="/nfts"
+          className={`text-base font-medium relative group ${
+            activePage === "nfts" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
+          }`}
+        >
           NFTS
-        </NavLink>
-        <NavLink href="/provenance" isActive={activePage === "provenance"} ariaLabel="Navigate to provenance page">
-          PROVENANCE
-        </NavLink>
-        <NavLink href="/contact" isActive={activePage === "contact"} ariaLabel="Navigate to contact page">
+          <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-out ${
+            activePage === "nfts" ? "w-full" : "w-0 group-hover:w-full"
+          }`} style={{ backgroundColor: activePage === "nfts" ? "#ff0099" : "#fffbeb" }}></span>
+        </Link>
+        <Link
+          href="/sell"
+          className={`text-base font-medium relative group ${
+            activePage === "sell" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
+          }`}
+        >
+          SELL
+          <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-out ${
+            activePage === "sell" ? "w-full" : "w-0 group-hover:w-full"
+          }`} style={{ backgroundColor: activePage === "sell" ? "#ff0099" : "#fffbeb" }}></span>
+        </Link>
+        <Link
+          href="/contact"
+          className={`text-base font-medium relative group ${
+            activePage === "contact" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
+          }`}
+        >
           CONTACT
-        </NavLink>
-        {isWalletConnected && hasUserActivity && (
-          <NavLink href="/my-nfts" isActive={activePage === "my-nfts"} ariaLabel="Navigate to My NFTs page">
+          <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-out ${
+            activePage === "contact" ? "w-full" : "w-0 group-hover:w-full"
+          }`} style={{ backgroundColor: activePage === "contact" ? "#ff0099" : "#fffbeb" }}></span>
+        </Link>
+        {account && (
+          <Link
+            href="/my-nfts"
+            className={`text-base font-medium relative group ${
+              activePage === "my-nfts" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
+            }`}
+          >
             MY NFTS
-          </NavLink>
+            <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-out ${
+              activePage === "my-nfts" ? "w-full" : "w-0 group-hover:w-full"
+            }`} style={{ backgroundColor: activePage === "my-nfts" ? "#ff0099" : "#fffbeb" }}></span>
+          </Link>
         )}
       </nav>
-      <div className="flex items-center gap-2 sm:gap-3">
-        {/* Profile icon - always clickable when wallet connected */}
-        {isWalletConnected && (
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="/my-nfts"
-                  className="hidden lg:flex items-center justify-center group hover:scale-110 transition-transform duration-200"
-                  aria-label="Go to My NFTs page"
-                >
-                  <Image
-                    src="/icons/profile-icons/pink-profile-icon-48.png"
-                    alt="My NFTs"
-                    width={24}
-                    height={24}
-                    className="w-6 h-6"
-                  />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{hasUserActivity ? "My NFTs" : "Profile"}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+      <div className="flex items-center gap-3">
+        {account && (
+          <Link
+            href="/my-nfts"
+            className="hidden lg:flex items-center justify-center group hover:scale-110 transition-transform duration-200"
+            aria-label="Go to My NFTs page"
+          >
+            <Image
+              src="/icons/profile-icons/pink-profile-icon-48.png"
+              alt="My NFTs"
+              width={32}
+              height={32}
+              className="w-8 h-8"
+            />
+          </Link>
         )}
-                <div className="hidden lg:block">
-                  <SimpleConnectButton />
-                </div>
-        <MobileMenu isWalletConnected={isWalletConnected} hasUserActivity={hasUserActivity} />
+        <div className="hidden lg:block">
+          <ConnectWalletButton />
+        </div>
+        <MobileMenu isWalletConnected={!!account} />
       </div>
     </header>
   )
 }
-

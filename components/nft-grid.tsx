@@ -146,13 +146,27 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const gridRef = useRef<HTMLDivElement>(null);
   
-  // Load pricing mappings (optimized)
+  // Load pricing mappings (prioritize token_pricing_mappings.json which has updated listing IDs)
   useEffect(() => {
     const loadPricingMappings = async () => {
       try {
-        // Try optimized file first
-        let response = await fetch('/data/pricing/optimized_pricing.json');
+        // Load token pricing mappings first (has updated listing IDs from CSV)
+        let response = await fetch('/data/pricing/token_pricing_mappings.json');
+        if (response.ok) {
+          const pricingData = await response.json();
+          const mappings: Record<number, { price_eth: number; listing_id?: number }> = {};
+          pricingData.forEach((item: { token_id: number; price_eth: number; listing_id?: number }) => {
+            mappings[item.token_id] = {
+              price_eth: item.price_eth,
+              listing_id: item.listing_id !== null && item.listing_id !== undefined ? item.listing_id : undefined
+            };
+          });
+          setPricingMappings(mappings);
+          return;
+        }
         
+        // Fallback to optimized file (may not have listing IDs)
+        response = await fetch('/data/pricing/optimized_pricing.json');
         if (response.ok) {
           const optimizedData = await response.json();
           // Convert optimized structure back to original format for compatibility
@@ -166,24 +180,8 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
             };
           });
           
-          
           setPricingMappings(mappings);
-          return;
         }
-        
-        // Fallback to original file
-        response = await fetch('/data/pricing/token_pricing_mappings.json');
-        const pricingData = await response.json();
-        const mappings: Record<number, { price_eth: number; listing_id?: number }> = {};
-        pricingData.forEach((item: { token_id: number; price_eth: number; listing_id?: number }) => {
-          mappings[item.token_id] = {
-            price_eth: item.price_eth,
-            listing_id: item.listing_id
-          };
-        });
-        
-        
-        setPricingMappings(mappings);
       } catch {
         // Silent fail - pricing will be empty
       }
@@ -306,8 +304,10 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
               const pricing = pricingMappings[tokenIdNum];
               if (pricing) {
                 priceEth = pricing.price_eth;
-                // Generate listing ID if not provided (all NFTs are live listings)
-                listingId = pricing.listing_id || (tokenIdNum + 10000); // Generate listing ID
+                // Use listing ID from mappings if available, otherwise generate one
+                listingId = (pricing.listing_id !== null && pricing.listing_id !== undefined) 
+                  ? pricing.listing_id 
+                  : (tokenIdNum + 10000);
               }
               
               const isForSale = priceEth > 0;
@@ -516,6 +516,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
       setCurrentPage(1);
     }
   }, [currentPage, totalPages]);
+
 
   // Compute trait counts from ALL NFTs (not filtered) so all options remain visible
   const traitCounts = useMemo(() => {

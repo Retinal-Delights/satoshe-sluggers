@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Heart } from "lucide-react"
@@ -8,6 +10,7 @@ const legalLinks = [
   { label: "TERMS", href: "https://retinaldelights.io/terms" },
   { label: "PRIVACY", href: "https://retinaldelights.io/privacy" },
   { label: "COOKIES", href: "https://retinaldelights.io/cookies" },
+  { label: "PREFERENCES", href: "#", isPreferenceLink: true },
   { label: "LICENSE AGREEMENT", href: "https://retinaldelights.io/nft-license-agreement" },
   { label: "NFT LISTING", href: "https://retinaldelights.io/nft-listing-policy" },
   { label: "ACCEPTABLE USE", href: "https://retinaldelights.io/acceptable-use-policy" },
@@ -16,20 +19,6 @@ const legalLinks = [
 
 // components/footer.tsx
 export default function Footer() {
-  const handleCookieSettings = () => {
-    // Open Termly consent preferences
-    const termlyLink = document.querySelector('.termly-display-preferences') as HTMLAnchorElement;
-    if (termlyLink) {
-      termlyLink.click();
-    } else {
-      // Fallback: try to trigger Termly programmatically
-      const termlyButton = document.querySelector('[data-termly="preferences"]') as HTMLElement;
-      if (termlyButton) {
-        termlyButton.click();
-      }
-    }
-  }
-
   return (
     <footer className="border-t border-neutral-700 bg-background relative">
       <div className="container mx-auto py-4 px-4 text-center">
@@ -37,7 +26,7 @@ export default function Footer() {
           <div className="flex items-center justify-center mt-6 mb-8">
             <a href="https://retinaldelights.io" target="_blank" rel="noopener noreferrer">
               <Image
-                src="/brands/retinal-delights/retinal-delights-nav-brand-white.svg"
+                src="/brands/retinal-delights/retinal_delights-horizontal-brand-offwhite-op.svg"
                 alt="Retinal Delights"
                 width={260}
                 height={60}
@@ -47,17 +36,28 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[9px] sm:text-[10px] md:text-[11px] text-neutral-400 max-w-3xl mb-2">
-            {legalLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#FFFBEB] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {legalLinks.map((link) => 
+              link.isPreferenceLink ? (
+                <a
+                  key={link.label}
+                  href="#"
+                  className="termly-display-preferences hover:text-[#FFFBEB] transition-colors cursor-pointer"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FFFBEB] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
         </div>
@@ -92,19 +92,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Hidden Termly Preference Center Link */}
-      <a href="#" className="termly-display-preferences" style={{ display: 'none' }}>
-        Consent Preferences
-      </a>
-
       {/* Cookie Settings Button - Bottom Left Corner */}
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <button
-              onClick={handleCookieSettings}
-              className="absolute bottom-4 left-4 w-10 h-10 flex items-center justify-center hover:bg-neutral-700/50 rounded-full transition-all duration-300"
+            <a
+              href="#"
+              className="termly-display-preferences absolute bottom-4 left-4 w-10 h-10 flex items-center justify-center hover:bg-neutral-700/50 rounded-full transition-all duration-300"
               aria-label="Cookie settings"
+              onClick={(e) => e.preventDefault()}
             >
               <Image
                 src="/icons/cookies/cookies-icon-48px.png"
@@ -113,7 +109,7 @@ export default function Footer() {
                 height={40}
                 className="w-10 h-10"
               />
-            </button>
+            </a>
           </TooltipTrigger>
           <TooltipContent side="top" className="bg-neutral-800 text-[#FFFBEB] border-neutral-600">
             <p>Cookie Settings</p>
@@ -124,4 +120,3 @@ export default function Footer() {
     </footer>
   )
 }
-

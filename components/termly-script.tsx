@@ -1,13 +1,14 @@
 // components/termly-script.tsx
 "use client"
 
-import { useEffect } from "react"
+import Script from "next/script"
 
 export default function TermlyScript() {
-  useEffect(() => {
-    // Termly integration can be added here if needed
-    // For now, this component is a placeholder
-  }, [])
-
-  return null
+  return (
+    <Script
+      id="termly-consent-banner"
+      src="https://app.termly.io/resource-blocker/ba09ca99-2e6c-4e83-adca-6b3e27ffe054?autoBlock=on"
+      strategy="afterInteractive"
+    />
+  )
 }

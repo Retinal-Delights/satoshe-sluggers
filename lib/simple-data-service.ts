@@ -26,15 +26,15 @@ export interface NFTData {
   copyright: string;
   date: number;
   image?: string;
-  merged_data: {
-    nft: number;
-    token_id: number;
-    listing_id: number;
-    metadata_cid: string;
-    media_cid: string;
-    metadata_url: string;
-    media_url: string;
-    price_eth: number;
+  merged_data?: {
+    nft?: number;
+    token_id?: number;
+    listing_id?: number;
+    metadata_cid?: string;
+    media_cid?: string;
+    metadata_url?: string;
+    media_url?: string;
+    price_eth?: number;
   };
 }
 
@@ -48,15 +48,46 @@ export async function loadAllNFTs(): Promise<NFTData[]> {
   }
 
   try {
-    const response = await fetch('/data/combined_metadata.json');
-    if (!response.ok) {
-      throw new Error(`Failed to load metadata: ${response.statusText}`);
+    // Load both metadata and IPFS URLs
+    const [metadataResponse, urlResponse] = await Promise.all([
+      fetch('/data/combined_metadata.json'),
+      fetch('/data/urls/ipfs_urls.json')
+    ]);
+
+    if (!metadataResponse.ok) {
+      throw new Error(`Failed to load metadata: ${metadataResponse.statusText}`);
     }
-    const data = await response.json();
-    metadataCache = data as NFTData[];
+
+    const metadataData = await metadataResponse.json();
+    const urlData = urlResponse.ok ? await urlResponse.json() : [];
+
+    // Create a map of token ID to URLs for quick lookup
+    const urlMap = new Map<number, { media_url: string; metadata_url: string }>();
+    urlData.forEach((item: any) => {
+      urlMap.set(item.TokenID, {
+        media_url: item['Media URL'],
+        metadata_url: item['Metadata URL']
+      });
+    });
+
+    // Merge URLs with metadata
+    metadataCache = metadataData.map((nft: any) => {
+      const urls = urlMap.get(nft.token_id);
+      return {
+        ...nft,
+        merged_data: {
+          ...nft.merged_data,
+          ...(urls && {
+            media_url: urls.media_url,
+            metadata_url: urls.metadata_url
+          })
+        }
+      };
+    });
+
     return metadataCache;
-  } catch {
-    // Error loading metadata - handled by fallback
+  } catch (error) {
+    console.error('Error loading NFT data:', error);
     return [];
   }
 }

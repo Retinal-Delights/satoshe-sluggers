@@ -50,7 +50,7 @@ export default function ProvenancePage() {
   const [provenanceRecords, setProvenanceRecords] = useState<ProvenanceRecord[]>([])
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage] = useState(50)
+  const [itemsPerPage] = useState(25)
   const [sortField, setSortField] = useState<'token_id' | 'nft_number' | null>(null)
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc')
 
@@ -249,18 +249,15 @@ export default function ProvenancePage() {
         </div>
 
         <div className="mb-12">
-          {/* 2 Column, 3 Row Grid */}
+          {/* 2 Column Layout - Responsive */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-full overflow-hidden">
-            {/* Row 1 - Headers */}
+            {/* Left Column - Important Information */}
             <div>
-              <h2 className="text-2xl font-bold uppercase tracking-tight">Important Information</h2>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold uppercase tracking-tight">Merkle Tree</h2>
-            </div>
-
-            {/* Row 2 - Content Boxes */}
-            <div className="space-y-4">
+              {/* Header - shown on all sizes */}
+              <h2 className="text-2xl font-bold uppercase tracking-tight mb-6">Important Information</h2>
+              
+              {/* Content Boxes */}
+              <div className="space-y-4">
               <div className="bg-card border border-neutral-700 p-4 rounded">
                 <div className="flex items-center justify-between mb-2">
                   <div className="text-xs text-muted-foreground uppercase tracking-wider">
@@ -274,7 +271,7 @@ export default function ProvenancePage() {
                     {copiedHash === 'contract' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                   </button>
                 </div>
-                <div className="text-sm font-inconsolata break-all whitespace-nowrap" style={{ fontWeight: '300' }}>{CONTRACT_ADDRESS}</div>
+                <div className="text-sm font-inconsolata break-all" style={{ fontWeight: '300' }}>{CONTRACT_ADDRESS}</div>
               </div>
 
               <div className="bg-card border border-neutral-700 p-4 rounded">
@@ -288,7 +285,7 @@ export default function ProvenancePage() {
                     {copiedProof ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                   </button>
                 </div>
-                <div className="text-sm font-inconsolata break-all whitespace-nowrap" style={{ fontWeight: '300' }}>{FINAL_PROOF_HASH}</div>
+                <div className="text-sm font-inconsolata break-all" style={{ fontWeight: '300' }}>{FINAL_PROOF_HASH}</div>
               </div>
 
               <div className="bg-card border border-neutral-700 p-4 rounded">
@@ -302,12 +299,17 @@ export default function ProvenancePage() {
                     {copiedMerkle ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                   </button>
                 </div>
-                <div className="text-sm font-inconsolata break-all whitespace-nowrap" style={{ fontWeight: '300' }}>{MERKLE_ROOT}</div>
+                <div className="text-sm font-inconsolata break-all" style={{ fontWeight: '300' }}>{MERKLE_ROOT}</div>
               </div>
 
             </div>
+            </div>
 
+            {/* Right Column - Merkle Tree */}
             <div>
+              {/* Header - positioned directly above scroll box, similar to Concatenated SHA-256 Hash */}
+              <h2 className="text-2xl font-bold uppercase tracking-tight mb-6">Merkle Tree</h2>
+              
               <div className="bg-card border border-neutral-700 p-2 rounded max-w-full overflow-hidden">
                 <div
                   className="font-inconsolata text-xs break-all leading-relaxed overflow-y-auto whitespace-pre-wrap scrollbar-custom max-w-full"
@@ -345,26 +347,19 @@ export default function ProvenancePage() {
               </div>
             </div>
 
-            {/* Row 3 - Empty to maintain grid alignment */}
-            <div></div>
-            <div></div>
           </div>
         </div>
 
         {/* Concatenated SHA-256 Hash Section */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-6 uppercase tracking-tight">Concatenated SHA-256 Hash</h2>
-          <div className="bg-card border border-neutral-700 overflow-hidden rounded">
-            <div className="p-6">
-              <div className="bg-neutral-900 border border-neutral-600 rounded p-4">
-                <textarea
-                  readOnly
-                  value={concatenatedHash}
-                  className="w-full h-32 bg-transparent text-xs font-inconsolata text-[#FFFBEB] resize-none border-none outline-none"
-                  style={{ fontWeight: '300' }}
-                />
-              </div>
-            </div>
+          <div className="bg-neutral-900 border border-neutral-700 rounded p-4">
+            <textarea
+              readOnly
+              value={concatenatedHash}
+              className="w-full h-32 bg-transparent text-xs font-inconsolata text-[#FFFBEB] resize-none border-none outline-none"
+              style={{ fontWeight: '300' }}
+            />
           </div>
         </div>
 

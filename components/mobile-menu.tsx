@@ -11,7 +11,6 @@ import SimpleConnectButton from "@/components/simple-connect-button"
 import { NavLink } from "@/components/nav-link"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { createPortal } from "react-dom"
-import { prefersReducedMotion } from "@/lib/reduced-motion"
 
 interface MobileMenuProps {
   isWalletConnected?: boolean
@@ -20,7 +19,6 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isWalletConnected = false, hasUserActivity = false }: MobileMenuProps) {
   const [open, setOpen] = useState(false)
-  const [isClosing, setIsClosing] = useState(false)
   const [walletConnected, setWalletConnected] = useState(isWalletConnected)
   const [userActivity, setUserActivity] = useState(hasUserActivity)
   const [mounted, setMounted] = useState(false)
@@ -98,24 +96,12 @@ export function MobileMenu({ isWalletConnected = false, hasUserActivity = false 
   const activePage = getActivePage()
 
   const handleClose = () => {
-    if (prefersReducedMotion()) {
-      setOpen(false)
-    } else {
-      setIsClosing(true)
-      setTimeout(() => {
-        setOpen(false)
-        setIsClosing(false)
-      }, 700) // Match the animation duration
-    }
+    setOpen(false)
   }
 
   const mobileMenuContent = open && mounted && (
     <div 
-      className={`fixed inset-0 z-[60] bg-black/50 ${
-        prefersReducedMotion() 
-          ? '' 
-          : `transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`
-      }`}
+      className="fixed inset-0 z-[60] bg-black/50"
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
@@ -123,15 +109,7 @@ export function MobileMenu({ isWalletConnected = false, hasUserActivity = false 
     >
           <div 
             ref={menuRef}
-            className={`w-80 max-w-[90vw] fixed left-1/2 -translate-x-1/2 rounded-lg pt-4 pb-8 px-8 ${
-              prefersReducedMotion() 
-                ? '' 
-                : `transition-all duration-700 ease-out ${
-                    isClosing 
-                      ? '-translate-y-full opacity-0' 
-                      : 'translate-y-0 opacity-100'
-                  }`
-            }`}
+            className="w-80 max-w-[90vw] fixed left-1/2 -translate-x-1/2 rounded-lg pt-4 pb-8 px-8"
         style={{
           top: '76px', // Position below navbar (navbar height is ~76px)
           maxHeight: 'calc(100vh - 100px)', // Leave some margin

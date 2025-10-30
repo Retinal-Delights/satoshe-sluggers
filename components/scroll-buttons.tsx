@@ -11,19 +11,34 @@ export default function ScrollButtons() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      const scrollBottom = documentHeight - (scrollTop + windowHeight)
       
-      // Check if at top - if less than 100px from top, consider it "at top"
-      setIsAtTop(scrollTop < 100)
+      // If near top (< 100px from top), show down arrow to scroll to bottom
+      // If near bottom (< 100px from bottom), show up arrow to scroll to top
+      // Otherwise, show down arrow if we're closer to top, up arrow if closer to bottom
+      if (scrollTop < 100) {
+        setIsAtTop(true) // Near top - show down arrow
+      } else if (scrollBottom < 100) {
+        setIsAtTop(false) // Near bottom - show up arrow
+      } else {
+        // In the middle - show down arrow if we have more content below than above
+        setIsAtTop(scrollBottom > scrollTop)
+      }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     handleScroll() // Check initial state
 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const scrollToTopOrBottom = () => {
-    const target = isAtTop ? document.documentElement.scrollHeight : 0
+    // If at top (showing down arrow), scroll to bottom; otherwise scroll to top
+    const scrollHeight = document.documentElement.scrollHeight
+    const windowHeight = window.innerHeight
+    const target = isAtTop ? scrollHeight - windowHeight : 0
     const start = window.pageYOffset
     const distance = target - start
     const duration = 3500 // 3.5 seconds for slower, more gentle scroll
