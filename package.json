@@ -58,5 +58,6 @@
         "GHSA-ffrw-9mx8-89p8"
       ]
     }
-  }
+  },
+  "packageManager": "pnpm@10.0.0"
 }
