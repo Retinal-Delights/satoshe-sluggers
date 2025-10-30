@@ -15,7 +15,8 @@ export function convertIpfsUrl(url: string | undefined | null): string {
   if (!url) return "/nfts/placeholder-nft.webp";
   
   if (url.startsWith('ipfs://')) {
-    return url.replace('ipfs://', 'https://ipfs.io/ipfs/');
+    // Prefer Cloudflare IPFS gateway for reliability
+    return url.replace('ipfs://', 'https://cloudflare-ipfs.com/ipfs/');
   }
   
   return url;
