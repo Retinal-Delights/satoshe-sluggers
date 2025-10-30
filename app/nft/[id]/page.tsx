@@ -10,6 +10,7 @@ import Navigation from "@/components/navigation";
 import AttributeRarityChart from "@/components/attribute-rarity-chart";
 import { MediaRenderer, BuyDirectListingButton } from "thirdweb/react";
 import { base } from "thirdweb/chains";
+import { getContract, readContract } from "thirdweb";
 import { client } from "@/lib/thirdweb";
 import { useFavorites } from "@/hooks/useFavorites";
 import { getNFTByTokenId, NFTData } from "@/lib/simple-data-service";
@@ -75,6 +76,7 @@ export default function NFTDetailPage() {
   const [transactionState, setTransactionState] = useState<'idle' | 'pending' | 'success' | 'error'>('idle');
   const [transactionError, setTransactionError] = useState<string | null>(null);
   const [pricingData, setPricingData] = useState<{ price_eth: number; listing_id?: number } | null>(null);
+  const [ownerAddress, setOwnerAddress] = useState<string | null>(null);
   
   const { isFavorited, toggleFavorite, isConnected } = useFavorites();
 
@@ -181,6 +183,29 @@ export default function NFTDetailPage() {
     loadPricingData();
   }, [tokenId]);
 
+  // Load current owner from chain (ERC-721 ownerOf)
+  useEffect(() => {
+    const fetchOwner = async () => {
+      try {
+        const contract = getContract({ client, chain: base, address: process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS! });
+        const actualTokenId = BigInt(parseInt(tokenId) - 1);
+        const result = await readContract({
+          contract,
+          method: "function ownerOf(uint256 tokenId) view returns (address)",
+          params: [actualTokenId],
+        });
+        if (typeof result === "string") {
+          setOwnerAddress(result);
+        } else if ((result as any)?._value) {
+          setOwnerAddress(String((result as any)._value));
+        }
+      } catch (e) {
+        setOwnerAddress(null);
+      }
+    };
+    fetchOwner();
+  }, [tokenId]);
+
   const attributes = useMemo(() => {
     // Use real attributes from complete metadata
     if (metadata && metadata.attributes) {
@@ -213,7 +238,9 @@ export default function NFTDetailPage() {
   // Get pricing data from loaded pricing data or metadata fallback
   const priceEth = pricingData?.price_eth || metadata?.merged_data?.price_eth || 0;
   const listingId = pricingData?.listing_id || metadata?.merged_data?.listing_id || 0;
-  const isForSale = priceEth > 0 && !isPurchased;
+  const creatorAddress = process.env.NEXT_PUBLIC_CREATOR_ADDRESS?.toLowerCase();
+  const isSoldOnChain = ownerAddress && creatorAddress ? ownerAddress.toLowerCase() !== creatorAddress : false;
+  const isForSale = priceEth > 0 && !isPurchased && !isSoldOnChain;
 
   // Confetti celebration function
   const triggerConfetti = () => {
@@ -677,7 +704,7 @@ export default function NFTDetailPage() {
                   </BuyDirectListingButton>
                 </div>
               </div>
-            ) : isPurchased ? (
+            ) : isPurchased || isSoldOnChain ? (
               <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
                 <div className="flex items-center justify-between">
                   <div>
@@ -685,6 +712,9 @@ export default function NFTDetailPage() {
                     <p className="text-2xl font-bold" style={{ color: "#10B981" }}>
                       {priceEth} ETH
                     </p>
+                    {ownerAddress && (
+                      <p className="text-xs text-neutral-400 mt-1">Owner: <a href={`https://basescan.org/address/${ownerAddress}`} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FFFBEB]">{ownerAddress.slice(0,6)}...{ownerAddress.slice(-4)}</a></p>
+                    )}
                   </div>
                   <Link
                     href={`https://opensea.io/assets/base/${process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS}/${tokenId}`}
@@ -698,7 +728,7 @@ export default function NFTDetailPage() {
                       borderRadius: "2px"
                     }}
                   >
-                    View My NFT
+                    View on OpenSea
                     <ExternalLink className="w-4 h-4" />
                   </Link>
                 </div>
