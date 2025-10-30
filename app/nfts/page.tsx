@@ -24,7 +24,8 @@ function NFTsPageContent() {
     eyewear?: string[];
   }>({})
   const [traitCounts, setTraitCounts] = useState<Record<string, Record<string, number>>>({})
-  const [saleState, setSaleState] = useState<'all' | 'live' | 'sold'>('all')
+  const [showLive, setShowLive] = useState(true)
+  const [showSold, setShowSold] = useState(true)
   const [isInitialized, setIsInitialized] = useState(false)
 
   // Initialize state from URL parameters
@@ -51,10 +52,10 @@ function NFTsPageContent() {
         const value = searchParams.get(key)
         if (value) {
           try {
-            (urlFilters as any)[key] = JSON.parse(decodeURIComponent(value))
+            (urlFilters as Record<string, unknown>)[key] = JSON.parse(decodeURIComponent(value))
           } catch {
             // If parsing fails, treat as single value
-            (urlFilters as any)[key] = [value]
+            (urlFilters as Record<string, unknown>)[key] = [value]
           }
         }
       })
@@ -64,7 +65,7 @@ function NFTsPageContent() {
         const value = searchParams.get(key)
         if (value) {
           try {
-            (urlFilters as any)[key] = JSON.parse(decodeURIComponent(value))
+            (urlFilters as Record<string, unknown>)[key] = JSON.parse(decodeURIComponent(value))
           } catch {
             // If parsing fails, skip this filter
             console.warn(`Failed to parse ${key} filter from URL`)
@@ -127,28 +128,6 @@ function NFTsPageContent() {
           <CollectionStats />
         </div>
 
-        {/* Live/Sold toggle */}
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <button
-            className={`px-3 py-1.5 text-xs font-medium rounded-sm border transition-colors ${saleState === 'all' ? 'bg-neutral-800 border-neutral-600 text-[#FFFBEB]' : 'bg-transparent border-neutral-700 text-neutral-400 hover:text-neutral-200'}`}
-            onClick={() => setSaleState('all')}
-          >
-            All
-          </button>
-          <button
-            className={`px-3 py-1.5 text-xs font-medium rounded-sm border transition-colors ${saleState === 'live' ? 'bg-blue-500/10 border-blue-500/40 text-blue-400' : 'bg-transparent border-neutral-700 text-neutral-400 hover:text-neutral-200'}`}
-            onClick={() => setSaleState('live')}
-          >
-            Live
-          </button>
-          <button
-            className={`px-3 py-1.5 text-xs font-medium rounded-sm border transition-colors ${saleState === 'sold' ? 'bg-green-500/10 border-green-500/40 text-green-400' : 'bg-transparent border-neutral-700 text-neutral-400 hover:text-neutral-200'}`}
-            onClick={() => setSaleState('sold')}
-          >
-            Sold
-          </button>
-        </div>
-
         <div className="flex flex-col xl:flex-row gap-6 lg:gap-8" suppressHydrationWarning>
           <div className="xl:sticky xl:top-[76px] xl:self-start z-10 w-full xl:w-72 2xl:w-80">
             <NFTSidebar
@@ -167,7 +146,10 @@ function NFTsPageContent() {
                 searchTerm={searchTerm}
                 searchMode={searchMode}
                 selectedFilters={selectedFilters}
-                saleState={saleState}
+                showLive={showLive}
+                setShowLive={setShowLive}
+                showSold={showSold}
+                setShowSold={setShowSold}
                 onFilteredCountChange={() => {}} // Empty callback since we don't use the count
                 onTraitCountsChange={setTraitCounts} // Pass trait counts to sidebar
               />

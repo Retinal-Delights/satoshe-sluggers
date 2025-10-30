@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+// Removed unused imports: useState, useEffect
 import Link from "next/link"
 import Image from "next/image"
 import { MobileMenu } from "@/components/mobile-menu"

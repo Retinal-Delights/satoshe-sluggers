@@ -8,7 +8,7 @@ import { ArrowLeft, Heart, ChevronLeft, ChevronRight, ExternalLink } from "lucid
 import Footer from "@/components/footer";
 import Navigation from "@/components/navigation";
 import AttributeRarityChart from "@/components/attribute-rarity-chart";
-import { MediaRenderer, BuyDirectListingButton } from "thirdweb/react";
+import { BuyDirectListingButton } from "thirdweb/react";
 import { base } from "thirdweb/chains";
 import { getContract, readContract } from "thirdweb";
 import { client } from "@/lib/thirdweb";
@@ -117,9 +117,13 @@ export default function NFTDetailPage() {
             if (nftData) {
               setMetadata(nftData);
               
-              // Set image URL from metadata
-              const mediaUrl = nftData.merged_data?.media_url || nftData.image;
-              setImageUrl(convertIpfsUrl(mediaUrl));
+              // Set image URL from metadata - try multiple sources
+              const mediaUrl = nftData.merged_data?.media_url || nftData.image || null;
+              if (mediaUrl) {
+                setImageUrl(convertIpfsUrl(mediaUrl));
+              } else {
+                setImageUrl("/nfts/placeholder-nft.webp");
+              }
             } else {
               setMetadata(null);
               setImageUrl("/nfts/placeholder-nft.webp");
@@ -196,10 +200,10 @@ export default function NFTDetailPage() {
         });
         if (typeof result === "string") {
           setOwnerAddress(result);
-        } else if ((result as any)?._value) {
-          setOwnerAddress(String((result as any)._value));
+        } else if (result && typeof result === "object" && "_value" in result) {
+          setOwnerAddress(String((result as { _value: unknown })._value));
         }
-      } catch (e) {
+      } catch {
         setOwnerAddress(null);
       }
     };

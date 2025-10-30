@@ -75,12 +75,13 @@ export async function loadAllNFTs(): Promise<NFTData[]> {
       const urls = urlMap.get(nft.token_id);
       return {
         ...nft,
+        // Ensure image field is preserved (from metadata JSON)
+        image: nft.image || nft.merged_data?.media_url || null,
         merged_data: {
           ...nft.merged_data,
-          ...(urls && {
-            media_url: urls.media_url,
-            metadata_url: urls.metadata_url
-          })
+          // Prefer merged URLs from ipfs_urls.json if available, otherwise use image field
+          media_url: urls?.media_url || nft.image || nft.merged_data?.media_url || null,
+          metadata_url: urls?.metadata_url || nft.merged_data?.metadata_url || null
         }
       };
     });

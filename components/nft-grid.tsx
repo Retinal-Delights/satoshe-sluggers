@@ -24,6 +24,7 @@ import Image from "next/image";
 import { loadAllNFTs } from "@/lib/simple-data-service";
 import { announceToScreenReader } from "@/lib/accessibility-utils";
 import { convertIpfsUrl } from "@/lib/utils";
+import { useOnChainOwnership } from "@/hooks/useOnChainOwnership";
 
 
 
@@ -89,7 +90,10 @@ interface NFTGridProps {
   searchTerm: string;
   searchMode: "contains" | "exact";
   selectedFilters: SelectedFilters;
-  saleState?: 'all' | 'live' | 'sold';
+  showLive?: boolean;
+  setShowLive?: (value: boolean) => void;
+  showSold?: boolean;
+  setShowSold?: (value: boolean) => void;
   onFilteredCountChange?: (count: number) => void;
   onTraitCountsChange?: (counts: Record<string, Record<string, number>>) => void;
 }
@@ -137,7 +141,9 @@ function computeTraitCounts(nfts: NFTGridItem[], categories: string[]) {
   return counts;
 }
 
-export default function NFTGrid({ searchTerm, searchMode, selectedFilters, saleState = 'all', onFilteredCountChange, onTraitCountsChange }: NFTGridProps) {
+export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showLive = true, setShowLive, showSold = true, setShowSold, onFilteredCountChange, onTraitCountsChange }: NFTGridProps) {
+  // Use on-chain ownership data for accurate Live/Sold counts
+  const { liveCount: onChainLiveCount, soldCount: onChainSoldCount, isChecking: isCheckingOwnership, checkedCount, totalToCheck } = useOnChainOwnership(TOTAL_COLLECTION_SIZE);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(25);
   const [sortBy, setSortBy] = useState("default");
@@ -388,8 +394,9 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, saleS
   // Filter NFTs
   const filteredNFTs = useMemo(() => {
     return nfts.filter(nft => {
-    if (saleState === 'live' && !nft.isForSale) return false;
-    if (saleState === 'sold' && nft.isForSale) return false;
+    // Sale state filter based on checkboxes
+    if (!showLive && nft.isForSale) return false;
+    if (!showSold && !nft.isForSale) return false;
     // Search logic with Contains/Exact mode
     let matchesSearch = true;
     if (searchTerm.trim()) {
@@ -476,7 +483,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, saleS
       matchesHeadwear
     );
   });
-  }, [nfts, searchTerm, searchMode, selectedFilters]);
+  }, [nfts, searchTerm, searchMode, selectedFilters, showLive, showSold]);
 
   // Restore scroll position after filtering
   useEffect(() => {
@@ -538,7 +545,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, saleS
           return 0;
       }
     });
-  }, [filteredNFTs, sortBy, columnSort]);
+  }, [filteredNFTs, sortBy, columnSort, showLive, showSold]);
 
 
   // Pagination
@@ -657,17 +664,60 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, saleS
           {/* Left side: Title and stats */}
           <div>
             <h2 className="text-lg font-medium">NFT Collection</h2>
+            <div className="text-sm font-medium mt-1">
+              <span className="text-[#ff0099]">{TOTAL_COLLECTION_SIZE}</span>
+              <span className="text-neutral-400"> Total</span>
+              <span className="text-neutral-400"> • </span>
+              {setShowLive ? (
+                <button
+                  onClick={() => setShowLive(!showLive)}
+                  className={`transition-colors cursor-pointer ${showLive ? 'text-blue-400 hover:text-blue-300 underline' : 'text-neutral-500 hover:text-neutral-400'}`}
+                  type="button"
+                  title={isCheckingOwnership ? `Checking on-chain... (${checkedCount}/${totalToCheck})` : 'Click to filter Live NFTs'}
+                >
+                  {isCheckingOwnership && checkedCount < totalToCheck ? (
+                    <span className="text-neutral-500">{checkedCount > 0 ? onChainLiveCount : nfts.filter(n => n.isForSale).length} Live...</span>
+                  ) : (
+                    `${onChainLiveCount} Live`
+                  )}
+                </button>
+              ) : (
+                <span className="text-blue-400">
+                  {isCheckingOwnership && checkedCount < totalToCheck ? (
+                    <span className="text-neutral-500">{checkedCount > 0 ? onChainLiveCount : nfts.filter(n => n.isForSale).length} Live...</span>
+                  ) : (
+                    `${onChainLiveCount} Live`
+                  )}
+                </span>
+              )}
+              <span className="text-neutral-400"> • </span>
+              {setShowSold ? (
+                <button
+                  onClick={() => setShowSold(!showSold)}
+                  className={`transition-colors cursor-pointer ${showSold ? 'text-green-400 hover:text-green-300 underline' : 'text-neutral-500 hover:text-neutral-400'}`}
+                  type="button"
+                  title={isCheckingOwnership ? `Checking on-chain... (${checkedCount}/${totalToCheck})` : 'Click to filter Sold NFTs'}
+                >
+                  {isCheckingOwnership && checkedCount < totalToCheck ? (
+                    <span className="text-neutral-500">{checkedCount > 0 ? onChainSoldCount : nfts.filter(n => !n.isForSale).length} Sold...</span>
+                  ) : (
+                    `${onChainSoldCount} Sold`
+                  )}
+                </button>
+              ) : (
+                <span className="text-green-400">
+                  {isCheckingOwnership && checkedCount < totalToCheck ? (
+                    <span className="text-neutral-500">{checkedCount > 0 ? onChainSoldCount : nfts.filter(n => !n.isForSale).length} Sold...</span>
+                  ) : (
+                    `${onChainSoldCount} Sold`
+                  )}
+                </span>
+              )}
+            </div>
             {filteredNFTs.length > 0 && (
-              <>
-                <div className="text-sm font-medium mt-1">
-                  <span className="text-blue-400">{filteredNFTs.filter(n => n.isForSale).length} Live</span>
-                  <span className="text-neutral-400"> • </span>
-                  <span className="text-green-400">{filteredNFTs.filter(n => !n.isForSale).length} Sold</span>
-                </div>
-                <div className="text-xs text-neutral-500 mt-1">
-                  {startIndex + 1}-{Math.min(endIndex, filteredNFTs.length)} of {filteredNFTs.length} NFTs
-                </div>
-              </>
+              <div className="text-xs text-neutral-500 mt-1">
+                {startIndex + 1}-{Math.min(endIndex, filteredNFTs.length)} of {filteredNFTs.length} NFTs
+              </div>
             )}
           </div>
 

@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, JetBrains_Mono, Inconsolata } from "next/font/google"
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThirdwebProvider } from "thirdweb/react"
 import ScrollButtons from "@/components/scroll-buttons"
 import TermlyScript from "@/components/termly-script"
@@ -175,6 +176,7 @@ export default function RootLayout({
             <ScrollButtons />
           </ThirdwebProvider>
           <Analytics />
+          <SpeedInsights />
           
           {/* Live region for screen reader announcements */}
           <div

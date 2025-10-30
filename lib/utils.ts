@@ -14,10 +14,19 @@ export function cn(...inputs: ClassValue[]) {
 export function convertIpfsUrl(url: string | undefined | null): string {
   if (!url) return "/nfts/placeholder-nft.webp";
   
+  // Already an HTTP/HTTPS URL, return as-is
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+  
+  // Convert IPFS protocol URL to HTTP gateway URL
   if (url.startsWith('ipfs://')) {
     // Prefer Cloudflare IPFS gateway for reliability
+    // Replace ipfs:// with https://cloudflare-ipfs.com/ipfs/
+    // This preserves the CID and any path (e.g., /0.webp)
     return url.replace('ipfs://', 'https://cloudflare-ipfs.com/ipfs/');
   }
   
-  return url;
+  // Fallback to placeholder if we don't recognize the format
+  return "/nfts/placeholder-nft.webp";
 }
