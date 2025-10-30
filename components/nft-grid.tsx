@@ -484,14 +484,20 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
       
       // Fallback to dropdown sort
       switch (sortBy) {
+        // Rank: "High to Low" should show best rank first (rank #1 is highest)
         case "rank-asc":
-          return Number(a.rank) - Number(b.rank);
-        case "rank-desc":
+          // Low to High (worst to best)
           return Number(b.rank) - Number(a.rank);
+        case "rank-desc":
+          // High to Low (best to worst)
+          return Number(a.rank) - Number(b.rank);
+        // Rarity percent: lower % is rarer (higher value)
         case "rarity-asc":
-          return Number(a.rarityPercent) - Number(b.rarityPercent);
-        case "rarity-desc":
+          // Low to High (rarest to most common) -> show common later
           return Number(b.rarityPercent) - Number(a.rarityPercent);
+        case "rarity-desc":
+          // High to Low (rarest first)
+          return Number(a.rarityPercent) - Number(b.rarityPercent);
         case "price-asc":
           return Number(a.priceWei) - Number(b.priceWei);
         case "price-desc":
@@ -676,7 +682,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
                   setSortBy(value);
                   setColumnSort(null); // Clear column sort when using dropdown
                 }}>
-                  <SelectTrigger className="w-[180px] bg-neutral-900 border-neutral-700 rounded-sm text-[#FFFBEB] text-sm font-normal">
+                  <SelectTrigger className="w-[240px] bg-neutral-900 border-neutral-700 rounded-sm text-[#FFFBEB] text-sm font-normal">
                     <SelectValue placeholder="Default" />
                   </SelectTrigger>
                   <SelectContent className="bg-neutral-950/95 backdrop-blur-md border-neutral-700 rounded-sm">
