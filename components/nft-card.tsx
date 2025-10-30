@@ -278,7 +278,7 @@ export default function NFTCard({
           ) : (
             <Link
               href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
-              className="px-2.5 py-1 bg-orange-500/10 border border-orange-500/30 rounded-sm text-orange-400 text-xs font-medium hover:bg-orange-500/20 hover:border-orange-500/50 transition-colors"
+              className="px-2.5 py-1 bg-green-500/10 border border-green-500/30 rounded-sm text-green-400 text-xs font-medium hover:bg-green-500/20 hover:border-green-500/50 transition-colors"
               aria-label={`View sold ${name} details`}
             >
               Sold

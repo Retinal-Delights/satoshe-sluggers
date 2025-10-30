@@ -271,7 +271,8 @@ export default function NFTDetailPage() {
     // Broadcast to update other views (grid, owned tab)
     try {
       const purchasedActualTokenId = parseInt(tokenId) - 1;
-      window.dispatchEvent(new CustomEvent('nftPurchased', { detail: { tokenId: purchasedActualTokenId } }));
+      const priceEthNumber = typeof priceEth === 'number' ? priceEth : Number(priceEth);
+      window.dispatchEvent(new CustomEvent('nftPurchased', { detail: { tokenId: purchasedActualTokenId, priceEth: priceEthNumber } }));
     } catch {}
     
     // Hide success message after 5 seconds
@@ -733,7 +734,7 @@ export default function NFTDetailPage() {
                     )}
                   </div>
                   <Link
-                    href={`https://opensea.io/assets/base/${process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS}/${tokenId}`}
+                    href={`https://opensea.io/assets/base/${CONTRACT_ADDRESS}/${tokenId}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-3 font-bold transition-colors duration-300 ease-in-out focus:ring-2 focus:ring-offset-2 bg-green-500 hover:bg-green-700 text-white rounded-sm flex items-center gap-2"

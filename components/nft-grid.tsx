@@ -36,6 +36,7 @@ type NFTGridItem = {
   image: string;
   priceEth: number; // Static price from metadata
   priceWei: string | number | bigint;
+  soldPriceEth?: number;
   rank: number | string;
   rarity: string;
   rarityPercent: string | number;
@@ -88,6 +89,7 @@ interface NFTGridProps {
   searchTerm: string;
   searchMode: "contains" | "exact";
   selectedFilters: SelectedFilters;
+  saleState?: 'all' | 'live' | 'sold';
   onFilteredCountChange?: (count: number) => void;
   onTraitCountsChange?: (counts: Record<string, Record<string, number>>) => void;
 }
@@ -135,7 +137,7 @@ function computeTraitCounts(nfts: NFTGridItem[], categories: string[]) {
   return counts;
 }
 
-export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFilteredCountChange, onTraitCountsChange }: NFTGridProps) {
+export default function NFTGrid({ searchTerm, searchMode, selectedFilters, saleState = 'all', onFilteredCountChange, onTraitCountsChange }: NFTGridProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(25);
   const [sortBy, setSortBy] = useState("default");
@@ -196,13 +198,18 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
   // Listen for purchase events to mark items sold immediately
   useEffect(() => {
     const handler = (e: Event) => {
-      const custom = e as CustomEvent<{ tokenId: number }>;
+      const custom = e as CustomEvent<{ tokenId: number; priceEth?: number }>;
       const tokenIdNum = custom.detail?.tokenId;
+      const priceEthFromEvent = custom.detail?.priceEth;
       if (typeof tokenIdNum === 'number' && !Number.isNaN(tokenIdNum)) {
         setPurchasedTokens(prev => new Set(prev).add(tokenIdNum));
-        setNfts(prev => prev.map(item => (
-          parseInt(item.tokenId) === tokenIdNum ? { ...item, isForSale: false, priceWei: '0', priceEth: 0 } : item
-        )));
+        setNfts(prev => prev.map(item => {
+          if (parseInt(item.tokenId) === tokenIdNum) {
+            const soldPrice = typeof priceEthFromEvent === 'number' ? priceEthFromEvent : (typeof item.priceEth === 'number' ? item.priceEth : 0);
+            return { ...item, isForSale: false, priceWei: '0', priceEth: 0, soldPriceEth: soldPrice };
+          }
+          return item;
+        }));
       }
     };
     window.addEventListener('nftPurchased', handler as EventListener);
@@ -381,6 +388,8 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
   // Filter NFTs
   const filteredNFTs = useMemo(() => {
     return nfts.filter(nft => {
+    if (saleState === 'live' && !nft.isForSale) return false;
+    if (saleState === 'sold' && nft.isForSale) return false;
     // Search logic with Contains/Exact mode
     let matchesSearch = true;
     if (searchTerm.trim()) {
@@ -651,9 +660,9 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
             {filteredNFTs.length > 0 && (
               <>
                 <div className="text-sm font-medium mt-1">
-                  <span className="text-green-400">{filteredNFTs.filter(n => n.isForSale).length} Live</span>
+                  <span className="text-blue-400">{filteredNFTs.filter(n => n.isForSale).length} Live</span>
                   <span className="text-neutral-400"> • </span>
-                  <span className="text-blue-400">{filteredNFTs.filter(n => !n.isForSale).length} Sold</span>
+                  <span className="text-green-400">{filteredNFTs.filter(n => !n.isForSale).length} Sold</span>
                 </div>
                 <div className="text-xs text-neutral-500 mt-1">
                   {startIndex + 1}-{Math.min(endIndex, filteredNFTs.length)} of {filteredNFTs.length} NFTs
@@ -944,14 +953,14 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
                       <td className="px-4 py-3 text-right">
                         <div className="flex items-center gap-2 justify-end">
                             <Link
-                              href={`/nft/${nft.tokenId}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
+                              href={`/nft/${nft.cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
                               className="px-2.5 py-1 bg-yellow-500/10 border border-yellow-500/30 rounded-sm text-yellow-400 text-xs font-medium hover:bg-yellow-500/20 hover:border-yellow-500/50 transition-colors"
                             >
                               View
                             </Link>
                             {nft.isForSale ? (
                               <Link
-                                href={`/nft/${nft.tokenId}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
+                                href={`/nft/${nft.cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
                                 className="px-2.5 py-1 bg-blue-500/10 border border-blue-500/30 rounded-sm text-blue-400 text-xs font-medium hover:bg-blue-500/20 hover:border-blue-500/50 transition-colors"
                               >
                                 Buy
