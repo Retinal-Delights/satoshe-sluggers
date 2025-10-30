@@ -366,13 +366,24 @@ export default function NFTDetailPage() {
       <Navigation activePage="nfts" />
       <div className="max-w-7xl mx-auto py-4 sm:py-6 flex-grow pt-24 sm:pt-28 pb-16 sm:pb-20 px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         <div className="flex items-center justify-between mb-8 sm:mb-10">
-          <Link
-            href="/nfts"
-            className="inline-flex items-center text-neutral-400 hover:text-[#ff0099] text-sm transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to collection
-          </Link>
+          {(() => {
+            // Prefer returning to the exact filtered collection URL when provided
+            let backTo = "/nfts";
+            if (typeof window !== 'undefined') {
+              const sp = new URLSearchParams(window.location.search);
+              const rt = sp.get('returnTo');
+              if (rt) backTo = rt;
+            }
+            return (
+              <Link
+                href={backTo}
+                className="inline-flex items-center text-neutral-400 hover:text-[#ff0099] text-sm transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to collection
+              </Link>
+            );
+          })()}
 
           {/* Navigation Arrows */}
           <div className="flex items-center gap-3">
@@ -637,12 +648,6 @@ export default function NFTDetailPage() {
           <div className="space-y-6 order-2 lg:order-2">
             {/* NFT Name with Heart Icon */}
             <div className="flex items-start justify-between gap-4">
-              <Link
-                href={(typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('returnTo')) || '/nfts'}
-                className="text-sm text-neutral-400 hover:text-[#ff0099] underline underline-offset-2"
-              >
-                ← Back to Collection
-              </Link>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-off-white">
                 {metadata?.name || `Satoshe Slugger #${displayNftNumber}`}
               </h1>

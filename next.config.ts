@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 31536000, // 1 year
     dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Remove restrictive per-image CSP that blocked remote IPFS images; rely on global headers instead
     qualities: [75, 85, 100], // Required for Next.js 16
   },
   // Enable experimental features for better performance
