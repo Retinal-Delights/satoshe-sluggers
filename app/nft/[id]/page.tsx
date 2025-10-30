@@ -122,14 +122,14 @@ export default function NFTDetailPage() {
               setImageUrl(convertIpfsUrl(mediaUrl));
             } else {
               setMetadata(null);
-              setImageUrl("/nfts/placeholder-nft.webp");
+              setImageUrl("/media/nfts/placeholder-nft.webp");
             }
             clearTimeout(timeoutId);
             setIsLoading(false);
           })
           .catch(() => {
             setMetadata(null);
-            setImageUrl("/nfts/placeholder-nft.webp");
+            setImageUrl("/media/nfts/placeholder-nft.webp");
             clearTimeout(timeoutId);
             setIsLoading(false);
           });
