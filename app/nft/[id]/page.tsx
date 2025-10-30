@@ -408,13 +408,13 @@ export default function NFTDetailPage() {
             {/* NFT Image Card */}
             <div className="relative" style={{ aspectRatio: "2700/3000" }}>
               <div className="relative w-full h-full">
-                <MediaRenderer
-                  client={client}
-                  src={imageUrl}
+                <Image
+                  src={imageUrl || "/media/nfts/placeholder-nft.webp"}
                   alt={metadata?.name || `SATOSHE SLUGGER #${parseInt(tokenId) + 1}`}
-                  width="100%"
-                  height="100%"
-                  className="w-full h-full object-contain"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain"
+                  onError={() => setImageUrl("/media/nfts/placeholder-nft.webp")}
                 />
               </div>
             </div>
@@ -637,6 +637,12 @@ export default function NFTDetailPage() {
           <div className="space-y-6 order-2 lg:order-2">
             {/* NFT Name with Heart Icon */}
             <div className="flex items-start justify-between gap-4">
+              <Link
+                href={(typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('returnTo')) || '/nfts'}
+                className="text-sm text-neutral-400 hover:text-[#ff0099] underline underline-offset-2"
+              >
+                ← Back to Collection
+              </Link>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-off-white">
                 {metadata?.name || `Satoshe Slugger #${displayNftNumber}`}
               </h1>

@@ -1,12 +1,11 @@
 // components/simple-connect-button.tsx
 import { ConnectButton, darkTheme } from "thirdweb/react";
 import { createThirdwebClient } from "thirdweb";
+import { client as sharedClient } from "@/lib/thirdweb";
 import { inAppWallet, createWallet } from "thirdweb/wallets";
 
-// Initialize your Thirdweb client
-const client = createThirdwebClient({
-  clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "YOUR_CLIENT_ID_HERE", // replace with your actual Thirdweb clientId
-});
+// Use shared client configured via env (no insecure fallbacks)
+const client = sharedClient;
 
 // Define available wallets
 const wallets = [

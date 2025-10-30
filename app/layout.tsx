@@ -95,6 +95,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${inter.variable} ${jetbrainsMono.variable} ${inconsolata.variable}`} suppressHydrationWarning>
       <head>
+        {/* Termly CMP: must be first to block unapproved resources */}
+        <TermlyScript />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -172,7 +174,6 @@ export default function RootLayout({
             {children}
             <ScrollButtons />
           </ThirdwebProvider>
-          <TermlyScript />
           <Analytics />
           
           {/* Live region for screen reader announcements */}
