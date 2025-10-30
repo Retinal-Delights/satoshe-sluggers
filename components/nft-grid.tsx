@@ -883,7 +883,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
                                 Buy
                               </Link>
                             ) : (
-                              <span className="px-2.5 py-1 bg-neutral-500/10 border border-neutral-500/30 rounded-sm text-neutral-400 text-xs font-medium">
+                              <span className="px-2.5 py-1 bg-green-500/10 border border-green-500/30 rounded-sm text-green-400 text-xs font-medium">
                                 Sold
                               </span>
                             )}
