@@ -10,7 +10,7 @@ import Navigation from "@/components/navigation";
 import AttributeRarityChart from "@/components/attribute-rarity-chart";
 import { MediaRenderer, BuyDirectListingButton } from "thirdweb/react";
 import { base } from "thirdweb/chains";
-import { client } from "../../../lib/thirdweb";
+import { client } from "@/lib/thirdweb";
 import { useFavorites } from "@/hooks/useFavorites";
 import { getNFTByTokenId, NFTData } from "@/lib/simple-data-service";
 import { track } from '@vercel/analytics';
@@ -135,6 +135,7 @@ export default function NFTDetailPage() {
     // Cleanup timeout on unmount
     return () => clearTimeout(timeoutId);
   }, [tokenId]);
+
 
   // Load pricing data
   useEffect(() => {

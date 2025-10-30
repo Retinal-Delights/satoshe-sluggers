@@ -64,8 +64,7 @@ function MyNFTsContent() {
 
       setIsLoading(true);
       try {
-        // TODO: Implement actual wallet NFT fetching
-        // For now, show empty array - no demo/placeholder NFTs
+        // TODO: implement on-chain owned NFT fetch (Thirdweb ERC721 extension)
         setOwnedNFTs([]);
       } catch (error) {
         console.error("Error loading owned NFTs:", error);
