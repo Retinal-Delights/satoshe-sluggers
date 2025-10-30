@@ -78,6 +78,9 @@ export default function NFTDetailPage() {
   
   const { isFavorited, toggleFavorite, isConnected } = useFavorites();
 
+  // Display-friendly NFT number: prefer metadata token_id (0-based), fallback to route param (0-based)
+  const displayNftNumber = (metadata?.token_id ?? parseInt(tokenId)) + 1;
+
   // Calculate navigation tokens (previous and next)
   useEffect(() => {
     const currentTokenId = parseInt(tokenId);
@@ -607,7 +610,7 @@ export default function NFTDetailPage() {
             {/* NFT Name with Heart Icon */}
             <div className="flex items-start justify-between gap-4">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-off-white">
-                {metadata?.name || `Satoshe Slugger #${parseInt(tokenId) + 1}`}
+                {metadata?.name || `Satoshe Slugger #${displayNftNumber}`}
               </h1>
               <button
                 onClick={handleFavoriteToggle}
@@ -677,8 +680,8 @@ export default function NFTDetailPage() {
               <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-green-500 mb-1">Sold At</p>
-                    <p className="text-2xl font-bold text-green-500">
+                    <p className="text-sm mb-1" style={{ color: "#10B981" }}>Sold At</p>
+                    <p className="text-2xl font-bold" style={{ color: "#10B981" }}>
                       {priceEth} ETH
                     </p>
                   </div>
@@ -728,7 +731,7 @@ export default function NFTDetailPage() {
                   <div className="text-6xl mb-4">🎉</div>
                   <h3 className="text-2xl font-bold text-green-400 mb-2">Purchase Successful!</h3>
                   <p className="text-neutral-300 mb-4">
-                    You successfully purchased <strong>Satoshe Slugger #{parseInt(tokenId) + 1}</strong> for {priceEth} ETH!
+                    You successfully purchased <strong>Satoshe Slugger #{displayNftNumber}</strong> for {priceEth} ETH!
                   </p>
                   <p className="text-sm text-neutral-400 mb-4">
                     Transaction confirmed on the blockchain.
