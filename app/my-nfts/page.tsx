@@ -64,8 +64,28 @@ function MyNFTsContent() {
 
       setIsLoading(true);
       try {
-        // TODO: implement on-chain owned NFT fetch (Thirdweb ERC721 extension)
-        setOwnedNFTs([]);
+        // Session-level: include newly purchased NFT from broadcasted event
+        const handler = (e: Event) => {
+          const custom = e as CustomEvent<{ tokenId: number }>;
+          const t = custom.detail?.tokenId;
+          if (typeof t === 'number' && !Number.isNaN(t)) {
+            const idStr = (t + 1).toString();
+            setOwnedNFTs(prev => {
+              if (prev.some(n => n.id === idStr)) return prev;
+              return [
+                {
+                  id: idStr,
+                  tokenId: t.toString(),
+                  name: `Satoshe Slugger #${t + 1}`,
+                  image: "/nfts/placeholder-nft.webp",
+                },
+                ...prev,
+              ];
+            });
+          }
+        };
+        window.addEventListener('nftPurchased', handler as EventListener);
+        return () => window.removeEventListener('nftPurchased', handler as EventListener);
       } catch (error) {
         console.error("Error loading owned NFTs:", error);
         setOwnedNFTs([]);

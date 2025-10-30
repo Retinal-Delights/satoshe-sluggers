@@ -187,7 +187,7 @@ export default function NFTDetailPage() {
   useEffect(() => {
     const fetchOwner = async () => {
       try {
-        const contract = getContract({ client, chain: base, address: process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS! });
+        const contract = getContract({ client, chain: base, address: CONTRACT_ADDRESS });
         const actualTokenId = BigInt(parseInt(tokenId) - 1);
         const result = await readContract({
           contract,
@@ -268,6 +268,11 @@ export default function NFTDetailPage() {
       transactionHash: receipt.transactionHash,
       blockNumber: Number(receipt.blockNumber)
     });
+    // Broadcast to update other views (grid, owned tab)
+    try {
+      const purchasedActualTokenId = parseInt(tokenId) - 1;
+      window.dispatchEvent(new CustomEvent('nftPurchased', { detail: { tokenId: purchasedActualTokenId } }));
+    } catch {}
     
     // Hide success message after 5 seconds
     setTimeout(() => {

@@ -3,6 +3,9 @@
 
 import { useState, useEffect, useMemo, useRef } from "react";
 import { TOTAL_COLLECTION_SIZE } from "@/lib/contracts";
+import { base } from "thirdweb/chains";
+import { getContract, readContract } from "thirdweb";
+import { client } from "@/lib/thirdweb";
 import {
   Select,
   SelectContent,
@@ -144,6 +147,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
   const [pricingMappings, setPricingMappings] = useState<Record<number, { price_eth: number; listing_id?: number }>>({});
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [purchasedTokens, setPurchasedTokens] = useState<Set<number>>(new Set());
   const gridRef = useRef<HTMLDivElement>(null);
   
   // Load pricing mappings (prioritize token_pricing_mappings.json which has updated listing IDs)
@@ -187,6 +191,22 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
       }
     };
     loadPricingMappings();
+  }, []);
+
+  // Listen for purchase events to mark items sold immediately
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const custom = e as CustomEvent<{ tokenId: number }>;
+      const tokenIdNum = custom.detail?.tokenId;
+      if (typeof tokenIdNum === 'number' && !Number.isNaN(tokenIdNum)) {
+        setPurchasedTokens(prev => new Set(prev).add(tokenIdNum));
+        setNfts(prev => prev.map(item => (
+          parseInt(item.tokenId) === tokenIdNum ? { ...item, isForSale: false, priceWei: '0', priceEth: 0 } : item
+        )));
+      }
+    };
+    window.addEventListener('nftPurchased', handler as EventListener);
+    return () => window.removeEventListener('nftPurchased', handler as EventListener);
   }, []);
 
   // Favorites functionality
@@ -343,6 +363,9 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
       processNFTs();
     }
   }, [allMetadata, pricingMappings]);
+
+  // For items on current page, verify on-chain ownership to reflect sold state
+  // Moved below pagination to avoid temporal dead zone
 
 
   // Preserve scroll position when filters change
@@ -516,6 +539,51 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
 
   const totalPages = Math.ceil(sortedNFTs.length / itemsPerPage) || 1;
 
+  // Verify ownership for current page items to reflect sold state from chain
+  useEffect(() => {
+    const verifyOwnership = async () => {
+      try {
+        const creator = process.env.NEXT_PUBLIC_CREATOR_ADDRESS?.toLowerCase();
+        if (!creator) return;
+
+        const contract = getContract({ client, chain: base, address: process.env.NEXT_PUBLIC_NFT_COLLECTION_ADDRESS! });
+
+        const pageItems = paginatedNFTs;
+        const results = await Promise.allSettled(pageItems.map(item => {
+          const tokenIdNum = BigInt(parseInt(item.tokenId));
+          return readContract({
+            contract,
+            method: "function ownerOf(uint256 tokenId) view returns (address)",
+            params: [tokenIdNum],
+          }) as Promise<string>;
+        }));
+
+        const soldSet = new Set<number>();
+        results.forEach((res, idx) => {
+          if (res.status === 'fulfilled') {
+            const owner = (res.value as string).toLowerCase();
+            const item = pageItems[idx];
+            if (owner !== creator) {
+              soldSet.add(parseInt(item.tokenId));
+            }
+          }
+        });
+
+        if (soldSet.size > 0) {
+          setPurchasedTokens(prev => {
+            const merged = new Set(prev);
+            soldSet.forEach(t => merged.add(t));
+            return merged;
+          });
+          setNfts(prev => prev.map(item => soldSet.has(parseInt(item.tokenId)) ? { ...item, isForSale: false, priceWei: '0', priceEth: 0 } : item));
+        }
+      } catch {
+        // ignore
+      }
+    };
+    if (paginatedNFTs.length > 0) verifyOwnership();
+  }, [paginatedNFTs]);
+
   // Update page if out of bounds
   useEffect(() => {
     if (currentPage > totalPages) {
@@ -576,16 +644,16 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
     <div className="w-full max-w-full">
       <div className="flex flex-col gap-2 mb-4 pl-2">
         {/* Header section: Title, stats, and controls all together */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           {/* Left side: Title and stats */}
           <div>
             <h2 className="text-lg font-medium">NFT Collection</h2>
             {filteredNFTs.length > 0 && (
               <>
                 <div className="text-sm font-medium mt-1">
-                  <span className="text-green-400">{filteredNFTs.length} Live</span>
+                  <span className="text-green-400">{filteredNFTs.filter(n => n.isForSale).length} Live</span>
                   <span className="text-neutral-400"> • </span>
-                  <span className="text-blue-400">0 Sold</span>
+                  <span className="text-blue-400">{filteredNFTs.filter(n => !n.isForSale).length} Sold</span>
                 </div>
                 <div className="text-xs text-neutral-500 mt-1">
                   {startIndex + 1}-{Math.min(endIndex, filteredNFTs.length)} of {filteredNFTs.length} NFTs
@@ -841,7 +909,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, onFil
                     >
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-3">
-                          <Link href={`/nft/${nft.tokenId}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+                          <Link href={`/nft/${nft.cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
                             <Image src={nft.image} alt={`${nft.name} - NFT #${nft.cardNumber}, Rank ${nft.rank}, ${nft.rarity} rarity, Tier ${nft.tier}`} width={40} height={40} className="rounded object-contain" />
                             <div>
                               <p className="text-xs font-normal text-[#FFFBEB] truncate">{nft.name}</p>

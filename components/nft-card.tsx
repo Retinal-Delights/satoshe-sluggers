@@ -216,7 +216,7 @@ export default function NFTCard({
       <div className="absolute -bottom-1 left-0 right-0 h-1 bg-black/20 blur-sm"></div>
       
       {/* NFT Image */}
-      <Link href={`/nft/${tokenId}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
+      <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
         <div className="relative w-full overflow-visible" style={{ aspectRatio: "0.8/1" }}>
           <Image
             src={showPlaceholder ? placeholder : image}
@@ -269,7 +269,7 @@ export default function NFTCard({
         <div className="flex justify-start">
           {isForSale ? (
             <Link
-              href={`/nft/${tokenId}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
+              href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
               className="px-2.5 py-1 bg-blue-500/10 border-2 border-blue-500/30 rounded-sm text-blue-400 text-xs font-medium hover:bg-blue-500/20 transition-colors"
               aria-label={`Buy ${name} for ${priceEth} ETH`}
             >
@@ -277,7 +277,7 @@ export default function NFTCard({
             </Link>
           ) : (
             <Link
-              href={`/nft/${tokenId}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
+              href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
               className="px-2.5 py-1 bg-orange-500/10 border border-orange-500/30 rounded-sm text-orange-400 text-xs font-medium hover:bg-orange-500/20 hover:border-orange-500/50 transition-colors"
               aria-label={`View sold ${name} details`}
             >
