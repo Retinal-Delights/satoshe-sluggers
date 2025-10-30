@@ -43,7 +43,7 @@ function ethToWei(ethStr: string): string {
   }
 }
 
-function main() {
+async function main(): Promise<void> {
   console.log("📖 Reading files...");
   
   // Read verified listings

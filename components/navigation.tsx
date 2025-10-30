@@ -8,7 +8,7 @@ import ConnectWalletButton from "@/components/simple-connect-button"
 import { useActiveAccount } from "thirdweb/react"
 
 interface NavigationProps {
-  activePage?: "home" | "about" | "nfts" | "sell" | "my-nfts" | "contact"
+  activePage?: "home" | "about" | "nfts" | "sell" | "my-nfts" | "contact" | "provenance"
 }
 
 export default function Navigation({ activePage = "home" }: NavigationProps) {
@@ -63,15 +63,15 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
           }`} style={{ backgroundColor: activePage === "nfts" ? "#ff0099" : "#fffbeb" }}></span>
         </Link>
         <Link
-          href="/sell"
+          href="/provenance"
           className={`text-base font-medium relative group ${
-            activePage === "sell" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
+            activePage === "provenance" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
           }`}
         >
-          SELL
+          PROVENANCE
           <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ease-out ${
-            activePage === "sell" ? "w-full" : "w-0 group-hover:w-full"
-          }`} style={{ backgroundColor: activePage === "sell" ? "#ff0099" : "#fffbeb" }}></span>
+            activePage === "provenance" ? "w-full" : "w-0 group-hover:w-full"
+          }`} style={{ backgroundColor: activePage === "provenance" ? "#ff0099" : "#fffbeb" }}></span>
         </Link>
         <Link
           href="/contact"

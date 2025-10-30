@@ -191,10 +191,10 @@ export default function ProvenancePage() {
           </h2>
           <div className="text-muted-foreground leading-relaxed max-w-6xl space-y-2 mb-12">
             <p className="text-sm sm:text-base md:text-lg font-medium">
-              Every NFT in the Satoshe Sluggers collection is permanently recorded, traceable, and verifiably authentic.
+              This record is your assurance and source of truth — verified by math, preserved by code.
             </p>
             <p className="text-sm sm:text-base md:text-lg font-medium">
-              This record is your assurance and source of truth — verified by math, preserved by code.
+              Every NFT in the Satoshe Sluggers collection is permanently recorded, traceable, and verifiably authentic.
             </p>
           </div>
         </div>

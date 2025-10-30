@@ -44,7 +44,7 @@ let metadataCache: NFTData[] | null = null;
 // Load all metadata once and cache it
 export async function loadAllNFTs(): Promise<NFTData[]> {
   if (metadataCache) {
-    return metadataCache;
+    return metadataCache ?? [];
   }
 
   try {
@@ -85,7 +85,7 @@ export async function loadAllNFTs(): Promise<NFTData[]> {
       };
     });
 
-    return metadataCache;
+    return metadataCache || [];
   } catch (error) {
     console.error('Error loading NFT data:', error);
     return [];
