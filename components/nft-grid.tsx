@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import Pagination from "@/components/ui/pagination";
 // Removed BuyDirectListingButton imports - using regular buttons to avoid RPC calls
 import NFTCard from "./nft-card";
@@ -155,7 +156,9 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
   const [pricingMappings, setPricingMappings] = useState<Record<number, { price_eth: number; listing_id?: number }>>({});
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [purchasedTokens, setPurchasedTokens] = useState<Set<number>>(new Set());
+  // Track purchased tokens for potential future use (currently only updating nfts state directly)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_purchasedTokens, setPurchasedTokens] = useState<Set<number>>(new Set());
   const gridRef = useRef<HTMLDivElement>(null);
   
   // Load pricing mappings (prioritize token_pricing_mappings.json which has updated listing IDs)
@@ -420,7 +423,11 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
     const matchesRarity =
       !selectedFilters.rarity ||
       selectedFilters.rarity.length === 0 ||
-      selectedFilters.rarity.includes(nft.rarity);
+      selectedFilters.rarity.some(filterRarity => {
+        // Normalize filter rarity by removing " (Ultra-Legendary)" suffix
+        const normalizedFilterRarity = filterRarity.replace(" (Ultra-Legendary)", "");
+        return normalizedFilterRarity === nft.rarity;
+      });
 
     const matchesBackground =
       !selectedFilters.background ||
@@ -545,7 +552,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
           return 0;
       }
     });
-  }, [filteredNFTs, sortBy, columnSort, showLive, showSold]);
+  }, [filteredNFTs, sortBy, columnSort]);
 
 
   // Pagination
@@ -664,55 +671,63 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
           {/* Left side: Title and stats */}
           <div>
             <h2 className="text-lg font-medium">NFT Collection</h2>
-            <div className="text-sm font-medium mt-1">
-              <span className="text-[#ff0099]">{TOTAL_COLLECTION_SIZE}</span>
-              <span className="text-neutral-400"> Total</span>
-              <span className="text-neutral-400"> • </span>
-              {setShowLive ? (
-                <button
-                  onClick={() => setShowLive(!showLive)}
-                  className={`transition-colors cursor-pointer ${showLive ? 'text-blue-400 hover:text-blue-300 underline' : 'text-neutral-500 hover:text-neutral-400'}`}
-                  type="button"
-                  title={isCheckingOwnership ? `Checking on-chain... (${checkedCount}/${totalToCheck})` : 'Click to filter Live NFTs'}
+            <div className="mt-2 flex items-center gap-2">
+              <ToggleGroup 
+                type="single" 
+                variant="outline" 
+                size="sm"
+                value={
+                  showLive && showSold ? "all" :
+                  showLive && !showSold ? "live" :
+                  !showLive && showSold ? "sold" :
+                  "all"
+                }
+                onValueChange={(value) => {
+                  if (value === "all") {
+                    setShowLive?.(true);
+                    setShowSold?.(true);
+                  } else if (value === "live") {
+                    setShowLive?.(true);
+                    setShowSold?.(false);
+                  } else if (value === "sold") {
+                    setShowLive?.(false);
+                    setShowSold?.(true);
+                  }
+                }}
+                className="h-7"
+              >
+                <ToggleGroupItem 
+                  value="all" 
+                  aria-label="Show all NFTs"
+                  className="h-7 px-2 text-xs data-[state=on]:bg-[#ff0099]/20 data-[state=on]:text-[#ff0099] data-[state=on]:border-[#ff0099] text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-neutral-200"
+                >
+                  All
+                </ToggleGroupItem>
+                <ToggleGroupItem 
+                  value="live" 
+                  aria-label={`Show live NFTs (${isCheckingOwnership && checkedCount < totalToCheck ? (checkedCount > 0 ? onChainLiveCount : nfts.filter(n => n.isForSale).length) : onChainLiveCount})`}
+                  className="h-7 px-2 text-xs data-[state=on]:bg-blue-500/20 data-[state=on]:text-blue-400 data-[state=on]:border-blue-500 text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-blue-300"
+                  disabled={!setShowLive}
                 >
                   {isCheckingOwnership && checkedCount < totalToCheck ? (
                     <span className="text-neutral-500">{checkedCount > 0 ? onChainLiveCount : nfts.filter(n => n.isForSale).length} Live...</span>
                   ) : (
                     `${onChainLiveCount} Live`
                   )}
-                </button>
-              ) : (
-                <span className="text-blue-400">
-                  {isCheckingOwnership && checkedCount < totalToCheck ? (
-                    <span className="text-neutral-500">{checkedCount > 0 ? onChainLiveCount : nfts.filter(n => n.isForSale).length} Live...</span>
-                  ) : (
-                    `${onChainLiveCount} Live`
-                  )}
-                </span>
-              )}
-              <span className="text-neutral-400"> • </span>
-              {setShowSold ? (
-                <button
-                  onClick={() => setShowSold(!showSold)}
-                  className={`transition-colors cursor-pointer ${showSold ? 'text-green-400 hover:text-green-300 underline' : 'text-neutral-500 hover:text-neutral-400'}`}
-                  type="button"
-                  title={isCheckingOwnership ? `Checking on-chain... (${checkedCount}/${totalToCheck})` : 'Click to filter Sold NFTs'}
+                </ToggleGroupItem>
+                <ToggleGroupItem 
+                  value="sold" 
+                  aria-label={`Show sold NFTs (${isCheckingOwnership && checkedCount < totalToCheck ? (checkedCount > 0 ? onChainSoldCount : nfts.filter(n => !n.isForSale).length) : onChainSoldCount})`}
+                  className="h-7 px-2 text-xs data-[state=on]:bg-green-500/20 data-[state=on]:text-green-400 data-[state=on]:border-green-500 text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-green-300"
+                  disabled={!setShowSold}
                 >
                   {isCheckingOwnership && checkedCount < totalToCheck ? (
                     <span className="text-neutral-500">{checkedCount > 0 ? onChainSoldCount : nfts.filter(n => !n.isForSale).length} Sold...</span>
                   ) : (
                     `${onChainSoldCount} Sold`
                   )}
-                </button>
-              ) : (
-                <span className="text-green-400">
-                  {isCheckingOwnership && checkedCount < totalToCheck ? (
-                    <span className="text-neutral-500">{checkedCount > 0 ? onChainSoldCount : nfts.filter(n => !n.isForSale).length} Sold...</span>
-                  ) : (
-                    `${onChainSoldCount} Sold`
-                  )}
-                </span>
-              )}
+                </ToggleGroupItem>
+              </ToggleGroup>
             </div>
             {filteredNFTs.length > 0 && (
               <div className="text-xs text-neutral-500 mt-1">

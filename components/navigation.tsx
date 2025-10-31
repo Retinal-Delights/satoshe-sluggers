@@ -6,6 +6,7 @@ import Image from "next/image"
 import { MobileMenu } from "@/components/mobile-menu"
 import ConnectWalletButton from "@/components/simple-connect-button"
 import { useActiveAccount } from "thirdweb/react"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 interface NavigationProps {
   activePage?: "home" | "about" | "nfts" | "sell" | "my-nfts" | "contact" | "provenance"
@@ -28,10 +29,10 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
           />
         </a>
       </div>
-      <nav className="hidden lg:flex items-center gap-6 lg:gap-7 xl:gap-8 absolute left-1/2 transform -translate-x-1/2">
+      <nav className="hidden lg:flex items-center gap-4 xl:gap-5 2xl:gap-6 absolute left-1/2 transform -translate-x-1/2">
         <Link
           href="/"
-          className={`text-base font-medium relative group ${
+          className={`text-xs lg:text-sm xl:text-base font-medium relative group ${
             activePage === "home" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
           }`}
         >
@@ -42,7 +43,7 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
         </Link>
         <Link
           href="/about"
-          className={`text-base font-medium relative group ${
+          className={`text-xs lg:text-sm xl:text-base font-medium relative group ${
             activePage === "about" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
           }`}
         >
@@ -53,7 +54,7 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
         </Link>
         <Link
           href="/nfts"
-          className={`text-base font-medium relative group ${
+          className={`text-xs lg:text-sm xl:text-base font-medium relative group ${
             activePage === "nfts" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
           }`}
         >
@@ -64,7 +65,7 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
         </Link>
         <Link
           href="/provenance"
-          className={`text-base font-medium relative group ${
+          className={`text-xs lg:text-sm xl:text-base font-medium relative group ${
             activePage === "provenance" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
           }`}
         >
@@ -75,7 +76,7 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
         </Link>
         <Link
           href="/contact"
-          className={`text-base font-medium relative group ${
+          className={`text-xs lg:text-sm xl:text-base font-medium relative group ${
             activePage === "contact" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
           }`}
         >
@@ -87,7 +88,7 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
         {account && (
           <Link
             href="/my-nfts"
-            className={`text-base font-medium relative group ${
+            className={`text-xs lg:text-sm xl:text-base font-medium relative group ${
               activePage === "my-nfts" ? "text-[#ff0099]" : "text-neutral-400 hover:text-[#fffbeb]"
             }`}
           >
@@ -98,21 +99,35 @@ export default function Navigation({ activePage = "home" }: NavigationProps) {
           </Link>
         )}
       </nav>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 lg:gap-2.5 ml-4">
         {account && (
-          <Link
-            href="/my-nfts"
-            className="hidden lg:flex items-center justify-center group hover:scale-110 transition-transform duration-200"
-            aria-label="Go to My NFTs page"
-          >
-            <Image
-              src="/icons/profile-icons/pink-profile-icon-48.png"
-              alt="My NFTs"
-              width={32}
-              height={32}
-              className="w-8 h-8"
-            />
-          </Link>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href="/my-nfts"
+                  className="hidden lg:flex items-center justify-center group hover:scale-110 transition-transform duration-200"
+                  aria-label="Profile"
+                >
+                  <Image
+                    src="/icons/profile-icons/pink-profile-icon-48.png"
+                    alt="Profile"
+                    width={28}
+                    height={28}
+                    className="w-7 h-7"
+                  />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent 
+                side="left" 
+                sideOffset={8} 
+                className="bg-neutral-800 text-[#FFFBEB] border-neutral-600"
+                collisionPadding={20}
+              >
+                <p>Profile</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         )}
         <div className="hidden lg:block">
           <ConnectWalletButton />

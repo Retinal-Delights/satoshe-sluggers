@@ -226,13 +226,12 @@ textarea {
   /* spellcheck is an HTML attribute, not a CSS property */
 }
 
-/* Hide ThirdWeb branding in PayEmbed */
+/* Hide ThirdWeb "Powered by" branding only - don't affect functional UI components */
 [data-testid*="powered"],
-[class*="powered"],
-a[href*="thirdweb"],
-[aria-label*="thirdweb"],
-[title*="thirdweb"],
-[class*="thirdweb"] {
+[class*="powered-by"],
+a[href*="thirdweb"][href*="powered"],
+[aria-label*="powered by thirdweb"],
+[title*="powered by thirdweb"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;

@@ -91,13 +91,14 @@ function NFTsPageContent() {
       Object.entries(selectedFilters).forEach(([key, value]) => {
         if (value) {
           if (Array.isArray(value) && value.length > 0) {
-            // Simple array filters
-            params.set(key, encodeURIComponent(JSON.stringify(value)))
+            // Simple array filters - URLSearchParams.set() already encodes, so no need for encodeURIComponent
+            params.set(key, JSON.stringify(value))
           } else if (typeof value === 'object' && value !== null) {
             // Nested object filters (hair, headwear)
             const hasValues = Object.values(value).some((arr: unknown) => Array.isArray(arr) && arr.length > 0)
             if (hasValues) {
-              params.set(key, encodeURIComponent(JSON.stringify(value)))
+              // URLSearchParams.set() already encodes, so no need for encodeURIComponent
+              params.set(key, JSON.stringify(value))
             }
           }
         }

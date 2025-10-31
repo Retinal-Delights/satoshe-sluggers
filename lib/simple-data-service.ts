@@ -63,25 +63,36 @@ export async function loadAllNFTs(): Promise<NFTData[]> {
 
     // Create a map of token ID to URLs for quick lookup
     const urlMap = new Map<number, { media_url: string; metadata_url: string }>();
-    urlData.forEach((item: any) => {
-      urlMap.set(item.TokenID, {
-        media_url: item['Media URL'],
-        metadata_url: item['Metadata URL']
-      });
+    urlData.forEach((item: Record<string, unknown>) => {
+      const tokenId = typeof item.TokenID === 'number' ? item.TokenID : typeof item.TokenID === 'string' ? parseInt(item.TokenID) : null;
+      const mediaUrl = typeof item['Media URL'] === 'string' ? item['Media URL'] : '';
+      const metadataUrl = typeof item['Metadata URL'] === 'string' ? item['Metadata URL'] : '';
+      if (tokenId !== null) {
+        urlMap.set(tokenId, {
+          media_url: mediaUrl,
+          metadata_url: metadataUrl
+        });
+      }
     });
 
     // Merge URLs with metadata
-    metadataCache = metadataData.map((nft: any) => {
-      const urls = urlMap.get(nft.token_id);
+    metadataCache = metadataData.map((nft: Record<string, unknown>) => {
+      const tokenId = typeof nft.token_id === 'number' ? nft.token_id : null;
+      const urls = tokenId !== null ? urlMap.get(tokenId) : undefined;
+      const image = typeof nft.image === 'string' ? nft.image : null;
+      const mergedData = nft.merged_data && typeof nft.merged_data === 'object' ? nft.merged_data as Record<string, unknown> : null;
+      const mergedMediaUrl = mergedData && typeof mergedData.media_url === 'string' ? mergedData.media_url : null;
+      const mergedMetadataUrl = mergedData && typeof mergedData.metadata_url === 'string' ? mergedData.metadata_url : null;
+      
       return {
         ...nft,
         // Ensure image field is preserved (from metadata JSON)
-        image: nft.image || nft.merged_data?.media_url || null,
+        image: image || mergedMediaUrl || null,
         merged_data: {
-          ...nft.merged_data,
+          ...(mergedData || {}),
           // Prefer merged URLs from ipfs_urls.json if available, otherwise use image field
-          media_url: urls?.media_url || nft.image || nft.merged_data?.media_url || null,
-          metadata_url: urls?.metadata_url || nft.merged_data?.metadata_url || null
+          media_url: urls?.media_url || image || mergedMediaUrl || null,
+          metadata_url: urls?.metadata_url || mergedMetadataUrl || null
         }
       };
     });

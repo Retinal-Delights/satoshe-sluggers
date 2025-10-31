@@ -11,6 +11,7 @@ Owner: Engineering
 - [x] Filters persist when opening NFT and clicking Back to Collection
 - [ ] Sorting: Rank High→Low shows rank #1 first; Rarity High→Low shows lowest % first; Price sorts correctly
 - [x] Table view shows green "Sold" pill for non‑sale items
+- [ ] **Redesign Live/Sold counts UI** - Current layout is confusing (appears as clickable tabs but unclear). Need better visual design that makes the clickable filter functionality obvious without looking like navigation tabs.
 
 ## 3) NFT Detail Page
 - [x] Image loads from IPFS (Cloudflare gateway) or falls back to `/nfts/placeholder-nft.webp`

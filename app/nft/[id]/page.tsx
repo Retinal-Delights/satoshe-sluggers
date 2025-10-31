@@ -77,6 +77,7 @@ export default function NFTDetailPage() {
   const [transactionError, setTransactionError] = useState<string | null>(null);
   const [pricingData, setPricingData] = useState<{ price_eth: number; listing_id?: number } | null>(null);
   const [ownerAddress, setOwnerAddress] = useState<string | null>(null);
+  const [ownerCheckComplete, setOwnerCheckComplete] = useState(false);
   
   const { isFavorited, toggleFavorite, isConnected } = useFavorites();
 
@@ -190,6 +191,7 @@ export default function NFTDetailPage() {
   // Load current owner from chain (ERC-721 ownerOf)
   useEffect(() => {
     const fetchOwner = async () => {
+      setOwnerCheckComplete(false);
       try {
         const contract = getContract({ client, chain: base, address: CONTRACT_ADDRESS });
         const actualTokenId = BigInt(parseInt(tokenId) - 1);
@@ -205,6 +207,8 @@ export default function NFTDetailPage() {
         }
       } catch {
         setOwnerAddress(null);
+      } finally {
+        setOwnerCheckComplete(true);
       }
     };
     fetchOwner();
@@ -244,7 +248,8 @@ export default function NFTDetailPage() {
   const listingId = pricingData?.listing_id || metadata?.merged_data?.listing_id || 0;
   const creatorAddress = process.env.NEXT_PUBLIC_CREATOR_ADDRESS?.toLowerCase();
   const isSoldOnChain = ownerAddress && creatorAddress ? ownerAddress.toLowerCase() !== creatorAddress : false;
-  const isForSale = priceEth > 0 && !isPurchased && !isSoldOnChain;
+  // Only show "Buy Now" if owner check is complete AND NFT is confirmed for sale
+  const isForSale = ownerCheckComplete && priceEth > 0 && !isPurchased && !isSoldOnChain;
 
   // Confetti celebration function
   const triggerConfetti = () => {
@@ -278,6 +283,26 @@ export default function NFTDetailPage() {
       const priceEthNumber = typeof priceEth === 'number' ? priceEth : Number(priceEth);
       window.dispatchEvent(new CustomEvent('nftPurchased', { detail: { tokenId: purchasedActualTokenId, priceEth: priceEthNumber } }));
     } catch {}
+    
+    // Refetch owner address to update sold state
+    try {
+      const contract = getContract({ client, chain: base, address: CONTRACT_ADDRESS });
+      const actualTokenId = BigInt(parseInt(tokenId) - 1);
+      const result = await readContract({
+        contract,
+        method: "function ownerOf(uint256 tokenId) view returns (address)",
+        params: [actualTokenId],
+      });
+      if (typeof result === "string") {
+        setOwnerAddress(result);
+      } else if (result && typeof result === "object" && "_value" in result) {
+        setOwnerAddress(String((result as { _value: unknown })._value));
+      }
+      setOwnerCheckComplete(true);
+    } catch {
+      // Ignore errors, owner will be fetched on next load
+      setOwnerCheckComplete(true);
+    }
     
     // Hide success message after 5 seconds
     setTimeout(() => {
@@ -641,10 +666,10 @@ export default function NFTDetailPage() {
                         className="w-3 h-3 rounded-full mr-2"
                         style={{ backgroundColor: getColorForAttribute(attr.name) }}
                       ></div>
-                      <span className="text-xs text-neutral-400">{attr.name}</span>
+                      <span className="text-sm md:text-xs text-neutral-400">{attr.name}</span>
                     </div>
-                    <div className="text-sm font-medium text-off-white mb-1">{attr.value}</div>
-                    <div className="text-xs text-neutral-400">
+                    <div className="text-base md:text-sm font-medium text-off-white mb-1">{attr.value}</div>
+                    <div className="text-sm md:text-xs text-neutral-400">
                       {attr.percentage}% • {attr.occurrence} of {TOTAL_COLLECTION_SIZE}
                     </div>
                   </div>
@@ -694,8 +719,8 @@ export default function NFTDetailPage() {
               <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-blue-500 mb-1">Buy Now Price</p>
-                    <p className="text-2xl font-bold text-blue-500">
+                    <p className="text-base md:text-sm text-blue-500 mb-1">Buy Now Price</p>
+                    <p className="text-3xl md:text-2xl font-bold text-blue-500">
                       {priceEth} ETH
                     </p>
                     {transactionState === 'pending' && (
@@ -727,31 +752,27 @@ export default function NFTDetailPage() {
               </div>
             ) : isPurchased || isSoldOnChain ? (
               <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm mb-1" style={{ color: "#10B981" }}>Sold At</p>
-                    <p className="text-2xl font-bold" style={{ color: "#10B981" }}>
-                      {priceEth} ETH
+                <div>
+                  <p className="text-base md:text-sm mb-1" style={{ color: "#10B981" }}>Purchased for</p>
+                  <p className="text-3xl md:text-2xl font-bold mb-3" style={{ color: "#10B981" }}>
+                    {priceEth > 0 ? `${priceEth} ETH` : '—'}
+                  </p>
+                  {ownerAddress && (
+                    <p className="text-sm text-neutral-400 mt-2">
+                      Owner: <a href={`https://basescan.org/address/${ownerAddress}`} target="_blank" rel="noopener noreferrer" className="text-[#10B981] underline hover:text-green-400">{ownerAddress.slice(0,6)}...{ownerAddress.slice(-4)}</a>
                     </p>
-                    {ownerAddress && (
-                      <p className="text-xs text-neutral-400 mt-1">Owner: <a href={`https://basescan.org/address/${ownerAddress}`} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FFFBEB]">{ownerAddress.slice(0,6)}...{ownerAddress.slice(-4)}</a></p>
-                    )}
+                  )}
+                  <div className="mt-4">
+                    <Link
+                      href={`https://opensea.io/assets/base/${CONTRACT_ADDRESS}/${parseInt(tokenId) - 1}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-[#10B981] hover:text-green-400 underline transition-colors"
+                    >
+                      View on OpenSea
+                      <ExternalLink className="w-4 h-4" />
+                    </Link>
                   </div>
-                  <Link
-                    href={`https://opensea.io/assets/base/${CONTRACT_ADDRESS}/${tokenId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 font-bold transition-colors duration-300 ease-in-out focus:ring-2 focus:ring-offset-2 bg-green-500 hover:bg-green-700 text-white rounded-sm flex items-center gap-2"
-                    style={{
-                      backgroundColor: "#10B981",
-                      color: "white",
-                      borderColor: "#10B981",
-                      borderRadius: "2px"
-                    }}
-                  >
-                    View on OpenSea
-                    <ExternalLink className="w-4 h-4" />
-                  </Link>
                 </div>
               </div>
             ) : (
@@ -800,43 +821,43 @@ export default function NFTDetailPage() {
             {/* Additional Details */}
             <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
               <h3 className="text-lg font-semibold mb-4 text-off-white">Collection Details</h3>
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-2 gap-4 text-base md:text-sm">
                 <div>
-                  <p className="text-neutral-400 mb-1">NFT Number</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">NFT Number</p>
                   <p className="font-normal text-off-white">{metadata?.card_number ?? parseInt(tokenId) + 1}</p>
                 </div>
                 <div>
-                  <p className="text-neutral-400 mb-1">Token ID</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">Token ID</p>
                   <p className="font-normal text-off-white">{metadata?.token_id ?? parseInt(tokenId) - 1}</p>
                 </div>
                 <div>
-                  <p className="text-neutral-400 mb-1">Collection</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">Collection</p>
                   <p className="font-normal text-off-white">
                     {metadata?.collection_number ?? "—"}
                   </p>
                 </div>
                 <div>
-                  <p className="text-neutral-400 mb-1">Edition</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">Edition</p>
                   <p className="font-normal text-off-white">{metadata?.edition ?? "—"}</p>
                 </div>
                 <div>
-                  <p className="text-neutral-400 mb-1">Series</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">Series</p>
                   <p className="font-normal text-off-white">{metadata?.series ?? "—"}</p>
                 </div>
                 <div>
-                  <p className="text-neutral-400 mb-1">Rarity Tier</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">Rarity Tier</p>
                   <p className="font-normal text-off-white">{metadata?.rarity_tier ?? "Unknown"}</p>
                 </div>
                 <div>
-                  <p className="text-neutral-400 mb-1">Rarity Score</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">Rarity Score</p>
                   <p className="font-normal text-off-white">{metadata?.rarity_score ?? "—"}</p>
                 </div>
                 <div>
-                  <p className="text-neutral-400 mb-1">Rank</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">Rank</p>
                   <p className="font-normal text-off-white">{metadata?.rank ?? "—"} of {TOTAL_COLLECTION_SIZE}</p>
                 </div>
                 <div>
-                  <p className="text-neutral-400 mb-1">Rarity Percentage</p>
+                  <p className="text-neutral-400 mb-1 text-sm md:text-xs">Rarity Percentage</p>
                   <p className="font-normal text-off-white">{metadata?.rarity_percent ?? "—"}%</p>
                 </div>
               </div>

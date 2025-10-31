@@ -147,58 +147,58 @@ export default function NFTCard({
         {/* Details Section - Full details for large grid */}
         <div className="space-y-1 pl-4 pr-2 pb-2">
           {/* Title and Favorite */}
-          <div className="flex items-start justify-between gap-2">
+          <div className="flex items-start justify-between gap-1 sm:gap-2">
             <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="flex-1 min-w-0">
-              <h3 className="font-medium text-sm leading-tight text-[#FFFBEB] truncate">
+              <h3 className="font-medium text-xs sm:text-sm lg:text-base leading-tight text-[#FFFBEB] truncate">
                 {name}
               </h3>
             </Link>
             <Button
               variant="ghost"
               size="sm"
-              className="h-6 w-6 p-0 hover:bg-transparent flex-shrink-0"
+              className="h-5 w-5 sm:h-6 sm:w-6 p-0 hover:bg-transparent flex-shrink-0"
               onClick={handleFavoriteClick}
               aria-label={isFav ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
               aria-pressed={isFav}
             >
-              <Heart className={`w-4 h-4 ${isFav ? "fill-[#ff0099] text-[#ff0099]" : "text-neutral-400 hover:text-[#ff0099] hover:outline hover:outline-1 hover:outline-[#ff0099]"}`} />
+              <Heart className={`w-3 h-3 sm:w-4 sm:h-4 ${isFav ? "fill-[#ff0099] text-[#ff0099]" : "text-neutral-400 hover:text-[#ff0099] hover:outline hover:outline-1 hover:outline-[#ff0099]"}`} />
             </Button>
           </div>
 
           {/* Stats */}
-          <div className="text-xs text-neutral-400 space-y-0.5">
-            <div className="flex justify-between">
-              <span className="text-neutral-400">Rank:</span>
-              <span className="text-neutral-400">{rank} of {TOTAL_COLLECTION_SIZE}</span>
+          <div className="text-[10px] sm:text-xs lg:text-sm text-neutral-400 space-y-0.5">
+            <div className="flex justify-between gap-1">
+              <span className="text-neutral-400 whitespace-nowrap">Rank:</span>
+              <span className="text-neutral-400 truncate text-right">{rank} of {TOTAL_COLLECTION_SIZE}</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-neutral-400">Rarity:</span>
+            <div className="flex justify-between gap-1">
+              <span className="text-neutral-400 whitespace-nowrap">Rarity:</span>
               <span className="text-neutral-400">{rarityPercent}%</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-neutral-400">Tier:</span>
-              <span className="text-neutral-400">{rarity.replace(" (Ultra-Legendary)", "")}</span>
+            <div className="flex justify-between gap-1">
+              <span className="text-neutral-400 whitespace-nowrap">Tier:</span>
+              <span className="text-neutral-400 truncate text-right min-w-0">{rarity.replace(" (Ultra-Legendary)", "")}</span>
             </div>
           </div>
 
           {/* Buy Section */}
           <div className="pt-1">
             {isForSale ? (
-              <div className="flex items-end justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs text-blue-500 font-medium mb-0.5">
+              <div className="flex items-end justify-between gap-3 sm:gap-4 lg:gap-3">
+                <div className="flex-1 min-w-0 pr-1 sm:pr-2">
+                  <div className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-blue-500 font-medium mb-0.5 whitespace-nowrap">
                     Buy Now
                   </div>
-                  <div className="text-sm text-blue-400 font-semibold">
+                  <div className="text-[10px] sm:text-xs md:text-sm lg:text-base text-blue-400 font-semibold truncate">
                     {priceEth} ETH
                   </div>
                 </div>
-                <div className="flex-shrink-0 -mt-1">
+                <div className="flex-shrink-0">
                   <Link
                     href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
-                    className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/30 rounded-sm text-blue-400 text-xs font-medium hover:bg-blue-500/20 hover:border-blue-500/50 transition-colors"
+                    className="px-2 py-1 sm:px-3 sm:py-1.5 bg-blue-500/10 border border-blue-500/30 rounded-sm text-blue-400 text-[10px] sm:text-xs lg:text-sm font-medium hover:bg-blue-500/20 hover:border-blue-500/50 transition-colors whitespace-nowrap"
                     aria-label={`Buy ${name} for ${priceEth} ETH`}
-                  >
+                    >
                     BUY
                   </Link>
                 </div>
@@ -248,7 +248,7 @@ export default function NFTCard({
         {/* NFT Info and Heart - Top Row */}
         <div className="flex items-center justify-between mb-1">
           {/* NFT Info */}
-          <div className="text-green-400 text-xs font-medium leading-tight">
+          <div className="text-green-400 text-sm md:text-xs font-medium leading-tight">
             NFT — #{cardNumber}
           </div>
           
@@ -270,7 +270,7 @@ export default function NFTCard({
           {isForSale ? (
             <Link
               href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
-              className="px-2.5 py-1 bg-blue-500/10 border-2 border-blue-500/30 rounded-sm text-blue-400 text-xs font-medium hover:bg-blue-500/20 transition-colors"
+              className="px-2.5 py-1 bg-blue-500/10 border-2 border-blue-500/30 rounded-sm text-blue-400 text-sm md:text-xs font-medium hover:bg-blue-500/20 transition-colors"
               aria-label={`Buy ${name} for ${priceEth} ETH`}
             >
               Buy
@@ -278,7 +278,7 @@ export default function NFTCard({
           ) : (
             <Link
               href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
-              className="px-2.5 py-1 bg-green-500/10 border border-green-500/30 rounded-sm text-green-400 text-xs font-medium hover:bg-green-500/20 hover:border-green-500/50 transition-colors"
+              className="px-2.5 py-1 bg-green-500/10 border border-green-500/30 rounded-sm text-green-400 text-sm md:text-xs font-medium hover:bg-green-500/20 hover:border-green-500/50 transition-colors"
               aria-label={`View sold ${name} details`}
             >
               Sold
