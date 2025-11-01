@@ -143,7 +143,7 @@ export default function NFTCard({
       <div className="overflow-visible w-full rounded-lg flex flex-col h-full bg-neutral-900 group relative">
         <div className="absolute -bottom-1 left-0 right-0 h-1 bg-black/20 blur-sm"></div>
         
-        {/* NFT Image - Proportionally scaled padding */}
+        {/* NFT Image - Proportionally scaled padding with granular breakpoints */}
         <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
           <div className="relative bg-neutral-900 w-full overflow-visible" style={{ aspectRatio: "0.9/1" }}>
             <Image
@@ -152,7 +152,7 @@ export default function NFTCard({
               fill
               priority={priority}
               loading={priority ? "eager" : "lazy"}
-              className={`object-contain p-3 sm:p-4 md:p-5 lg:p-6 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${imgLoading ? 'opacity-0' : 'opacity-100'}`}
+              className={`object-contain p-2.5 [480px]:p-3 [560px]:p-3.5 sm:p-4 [720px]:p-4.5 md:p-5 [896px]:p-5.5 lg:p-6 xl:p-7 2xl:p-8 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${imgLoading ? 'opacity-0' : 'opacity-100'}`}
               onLoad={() => {
                 setImgLoading(false);
                 setImgError(false);
@@ -174,27 +174,27 @@ export default function NFTCard({
 
         {/* Details Section - Full details for large grid - Proportionally scaled */}
         <div className="space-y-1.5 sm:space-y-2 pl-4 pr-2 pb-2">
-          {/* Title and Favorite - Fixed layout */}
+          {/* Title and Favorite - Fixed layout with granular breakpoints */}
           <div className="flex items-start gap-2 relative">
             <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="flex-1 min-w-0 pr-6">
-              <h3 className="font-medium text-sm sm:text-base md:text-lg lg:text-xl leading-tight text-[#FFFBEB] truncate">
+              <h3 className="font-medium text-[13px] [480px]:text-sm [560px]:text-[15px] sm:text-base [720px]:text-[17px] md:text-lg [896px]:text-[19px] lg:text-xl xl:text-2xl leading-tight text-[#FFFBEB] truncate">
                 {name}
               </h3>
             </Link>
             <Button
               variant="ghost"
               size="sm"
-              className="absolute right-0 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 p-0 hover:bg-transparent flex-shrink-0 z-10"
+              className="absolute right-0 top-1/2 -translate-y-1/2 h-4.5 w-4.5 [480px]:h-5 [480px]:w-5 [560px]:h-5.5 [560px]:w-5.5 sm:h-6 sm:w-6 [720px]:h-6.5 [720px]:w-6.5 md:h-7 md:w-7 [896px]:h-7.5 [896px]:w-7.5 lg:h-8 lg:w-8 xl:h-9 xl:w-9 p-0 hover:bg-transparent flex-shrink-0 z-10"
               onClick={handleFavoriteClick}
               aria-label={isFav ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
               aria-pressed={isFav}
             >
-              <Heart className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${isFav ? "fill-[#ff0099] text-[#ff0099]" : "text-neutral-400 hover:text-[#ff0099] hover:outline hover:outline-1 hover:outline-[#ff0099]"}`} />
+              <Heart className={`w-3.5 h-3.5 [480px]:w-4 [480px]:h-4 [560px]:w-4.5 [560px]:h-4.5 sm:w-5 sm:h-5 [720px]:w-5.5 [720px]:h-5.5 md:w-6 md:h-6 [896px]:w-6.5 [896px]:h-6.5 lg:w-7 lg:h-7 xl:w-8 xl:h-8 ${isFav ? "fill-[#ff0099] text-[#ff0099]" : "text-neutral-400 hover:text-[#ff0099] hover:outline hover:outline-1 hover:outline-[#ff0099]"}`} />
             </Button>
           </div>
 
-          {/* Stats - Proportionally scaled text */}
-          <div className="text-xs sm:text-sm md:text-base text-neutral-400 space-y-1">
+          {/* Stats - Proportionally scaled text with granular breakpoints */}
+          <div className="text-[11px] [480px]:text-xs [560px]:text-[13px] sm:text-sm [720px]:text-[15px] md:text-base [896px]:text-[17px] lg:text-lg xl:text-xl text-neutral-400 space-y-1">
             <div className="flex justify-between gap-2">
               <span className="text-neutral-400 whitespace-nowrap">Rank:</span>
               <span className="text-neutral-400 truncate text-right">{rank} of {TOTAL_COLLECTION_SIZE}</span>
@@ -209,22 +209,22 @@ export default function NFTCard({
             </div>
           </div>
 
-          {/* Buy Section - Proportionally scaled */}
+          {/* Buy Section - Proportionally scaled with granular breakpoints */}
           <div className="pt-2">
             {isForSale ? (
               <div className="flex items-end justify-between gap-2 sm:gap-3">
                 <div className="flex-1 min-w-0 pr-1">
-                  <div className="text-xs sm:text-sm md:text-base text-blue-500 font-medium mb-1 whitespace-nowrap">
+                  <div className="text-[11px] [480px]:text-xs [560px]:text-[13px] sm:text-sm [720px]:text-[15px] md:text-base [896px]:text-[17px] lg:text-lg xl:text-xl text-blue-500 font-medium mb-1 whitespace-nowrap">
                     Buy Now
                   </div>
-                  <div className="text-sm sm:text-base md:text-lg text-blue-400 font-semibold truncate">
+                  <div className="text-[13px] [480px]:text-sm [560px]:text-[15px] sm:text-base [720px]:text-[17px] md:text-lg [896px]:text-[19px] lg:text-xl xl:text-2xl text-blue-400 font-semibold truncate">
                     {priceEth} ETH
                   </div>
                 </div>
                 <div className="flex-shrink-0">
                   <Link
                     href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
-                    className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-blue-500/10 border border-blue-500/30 rounded-sm text-blue-400 text-xs sm:text-sm md:text-base font-medium hover:bg-blue-500/20 hover:border-blue-500/50 transition-colors whitespace-nowrap"
+                    className="px-3 py-1.5 [480px]:px-3.5 [480px]:py-1.5 [560px]:px-4 [560px]:py-2 sm:px-4.5 sm:py-2 [720px]:px-5 [720px]:py-2.5 md:px-5.5 md:py-2.5 [896px]:px-6 [896px]:py-3 lg:px-7 lg:py-3.5 xl:px-8 xl:py-4 bg-blue-500/10 border border-blue-500/30 rounded-sm text-blue-400 text-[11px] [480px]:text-xs [560px]:text-[13px] sm:text-sm [720px]:text-[15px] md:text-base [896px]:text-[17px] lg:text-lg xl:text-xl font-medium hover:bg-blue-500/20 hover:border-blue-500/50 transition-colors whitespace-nowrap"
                     aria-label={`Buy ${name} for ${priceEth} ETH`}
                     >
                     BUY
@@ -243,7 +243,7 @@ export default function NFTCard({
     <div className="overflow-visible w-full max-w-full mx-auto rounded-lg flex flex-col h-full bg-neutral-900 group relative">
       <div className="absolute -bottom-1 left-0 right-0 h-1 bg-black/20 blur-sm"></div>
       
-      {/* NFT Image - Proportionally scaled padding */}
+      {/* NFT Image - Proportionally scaled padding with granular breakpoints */}
       <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
         <div className="relative w-full overflow-visible" style={{ aspectRatio: "0.8/1" }}>
           <Image
@@ -252,7 +252,7 @@ export default function NFTCard({
             fill
             priority={priority}
             loading={priority ? "eager" : "lazy"}
-            className={`object-contain p-2 sm:p-3 md:p-4 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${imgLoading ? 'opacity-0' : 'opacity-100'}`}
+            className={`object-contain p-1.5 [480px]:p-2 [560px]:p-2.5 sm:p-3 [720px]:p-3.5 md:p-4 [896px]:p-4.5 lg:p-5 xl:p-6 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${imgLoading ? 'opacity-0' : 'opacity-100'}`}
             onLoad={() => {
               setImgLoading(false);
               setImgError(false);
@@ -287,30 +287,30 @@ export default function NFTCard({
       <div className="pl-3 pr-2 sm:pl-4 sm:pr-3 -mt-1 pb-2 flex flex-col">
         {/* NFT Info and Heart - Top Row - Fixed layout to prevent truncation */}
         <div className="flex items-center gap-1.5 mb-1 relative">
-          {/* NFT Info - Full width with proper truncation, accounting for heart icon space */}
-          <div className="text-green-400 text-xs sm:text-sm md:text-base font-medium leading-tight flex-1 min-w-0 pr-6">
+          {/* NFT Info - Full width with proper truncation, accounting for heart icon space - Granular breakpoints */}
+          <div className="text-green-400 text-[11px] [480px]:text-xs [560px]:text-[13px] sm:text-sm [720px]:text-[15px] md:text-base [896px]:text-[17px] lg:text-lg xl:text-xl font-medium leading-tight flex-1 min-w-0 pr-6">
             <span className="block truncate">NFT — #{cardNumber}</span>
           </div>
           
-          {/* Heart Icon - Absolute positioned to not interfere with text flow */}
+          {/* Heart Icon - Absolute positioned to not interfere with text flow - Granular sizing */}
           <Button
             variant="ghost"
             size="sm"
-            className="absolute right-0 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 p-0 hover:bg-transparent flex-shrink-0 z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 h-4.5 w-4.5 [480px]:h-5 [480px]:w-5 [560px]:h-5.5 [560px]:w-5.5 sm:h-6 sm:w-6 [720px]:h-6.5 [720px]:w-6.5 md:h-7 md:w-7 [896px]:h-7.5 [896px]:w-7.5 lg:h-8 lg:w-8 p-0 hover:bg-transparent flex-shrink-0 z-10"
             onClick={handleFavoriteClick}
             aria-label={isFav ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
             aria-pressed={isFav}
           >
-            <Heart className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${isFav ? "fill-[#ff0099] text-[#ff0099]" : "text-[#FFFBEB] hover:text-[#ff0099] hover:outline hover:outline-1 hover:outline-[#ff0099]"}`} />
+            <Heart className={`w-3.5 h-3.5 [480px]:w-4 [480px]:h-4 [560px]:w-4.5 [560px]:h-4.5 sm:w-5 sm:h-5 [720px]:w-5.5 [720px]:h-5.5 md:w-6 md:h-6 [896px]:w-6.5 [896px]:h-6.5 lg:w-7 lg:h-7 xl:w-8 xl:h-8 ${isFav ? "fill-[#ff0099] text-[#ff0099]" : "text-[#FFFBEB] hover:text-[#ff0099] hover:outline hover:outline-1 hover:outline-[#ff0099]"}`} />
           </Button>
         </div>
 
-        {/* Buy Button - Bottom Row - Proportionally scaled */}
+        {/* Buy Button - Bottom Row - Proportionally scaled with granular breakpoints */}
         <div className="flex justify-start mt-1">
           {isForSale ? (
             <Link
               href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
-              className="px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-blue-500/10 border-2 border-blue-500/30 rounded-sm text-blue-400 text-xs sm:text-sm md:text-base font-medium hover:bg-blue-500/20 transition-colors"
+              className="px-2 py-0.5 [480px]:px-2.5 [480px]:py-1 [560px]:px-3 [560px]:py-1 sm:px-3.5 sm:py-1.5 [720px]:px-4 [720px]:py-1.5 md:px-4.5 md:py-2 [896px]:px-5 [896px]:py-2 lg:px-5.5 lg:py-2.5 xl:px-6 xl:py-3 bg-blue-500/10 border-2 border-blue-500/30 rounded-sm text-blue-400 text-[11px] [480px]:text-xs [560px]:text-[13px] sm:text-sm [720px]:text-[15px] md:text-base [896px]:text-[17px] lg:text-lg xl:text-xl font-medium hover:bg-blue-500/20 transition-colors"
               aria-label={`Buy ${name} for ${priceEth} ETH`}
             >
               Buy
@@ -318,7 +318,7 @@ export default function NFTCard({
           ) : (
             <Link
               href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`}
-              className="px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-green-500/10 border border-green-500/30 rounded-sm text-green-400 text-xs sm:text-sm md:text-base font-medium hover:bg-green-500/20 hover:border-green-500/50 transition-colors"
+              className="px-2 py-0.5 [480px]:px-2.5 [480px]:py-1 [560px]:px-3 [560px]:py-1 sm:px-3.5 sm:py-1.5 [720px]:px-4 [720px]:py-1.5 md:px-4.5 md:py-2 [896px]:px-5 [896px]:py-2 lg:px-5.5 lg:py-2.5 xl:px-6 xl:py-3 bg-green-500/10 border border-green-500/30 rounded-sm text-green-400 text-[11px] [480px]:text-xs [560px]:text-[13px] sm:text-sm [720px]:text-[15px] md:text-base [896px]:text-[17px] lg:text-lg xl:text-xl font-medium hover:bg-green-500/20 hover:border-green-500/50 transition-colors"
               aria-label={`View sold ${name} details`}
             >
               Sold
