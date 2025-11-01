@@ -873,13 +873,13 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
           {(viewMode === 'grid-large' || viewMode === 'grid-medium' || viewMode === 'grid-small') && (
             <div ref={gridRef} className={`mt-4 mb-8 grid ${
               viewMode === 'grid-large' ? 'gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5' :
-              viewMode === 'grid-medium' ? 'gap-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7' :
+              viewMode === 'grid-medium' ? 'gap-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6' :
               'gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8'
             }`}>
               {paginatedNFTs.map((nft, index) => {
                 // Prioritize loading first 12-16 images (first visible rows depending on view mode)
                 // This ensures above-the-fold images load immediately
-                const imagesPerRow = viewMode === 'grid-large' ? 5 : viewMode === 'grid-medium' ? 7 : 8;
+                const imagesPerRow = viewMode === 'grid-large' ? 5 : viewMode === 'grid-medium' ? 6 : 8;
                 const priorityThreshold = imagesPerRow * 2; // First 2 rows
                 const isPriority = index < priorityThreshold;
                 

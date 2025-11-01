@@ -45,14 +45,12 @@ export default function NFTCard({
   isConnected = false,
   priority = false,
 }: NFTCardProps) {
-  const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
   const [imgLoading, setImgLoading] = useState(true);
   const placeholder = "/nfts/placeholder-nft.webp";
   
   // Ensure we have a valid image URL, default to placeholder if not
   const imageUrl = image && image.trim() !== "" && image !== placeholder ? image : placeholder;
-  const showPlaceholder = !imgLoaded || imgError || !image || image.trim() === "" || image === placeholder;
   
   // For IPFS URLs, we need to use unoptimized to avoid Next.js Image optimization issues
   const isIpfsUrl = Boolean(
@@ -111,28 +109,24 @@ export default function NFTCard({
         <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
           <div className="relative bg-neutral-900 w-full overflow-visible" style={{ aspectRatio: "0.9/1" }}>
             <Image
-              src={showPlaceholder ? placeholder : imageUrl}
+              src={imageUrl}
               alt={`${name} - NFT #${cardNumber}, Rank ${rank}, ${rarity} rarity, Tier ${tier}`}
               fill
               priority={priority}
               loading={priority ? "eager" : "lazy"}
-              className={`object-contain p-2 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
+              className={`object-contain p-2 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${imgLoading ? 'opacity-0' : 'opacity-100'}`}
               onLoad={() => {
-                if (!showPlaceholder) {
-                  setImgLoaded(true);
-                  setImgLoading(false);
-                  setImgError(false);
-                }
+                setImgLoading(false);
+                setImgError(false);
               }}
               onError={() => {
                 setImgError(true);
                 setImgLoading(false);
-                setImgLoaded(false);
               }}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               unoptimized={isIpfsUrl}
             />
-            {imgLoading && !showPlaceholder && (
+            {imgLoading && imageUrl !== placeholder && (
               <div className="absolute inset-0 bg-neutral-900/80 flex items-center justify-center">
                 <div className="animate-pulse text-neutral-400 text-sm">Loading...</div>
               </div>
@@ -153,28 +147,24 @@ export default function NFTCard({
         <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
           <div className="relative bg-neutral-900 w-full overflow-visible" style={{ aspectRatio: "0.9/1" }}>
             <Image
-              src={showPlaceholder ? placeholder : imageUrl}
+              src={imageUrl}
               alt={`${name} - NFT #${cardNumber}, Rank ${rank}, ${rarity} rarity, Tier ${tier}`}
               fill
               priority={priority}
               loading={priority ? "eager" : "lazy"}
-              className={`object-contain p-2 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
+              className={`object-contain p-2 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${imgLoading ? 'opacity-0' : 'opacity-100'}`}
               onLoad={() => {
-                if (!showPlaceholder) {
-                  setImgLoaded(true);
-                  setImgLoading(false);
-                  setImgError(false);
-                }
+                setImgLoading(false);
+                setImgError(false);
               }}
               onError={() => {
                 setImgError(true);
                 setImgLoading(false);
-                setImgLoaded(false);
               }}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               unoptimized={isIpfsUrl}
             />
-            {imgLoading && !showPlaceholder && (
+            {imgLoading && imageUrl !== placeholder && (
               <div className="absolute inset-0 bg-neutral-900/80 flex items-center justify-center">
                 <div className="animate-pulse text-neutral-400 text-sm">Loading...</div>
               </div>
@@ -185,9 +175,9 @@ export default function NFTCard({
         {/* Details Section - Full details for large grid */}
         <div className="space-y-1 pl-4 pr-2 pb-2">
           {/* Title and Favorite */}
-          <div className="flex items-start justify-between gap-1 sm:gap-2">
-            <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="flex-1 min-w-0">
-              <h3 className="font-medium text-[10px] sm:text-xs md:text-sm lg:text-base leading-tight text-[#FFFBEB] truncate">
+          <div className="flex items-start justify-between gap-1.5 sm:gap-2">
+            <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="flex-1 min-w-0 pr-1">
+              <h3 className="font-medium text-[9px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base leading-tight text-[#FFFBEB] truncate">
                 {name}
               </h3>
             </Link>
@@ -257,30 +247,36 @@ export default function NFTCard({
       <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
         <div className="relative w-full overflow-visible" style={{ aspectRatio: "0.8/1" }}>
           <Image
-            src={showPlaceholder ? placeholder : imageUrl}
+            src={imageUrl}
             alt={name}
             fill
             priority={priority}
             loading={priority ? "eager" : "lazy"}
-            className={`object-contain p-1 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
+            className={`object-contain p-1 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${imgLoading ? 'opacity-0' : 'opacity-100'}`}
             onLoad={() => {
-              if (!showPlaceholder) {
-                setImgLoaded(true);
-                setImgLoading(false);
-                setImgError(false);
-              }
+              setImgLoading(false);
+              setImgError(false);
             }}
             onError={() => {
               setImgError(true);
               setImgLoading(false);
-              setImgLoaded(false);
             }}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             unoptimized={imageUrl.startsWith('https://') && (imageUrl.includes('ipfs') || imageUrl.includes('cloudflare-ipfs'))}
           />
-          {imgLoading && !showPlaceholder && (
+          {imgLoading && imageUrl !== placeholder && (
             <div className="absolute inset-0 bg-neutral-900/80 flex items-center justify-center">
               <div className="animate-pulse text-neutral-400 text-sm">Loading...</div>
+            </div>
+          )}
+          {imgError && imageUrl !== placeholder && (
+            <div className="absolute inset-0 bg-neutral-900 flex items-center justify-center">
+              <Image
+                src={placeholder}
+                alt="Placeholder"
+                fill
+                className="object-contain p-2 opacity-50"
+              />
             </div>
           )}
           
@@ -290,22 +286,22 @@ export default function NFTCard({
       {/* NFT Details Section - Medium grid design */}
       <div className="pl-3 pr-2 sm:pl-4 sm:pr-3 -mt-1 pb-2 flex flex-col">
         {/* NFT Info and Heart - Top Row */}
-        <div className="flex items-center justify-between mb-1">
-          {/* NFT Info */}
-          <div className="text-green-400 text-[10px] sm:text-xs md:text-sm font-medium leading-tight truncate flex-1 min-w-0">
+        <div className="flex items-center justify-between gap-1.5 mb-1">
+          {/* NFT Info - Now with better spacing and truncation */}
+          <div className="text-green-400 text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-medium leading-tight truncate flex-1 min-w-0 pr-1">
             NFT — #{cardNumber}
           </div>
           
-          {/* Heart Icon */}
+          {/* Heart Icon - Smaller to give more space */}
           <Button
             variant="ghost"
             size="sm"
-            className="h-5 w-5 sm:h-6 sm:w-6 p-0 hover:bg-transparent flex-shrink-0"
+            className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 p-0 hover:bg-transparent flex-shrink-0"
             onClick={handleFavoriteClick}
             aria-label={isFav ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
             aria-pressed={isFav}
           >
-            <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isFav ? "fill-[#ff0099] text-[#ff0099]" : "text-[#FFFBEB] hover:text-[#ff0099] hover:outline hover:outline-1 hover:outline-[#ff0099]"}`} />
+            <Heart className={`w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 ${isFav ? "fill-[#ff0099] text-[#ff0099]" : "text-[#FFFBEB] hover:text-[#ff0099] hover:outline hover:outline-1 hover:outline-[#ff0099]"}`} />
           </Button>
         </div>
 
