@@ -42,7 +42,20 @@ export default function NFTCard({
   const [imgError, setImgError] = useState(false);
   const [imgLoading, setImgLoading] = useState(true);
   const placeholder = "/nfts/placeholder-nft.webp";
-  const showPlaceholder = !imgLoaded || imgError;
+  
+  // Ensure we have a valid image URL, default to placeholder if not
+  const imageUrl = image && image.trim() !== "" && image !== placeholder ? image : placeholder;
+  const showPlaceholder = !imgLoaded || imgError || !image || image.trim() === "" || image === placeholder;
+  
+  // For IPFS URLs, we need to use unoptimized to avoid Next.js Image optimization issues
+  const isIpfsUrl = Boolean(
+    imageUrl && 
+    typeof imageUrl === 'string' && (
+      imageUrl.startsWith('https://cloudflare-ipfs.com') || 
+      imageUrl.startsWith('https://ipfs.io') ||
+      imageUrl.includes('/ipfs/')
+    )
+  );
 
   // Favorites functionality
   const { isFavorited, toggleFavorite, isConnected } = useFavorites();
@@ -85,20 +98,25 @@ export default function NFTCard({
         <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
           <div className="relative bg-neutral-900 w-full overflow-visible" style={{ aspectRatio: "0.9/1" }}>
             <Image
-              src={showPlaceholder ? placeholder : image}
+              src={showPlaceholder ? placeholder : imageUrl}
               alt={`${name} - NFT #${cardNumber}, Rank ${rank}, ${rarity} rarity, Tier ${tier}`}
               fill
               loading="lazy"
               className={`object-contain p-2 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
               onLoad={() => {
-                setImgLoaded(true);
-                setImgLoading(false);
+                if (!showPlaceholder) {
+                  setImgLoaded(true);
+                  setImgLoading(false);
+                  setImgError(false);
+                }
               }}
               onError={() => {
                 setImgError(true);
                 setImgLoading(false);
+                setImgLoaded(false);
               }}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              unoptimized={isIpfsUrl}
             />
             {imgLoading && !showPlaceholder && (
               <div className="absolute inset-0 bg-neutral-900/80 flex items-center justify-center">
@@ -121,20 +139,25 @@ export default function NFTCard({
         <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
           <div className="relative bg-neutral-900 w-full overflow-visible" style={{ aspectRatio: "0.9/1" }}>
             <Image
-              src={showPlaceholder ? placeholder : image}
+              src={showPlaceholder ? placeholder : imageUrl}
               alt={`${name} - NFT #${cardNumber}, Rank ${rank}, ${rarity} rarity, Tier ${tier}`}
               fill
               loading="lazy"
               className={`object-contain p-2 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
               onLoad={() => {
-                setImgLoaded(true);
-                setImgLoading(false);
+                if (!showPlaceholder) {
+                  setImgLoaded(true);
+                  setImgLoading(false);
+                  setImgError(false);
+                }
               }}
               onError={() => {
                 setImgError(true);
                 setImgLoading(false);
+                setImgLoaded(false);
               }}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              unoptimized={isIpfsUrl}
             />
             {imgLoading && !showPlaceholder && (
               <div className="absolute inset-0 bg-neutral-900/80 flex items-center justify-center">
@@ -219,20 +242,25 @@ export default function NFTCard({
       <Link href={`/nft/${cardNumber}${typeof window !== 'undefined' && window.location.search ? `?returnTo=${encodeURIComponent(`/nfts${window.location.search}`)}` : ''}`} className="block w-full">
         <div className="relative w-full overflow-visible" style={{ aspectRatio: "0.8/1" }}>
           <Image
-            src={showPlaceholder ? placeholder : image}
+            src={showPlaceholder ? placeholder : imageUrl}
             alt={name}
             fill
             loading="lazy"
             className={`object-contain p-1 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
             onLoad={() => {
-              setImgLoaded(true);
-              setImgLoading(false);
+              if (!showPlaceholder) {
+                setImgLoaded(true);
+                setImgLoading(false);
+                setImgError(false);
+              }
             }}
             onError={() => {
               setImgError(true);
               setImgLoading(false);
+              setImgLoaded(false);
             }}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            unoptimized={imageUrl.startsWith('https://') && (imageUrl.includes('ipfs') || imageUrl.includes('cloudflare-ipfs'))}
           />
           {imgLoading && !showPlaceholder && (
             <div className="absolute inset-0 bg-neutral-900/80 flex items-center justify-center">

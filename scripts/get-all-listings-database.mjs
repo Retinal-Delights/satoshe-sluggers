@@ -6,13 +6,25 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// SECURITY: No fallbacks - fail hard if env vars are missing
+const CLIENT_ID = process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID;
+const MARKETPLACE_ADDRESS = process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS;
+
+if (!CLIENT_ID) {
+  throw new Error("SECURITY ERROR: Missing NEXT_PUBLIC_THIRDWEB_CLIENT_ID environment variable. No fallbacks allowed.");
+}
+
+if (!MARKETPLACE_ADDRESS) {
+  throw new Error("SECURITY ERROR: Missing NEXT_PUBLIC_MARKETPLACE_ADDRESS environment variable. No fallbacks allowed.");
+}
+
 const client = createThirdwebClient({
-  clientId: process.env.THIRDWEB_CLIENT_ID || process.env.INSIGHT_CLIENT_ID,
+  clientId: CLIENT_ID,
 });
 
 const marketplace = getContract({
   client,
-  address: process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS,
+  address: MARKETPLACE_ADDRESS,
   chain: base,
 });
 

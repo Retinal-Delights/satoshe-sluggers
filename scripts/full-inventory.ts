@@ -8,6 +8,10 @@ import {
   import { base } from "thirdweb/chains";
   import { writeFileSync } from "fs";
   import { join } from "path";
+  import * as dotenv from "dotenv";
+
+  // Load environment variables
+  dotenv.config();
 
   type TokenInfo = {
     tokenId: string;
@@ -20,11 +24,20 @@ import {
     status?: string;
   };
   
+  // Load environment variables
+  // SECURITY: No fallbacks - fail hard if env vars are missing
+  const CLIENT_ID = process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID;
+  const NFT_COLLECTION_ADDRESS = process.env.NEXT_PUBLIC_NFT_COLLECTION_ADDRESS;
+  const MARKETPLACE_ADDRESS = process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS;
+
+  if (!CLIENT_ID || !NFT_COLLECTION_ADDRESS || !MARKETPLACE_ADDRESS) {
+    throw new Error("SECURITY ERROR: Missing required environment variables. Please set NEXT_PUBLIC_THIRDWEB_CLIENT_ID, NEXT_PUBLIC_NFT_COLLECTION_ADDRESS, and NEXT_PUBLIC_MARKETPLACE_ADDRESS. No fallbacks allowed.");
+  }
+
+  // TypeScript now knows these are defined after validation
   const client = createThirdwebClient({
-    clientId: "cf2e2081218cb0511c735f95e9b5d186",
+    clientId: CLIENT_ID as string,
   });
-  const NFT_COLLECTION_ADDRESS = "0x53b062474eF48FD1aE6798f9982c58Ec0267c2Fc";
-  const MARKETPLACE_ADDRESS = "0x187A56dDfCcc96AA9f4FaAA8C0fE57388820A817";
   const START_TOKEN_ID = 0;
   const END_TOKEN_ID = 7776; // inclusive
   
@@ -40,12 +53,12 @@ import {
     const nftContract = getContract({
       client,
       chain: base,
-      address: NFT_COLLECTION_ADDRESS,
+      address: NFT_COLLECTION_ADDRESS as string,
     });
     const marketplaceContract = getContract({
       client,
       chain: base,
-      address: MARKETPLACE_ADDRESS,
+      address: MARKETPLACE_ADDRESS as string,
     });
   
     // 1. Build NFT/tokenId base info & owners

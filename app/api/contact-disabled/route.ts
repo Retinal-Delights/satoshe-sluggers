@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY || 'dummy-key-for-build')
+// SECURITY: No fallbacks - fail hard if env var missing
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+if (!RESEND_API_KEY) {
+  // This route is disabled, but if enabled, it should fail without API key
+  throw new Error("SECURITY ERROR: Missing RESEND_API_KEY environment variable. No fallbacks allowed.");
+}
+const resend = new Resend(RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,8 +32,17 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: `Satoshe Sluggers <noreply@${process.env.EMAIL_DOMAIN || 'satoshesluggers.com'}>`,
-      to: [process.env.CONTACT_EMAIL || 'hello@satoshesluggers.com'],
+      // SECURITY: No fallbacks - require env vars
+      from: (() => {
+        const domain = process.env.EMAIL_DOMAIN;
+        if (!domain) throw new Error("SECURITY ERROR: Missing EMAIL_DOMAIN environment variable. No fallbacks allowed.");
+        return `Satoshe Sluggers <noreply@${domain}>`;
+      })(),
+      to: (() => {
+        const email = process.env.CONTACT_EMAIL;
+        if (!email) throw new Error("SECURITY ERROR: Missing CONTACT_EMAIL environment variable. No fallbacks allowed.");
+        return [email];
+      })(),
       subject: `Contact Form: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

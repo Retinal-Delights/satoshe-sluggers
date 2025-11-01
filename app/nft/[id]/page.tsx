@@ -448,8 +448,8 @@ export default function NFTDetailPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
-          {/* Left Column - Image */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">
+          {/* Left Column - Image and metadata links */}
           <div className="space-y-6 order-1 lg:order-1">
             {/* NFT Image Card */}
             <div className="relative" style={{ aspectRatio: "2700/3000" }}>
@@ -461,12 +461,13 @@ export default function NFTDetailPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain"
                   onError={() => setImageUrl("/nfts/placeholder-nft.webp")}
+                  unoptimized={Boolean(imageUrl && typeof imageUrl === 'string' && (imageUrl.includes('/ipfs/') || imageUrl.includes('cloudflare-ipfs') || imageUrl.includes('ipfs.io')))}
                 />
               </div>
             </div>
 
-            {/* Artist and Platform - Two Column Layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Artist and Platform - Two Column Layout - Mobile order-6 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 order-6 lg:order-none">
               <a
                 href="https://kristenwoerdeman.com"
                 target="_blank"
@@ -548,8 +549,8 @@ export default function NFTDetailPage() {
               </a>
             </div>
 
-            {/* IPFS Links - CID Information */}
-            <div className="space-y-3">
+            {/* IPFS Links - CID Information - Mobile order-7 */}
+            <div className="space-y-3 order-7 lg:order-none">
                 <a
                   href={metadata?.merged_data?.metadata_url}
                   target="_blank"
@@ -655,8 +656,8 @@ export default function NFTDetailPage() {
                 </a>
               </div>
 
-            {/* Attributes - 3 rows, 2 columns */}
-            <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
+            {/* Attributes - 3 rows, 2 columns - Mobile order-9 */}
+            <div className="bg-neutral-800 p-4 rounded border border-neutral-700 order-9 lg:order-none">
               <h3 className="text-lg font-semibold mb-4 text-off-white">Attributes</h3>
               <div className="grid grid-cols-2 gap-3">
                 {attributes.map((attr: { name: string; value: string; percentage?: number; occurrence?: number }, index: number) => (
@@ -680,9 +681,9 @@ export default function NFTDetailPage() {
           </div>
 
           {/* Right Column - NFT Details */}
-          <div className="space-y-6 order-2 lg:order-2">
-            {/* NFT Name with Heart Icon */}
-            <div className="flex items-start justify-between gap-4">
+          <div className="space-y-6 order-2 lg:order-2 flex flex-col">
+            {/* NFT Name with Heart Icon - Mobile order-2 (after image) */}
+            <div className="flex items-start justify-between gap-4 order-2 lg:order-none">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-off-white">
                 {metadata?.name || `Satoshe Slugger #${displayNftNumber}`}
               </h1>
@@ -714,13 +715,13 @@ export default function NFTDetailPage() {
               </div>
             )}
 
-            {/* Buy Now Section - Simplified */}
+            {/* Buy Now Section - Simplified - Mobile order-3 */}
             {isForSale ? (
-              <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-base md:text-sm text-blue-500 mb-1">Buy Now Price</p>
-                    <p className="text-3xl md:text-2xl font-bold text-blue-500">
+              <div className="bg-neutral-800 p-4 rounded border border-neutral-700 order-3 lg:order-none">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+                  <div className="flex-1">
+                    <p className="text-sm md:text-base text-blue-500 mb-1">Buy Now Price</p>
+                    <p className="text-2xl sm:text-3xl md:text-2xl font-bold text-blue-500">
                       {priceEth} ETH
                     </p>
                     {transactionState === 'pending' && (
@@ -738,7 +739,7 @@ export default function NFTDetailPage() {
                     onTransactionSent={handleTransactionPending}
                     onTransactionConfirmed={handleTransactionSuccess}
                     onError={handleTransactionError}
-                    className="px-6 py-3 font-bold transition-all duration-500 ease-out focus:ring-2 focus:ring-offset-2 text-white rounded-sm disabled:opacity-50 disabled:cursor-not-allowed hover:!bg-blue-700"
+                    className="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-bold transition-all duration-500 ease-out focus:ring-2 focus:ring-offset-2 text-white rounded-sm disabled:opacity-50 disabled:cursor-not-allowed hover:!bg-blue-700 w-full sm:w-auto"
                     style={{
                       backgroundColor: transactionState === 'pending' ? "#6B7280" : "#3B82F6",
                       color: "white",
@@ -751,10 +752,10 @@ export default function NFTDetailPage() {
                 </div>
               </div>
             ) : isPurchased || isSoldOnChain ? (
-              <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
+              <div className="bg-neutral-800 p-4 rounded border border-neutral-700 order-3 lg:order-none">
                 <div>
-                  <p className="text-base md:text-sm mb-1" style={{ color: "#10B981" }}>Purchased for</p>
-                  <p className="text-3xl md:text-2xl font-bold mb-3" style={{ color: "#10B981" }}>
+                  <p className="text-sm md:text-base mb-1" style={{ color: "#10B981" }}>Purchased for</p>
+                  <p className="text-2xl sm:text-3xl md:text-2xl font-bold mb-3" style={{ color: "#10B981" }}>
                     {priceEth > 0 ? `${priceEth} ETH` : '—'}
                   </p>
                   {ownerAddress && (
@@ -776,7 +777,7 @@ export default function NFTDetailPage() {
                 </div>
               </div>
             ) : (
-              <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
+              <div className="bg-neutral-800 p-4 rounded border border-neutral-700 order-3 lg:order-none">
                 <p className="text-blue-400 text-center">This NFT is not currently for sale</p>
               </div>
             )}
@@ -818,8 +819,8 @@ export default function NFTDetailPage() {
 
 
 
-            {/* Additional Details */}
-            <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
+            {/* Additional Details - Mobile order-4 */}
+            <div className="bg-neutral-800 p-4 rounded border border-neutral-700 order-4 lg:order-none">
               <h3 className="text-lg font-semibold mb-4 text-off-white">Collection Details</h3>
               <div className="grid grid-cols-2 gap-4 text-base md:text-sm">
                 <div>
@@ -864,8 +865,8 @@ export default function NFTDetailPage() {
             </div>
 
 
-            {/* Contract Details - Moved from Women's Baseball Card */}
-            <div className="bg-neutral-800 p-4 rounded border border-neutral-700">
+            {/* Contract Details - Mobile order-5 */}
+            <div className="bg-neutral-800 p-4 rounded border border-neutral-700 order-5 lg:order-none">
               <h3 className="text-lg font-semibold mb-4 text-off-white">Contract Details</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between items-center">
@@ -917,8 +918,9 @@ export default function NFTDetailPage() {
                 </div>
             </div>
 
-            {/* Rarity Distribution - Right Side, No Box */}
-            <h3 className="text-lg font-semibold mb-4 text-off-white">Rarity Distribution</h3>
+            {/* Rarity Distribution - Mobile order-10 */}
+            <div className="order-10 lg:order-none">
+              <h3 className="text-lg font-semibold mb-4 text-off-white">Rarity Distribution</h3>
             {attributes.length > 0 ? (
               <AttributeRarityChart
                 attributes={attributes.map((attr: { name: string; value: string; percentage?: number; occurrence?: number }) => ({
@@ -937,6 +939,7 @@ export default function NFTDetailPage() {
                 <p className="text-xs text-neutral-500 mt-1">Metadata: {metadata ? 'Loaded' : 'Not loaded'}</p>
               </div>
             )}
+            </div>
 
 
 

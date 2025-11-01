@@ -1,33 +1,17 @@
 // components/simple-connect-button.tsx
 import { ConnectButton, darkTheme } from "thirdweb/react";
 import { client as sharedClient } from "@/lib/thirdweb";
-import { inAppWallet, createWallet } from "thirdweb/wallets";
+import { createWallet } from "thirdweb/wallets";
 
 // Use shared client configured via env (no insecure fallbacks)
 const client = sharedClient;
 
 // Define available wallets
 const wallets = [
-  inAppWallet({
-    auth: {
-      options: [
-        "google",
-        "discord",
-        "telegram",
-        "farcaster",
-        "email",
-        "x",
-        "github",
-        "tiktok",
-        "passkey",
-      ],
-    },
-  }),
-  createWallet("io.metamask"),
   createWallet("com.coinbase.wallet"),
-  createWallet("me.rainbow"),
-  createWallet("com.ledger"),
+  createWallet("io.metamask"),
   createWallet("walletConnect"),
+  createWallet("com.trustwallet.app"),
 ];
 
 // Main ConnectButton component
@@ -37,40 +21,39 @@ export default function SimpleConnectButton() {
       client={client}
       connectButton={{ label: "CONNECT" }}
       connectModal={{
-        size: "wide",
         privacyPolicyUrl: "https://retinaldelights.io/privacy",
+        size: "compact",
         termsOfServiceUrl: "https://retinaldelights.io/terms",
       }}
       theme={darkTheme({
         colors: {
-          skeletonBg: "hsl(0, 0%, 4%)",
-          secondaryButtonBg: "hsl(0, 0%, 4%)",
-          secondaryButtonHoverBg: "hsl(0, 0%, 4%)",
-          connectedButtonBgHover: "hsl(0, 0%, 4%)",
-          scrollbarBg: "hsl(0, 0%, 4%)",
-          inputAutofillBg: "hsl(0, 0%, 9%)",
-          tooltipText: "hsl(0, 0%, 9%)",
-          tooltipBg: "hsl(48, 100%, 96%)",
-          success: "hsl(160, 84%, 39%)",
-          danger: "hsl(0, 84%, 60%)",
-          secondaryIconHoverBg: "hsl(0, 0%, 15%)",
-          secondaryIconHoverColor: "hsl(48, 100%, 96%)",
-          secondaryIconColor: "hsl(0, 0%, 45%)",
-          connectedButtonBg: "hsl(324, 100%, 50%)",
-          accentButtonText: "hsl(48, 100%, 96%)",
-          accentButtonBg: "hsl(324, 100%, 50%)",
-          secondaryButtonText: "hsl(48, 100%, 96%)",
-          primaryButtonText: "hsl(48, 100%, 96%)",
-          primaryButtonBg: "hsl(324, 100%, 50%)",
-          selectedTextBg: "hsl(324, 100%, 50%)",
-          primaryText: "hsl(48, 100%, 96%)",
-          selectedTextColor: "hsl(48, 100%, 96%)",
-          secondaryText: "hsl(48, 100%, 96%)",
-          tertiaryBg: "hsl(0, 0%, 15%)",
-          separatorLine: "hsl(0, 0%, 15%)",
           accentText: "hsl(324, 100%, 50%)",
-          borderColor: "hsl(0, 0%, 15%)",
-          modalBg: "hsl(0, 0%, 4%)",
+          accentButtonBg: "hsl(324, 100%, 50%)",
+          danger: "hsl(0, 100%, 55%)",
+          success: "hsl(142, 92%, 53%)",
+          tooltipText: "hsl(48, 100%, 96%)",
+          primaryText: "hsl(48, 100%, 96%)",
+          selectedTextBg: "hsl(48, 100%, 96%)",
+          primaryButtonBg: "hsl(324, 100%, 50%)",
+          secondaryButtonText: "hsl(48, 100%, 96%)",
+          accentButtonText: "hsl(48, 100%, 96%)",
+          secondaryIconHoverColor: "hsl(48, 100%, 96%)",
+          modalBg: "hsl(0, 0%, 2%)",
+          borderColor: "hsl(324, 100%, 50%)",
+          separatorLine: "hsl(0, 0%, 15%)",
+          tertiaryBg: "hsl(0, 0%, 4%)",
+          skeletonBg: "hsl(0, 0%, 15%)",
+          secondaryText: "hsl(48, 100%, 96%)",
+          secondaryButtonBg: "hsl(0, 0%, 9%)",
+          secondaryButtonHoverBg: "hsl(0, 0%, 9%)",
+          connectedButtonBg: "hsl(0, 0%, 4%)",
+          connectedButtonBgHover: "hsl(0, 0%, 9%)",
+          secondaryIconColor: "hsl(218, 11%, 65%)",
+          scrollbarBg: "hsl(0, 0%, 9%)",
+          inputAutofillBg: "hsl(0, 0%, 9%)",
+          tooltipBg: "hsl(0, 0%, 9%)",
+          secondaryIconHoverBg: "hsl(0, 0%, 9%)",
+          primaryButtonText: "hsl(48, 100%, 96%)",
         },
       })}
       wallets={wallets}

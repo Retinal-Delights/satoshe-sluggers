@@ -55,6 +55,9 @@
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   },
+  "engines": {
+    "node": ">=18 <21"
+  },
   "pnpm": {
     "auditConfig": {
       "ignoreCves": [
