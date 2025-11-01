@@ -40,12 +40,21 @@ export async function GET(request: NextRequest) {
 
     // Generate SIWE message
     // Get domain from request - handle Vercel preview URLs correctly
-    const host = request.headers.get('host') || 'satoshesluggers.com';
-    const protocol = request.headers.get('x-forwarded-proto') || 'https';
+    const host = request.headers.get('host') || request.headers.get('x-forwarded-host') || 'localhost:3000';
+    const protocol = request.headers.get('x-forwarded-proto') || (host.includes('localhost') ? 'http' : 'https');
     const origin = request.headers.get('origin') || `${protocol}://${host}`;
     
     // Clean domain (remove port if present for preview URLs)
     const domain = host.split(':')[0];
+    
+    // Validate all values are defined
+    if (!domain || !origin || !address) {
+      console.error('Missing required values:', { domain, origin, address });
+      return NextResponse.json(
+        { error: 'Failed to generate login payload: missing required parameters' },
+        { status: 500 }
+      );
+    }
     
     // Generate proper SIWE message with all required fields
     const issuedAt = new Date().toISOString();
