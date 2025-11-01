@@ -27,7 +27,9 @@ export default function HomePage() {
       </Head>
       <main id="main-content" className="min-h-screen bg-background text-[#FFFBEB]">
         <Navigation activePage="home" />
-        <Header80 />
+        <div className="mb-0">
+          <Header80 />
+        </div>
         <Footer />
       </main>
     </>

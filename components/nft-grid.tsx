@@ -563,7 +563,15 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
   const totalPages = Math.ceil(sortedNFTs.length / itemsPerPage) || 1;
 
   // Verify ownership for current page items to reflect sold state from chain
+  const prevPageItemsRef = useRef<string>('');
   useEffect(() => {
+    // Create a stable key from token IDs to prevent re-running for same page content
+    const pageItemsKey = paginatedNFTs.map(n => n.tokenId).join(',');
+    if (pageItemsKey === prevPageItemsRef.current || paginatedNFTs.length === 0) {
+      return;
+    }
+    prevPageItemsRef.current = pageItemsKey;
+
     const verifyOwnership = async () => {
       try {
         const creator = process.env.NEXT_PUBLIC_CREATOR_ADDRESS?.toLowerCase();
@@ -604,7 +612,7 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
         // ignore
       }
     };
-    if (paginatedNFTs.length > 0) verifyOwnership();
+    verifyOwnership();
   }, [paginatedNFTs]);
 
   // Update page if out of bounds

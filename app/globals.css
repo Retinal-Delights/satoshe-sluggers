@@ -248,9 +248,7 @@ a[href*="thirdweb"][href*="powered"],
 }
 
 /* Thirdweb Buy Modal - Fix NFT image aspect ratio for portrait images (2700x3000 = 9:10) */
-div[role="dialog"] img[src*="ipfs"],
-div[role="dialog"] img[src*="nft"],
-div[role="dialog"] [class*="MediaRenderer"] img,
+/* Only target transaction/buy modals, NOT ConnectButton wallet modals */
 [class*="transaction-overlay"] img,
 [class*="transaction-modal"] img,
 [class*="transaction-dialog"] img {
@@ -261,7 +259,6 @@ div[role="dialog"] [class*="MediaRenderer"] img,
   max-height: none !important;
 }
 
-div[role="dialog"] [class*="image"],
 [class*="transaction-overlay"] [class*="image"],
 [class*="transaction-modal"] [class*="image"],
 [class*="transaction-dialog"] [class*="image"] {

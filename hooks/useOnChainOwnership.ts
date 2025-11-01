@@ -1,7 +1,7 @@
 // hooks/useOnChainOwnership.ts
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ownerOf } from "thirdweb/extensions/erc721";
 import { getContract } from "thirdweb";
 import { base } from "thirdweb/chains";
@@ -26,6 +26,8 @@ export function useOnChainOwnership(totalNFTs: number = 7777) {
   const [soldTokens, setSoldTokens] = useState<Set<number>>(new Set());
   const [isChecking, setIsChecking] = useState(false);
   const [checkedCount, setCheckedCount] = useState(0);
+  const isProcessingRef = useRef(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Load cached ownership data
   const loadCache = useCallback((): OwnershipCache | null => {
@@ -100,7 +102,14 @@ export function useOnChainOwnership(totalNFTs: number = 7777) {
 
   // Initialize: Load cache or start checking
   useEffect(() => {
-    if (!CONTRACT_ADDRESS || !CREATOR_ADDRESS || totalNFTs === 0) return;
+    if (!CONTRACT_ADDRESS || !CREATOR_ADDRESS || totalNFTs === 0) {
+      return;
+    }
+
+    // Prevent multiple simultaneous processing loops
+    if (isProcessingRef.current) {
+      return;
+    }
 
     const cache = loadCache();
     if (cache) {
@@ -114,6 +123,9 @@ export function useOnChainOwnership(totalNFTs: number = 7777) {
       return;
     }
 
+    // Mark as processing to prevent re-runs
+    isProcessingRef.current = true;
+
     // Start checking from scratch
     setIsChecking(true);
     setCheckedCount(0);
@@ -122,8 +134,14 @@ export function useOnChainOwnership(totalNFTs: number = 7777) {
     let currentBatch: number[] = [];
     let allResults: Record<number, boolean> = {};
     let currentTokenId = 0;
+    let isCancelled = false;
 
     const processNextBatch = async () => {
+      // Check if cancelled before processing
+      if (isCancelled) {
+        return;
+      }
+
       // Build batch
       while (currentBatch.length < BATCH_SIZE && currentTokenId < totalNFTs) {
         currentBatch.push(currentTokenId);
@@ -132,13 +150,23 @@ export function useOnChainOwnership(totalNFTs: number = 7777) {
 
       if (currentBatch.length === 0) {
         // Done checking all NFTs
-        setIsChecking(false);
-        saveCache(allResults);
+        if (!isCancelled) {
+          setIsChecking(false);
+          saveCache(allResults);
+        }
+        isProcessingRef.current = false;
         return;
       }
 
       // Check batch
       const batchResults = await checkBatch(currentBatch);
+      
+      // Check again if cancelled after async operation
+      if (isCancelled) {
+        isProcessingRef.current = false;
+        return;
+      }
+      
       allResults = { ...allResults, ...batchResults };
 
       // Update state
@@ -155,11 +183,26 @@ export function useOnChainOwnership(totalNFTs: number = 7777) {
       // Clear batch and continue
       currentBatch = [];
       
-      // Small delay to avoid rate limits
-      setTimeout(processNextBatch, 100);
+      // Small delay to avoid rate limits - store timeout ref for cleanup
+      if (!isCancelled) {
+        timeoutRef.current = setTimeout(() => {
+          timeoutRef.current = null;
+          processNextBatch();
+        }, 100);
+      }
     };
 
     processNextBatch();
+
+    // Cleanup function to cancel processing
+    return () => {
+      isCancelled = true;
+      isProcessingRef.current = false;
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    };
   }, [totalNFTs, loadCache, saveCache, checkBatch]);
 
   // Compute counts

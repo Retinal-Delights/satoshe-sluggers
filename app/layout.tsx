@@ -2,7 +2,7 @@
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono, Inconsolata } from "next/font/google"
 import "./globals.css"
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThirdwebProvider } from "thirdweb/react"
 import ScrollButtons from "@/components/scroll-buttons"

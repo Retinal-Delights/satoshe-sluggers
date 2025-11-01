@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
     const { data: favorites, error } = await supabaseServer
       .from('favorites')
       .select('*')
-      .eq('wallet_address', walletAddress)
+      .eq('wallet_address', normalizedAddress)
       .order('added_at', { ascending: false });
 
     if (error) {

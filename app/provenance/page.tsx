@@ -183,10 +183,10 @@ export default function ProvenancePage() {
 
         <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-8 max-w-7xl flex-grow">
         <div className="mb-8">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-0 uppercase tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 uppercase tracking-tight">
             <span className="text-[#FFFBEB]">SATO</span><span className="text-[#ff0099]">S</span><span className="text-[#ff0099]">H</span><span className="text-[#ff0099]">E</span> <span className="text-[#FFFBEB]">Sluggers</span>
           </h1>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 uppercase tracking-tight text-[#FFFBEB] -mt-1">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 uppercase tracking-tight text-[#FFFBEB]">
             PROVENANCE RECORD
           </h2>
           <div className="text-muted-foreground leading-relaxed max-w-6xl space-y-2 mb-12">

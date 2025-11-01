@@ -1,7 +1,7 @@
 // app/my-nfts/page.tsx
 "use client"
 
-import { useState, useEffect, Suspense } from "react"
+import { useState, useEffect, useRef, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -45,14 +45,20 @@ function MyNFTsContent() {
 
   // Only clean up locally unfavorited NFTs when the page is actually refreshed or navigated away
   // This allows users to see their "soft unfavorited" NFTs until they refresh
+  const locallyUnfavoritedRef = useRef(locallyUnfavorited);
+  useEffect(() => {
+    locallyUnfavoritedRef.current = locallyUnfavorited;
+  }, [locallyUnfavorited]);
+
   useEffect(() => {
     return () => {
       // Actually remove from favorites when component unmounts (page refresh/navigation)
-      locallyUnfavorited.forEach(tokenId => {
-        removeFromFavorites(tokenId)
-      })
-    }
-  }, [locallyUnfavorited, removeFromFavorites])
+      // Use ref to avoid dependency issues
+      locallyUnfavoritedRef.current.forEach(tokenId => {
+        removeFromFavorites(tokenId);
+      });
+    };
+  }, [removeFromFavorites]);
 
   useEffect(() => {
     const loadUserData = async () => {

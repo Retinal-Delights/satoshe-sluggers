@@ -54,7 +54,7 @@ export default function TermlyScript() {
             if (!termlyBanner && !hasConsentCookie && window.Termly?.displayBanner) {
               try {
                 window.Termly.displayBanner();
-              } catch (err) {
+              } catch {
                 // Silently fail - Termly will show banner on its own
               }
             }
