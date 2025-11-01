@@ -46,30 +46,14 @@ export default function SimpleConnectButton() {
           }
         },
         async doLogin(params) {
-          // Call backend to verify signature and create session
-          // params contains: payload (the SIWE message) and signature
-          // Extract address from the SIWE message payload
-          const payload = typeof params.payload === 'string' 
-            ? params.payload 
-            : String(params.payload);
-          const signature = typeof params.signature === 'string'
-            ? params.signature
-            : String(params.signature);
-          
-          // Extract address from SIWE message (format: "domain wants...\n0x...\n...")
-          // SIWE format: second line contains the Ethereum address
-          const lines = payload.split('\n');
-          const address = lines.length > 1 && lines[1].trim().startsWith('0x')
-            ? lines[1].trim()
-            : '';
-          
+          // Thirdweb provides payload and signature - pass directly to backend
+          // Address is extracted from signature by backend
           const response = await fetch('/api/auth/siwe', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              message: payload,
-              signature: signature,
-              address: address,
+              message: params.payload,
+              signature: params.signature,
             }),
           });
           const data = await response.json();

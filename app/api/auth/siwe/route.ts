@@ -83,9 +83,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { message, signature, address } = body;
 
-    if (!message || !signature || !address) {
+    if (!message || !signature) {
       return NextResponse.json(
-        { error: 'Missing required fields: message, signature, address' },
+        { error: 'Missing required fields: message and signature' },
         { status: 400 }
       );
     }
@@ -94,14 +94,19 @@ export async function POST(request: NextRequest) {
     try {
       const recoveredAddress = ethers.verifyMessage(message, signature);
       const normalizedRecovered = recoveredAddress.toLowerCase();
-      const normalizedProvided = address.toLowerCase();
+      
+      // If address provided in body, verify it matches. Otherwise use recovered address.
+      const normalizedProvided = address ? address.toLowerCase() : normalizedRecovered;
 
-      if (normalizedRecovered !== normalizedProvided) {
+      if (address && normalizedRecovered !== normalizedProvided) {
         return NextResponse.json(
           { error: 'Invalid signature. Address does not match signature.' },
           { status: 401 }
         );
       }
+      
+      // Use recovered address (most reliable - extracted from signature)
+      const verifiedAddress = normalizedRecovered;
 
       // Verify message format (basic validation)
       if (!message.includes('wants you to sign in')) {
@@ -125,7 +130,7 @@ export async function POST(request: NextRequest) {
 
       // Create session
       const session: SIWESession = {
-        address: normalizedProvided,
+        address: verifiedAddress,
         issuedAt: Date.now(),
         expiresAt: Date.now() + SESSION_MAX_AGE * 1000,
       };
@@ -134,7 +139,7 @@ export async function POST(request: NextRequest) {
       const sessionToken = Buffer.from(JSON.stringify(session)).toString('base64url');
 
       // Set cookie with session
-      const response = NextResponse.json({ success: true, address: normalizedProvided });
+      const response = NextResponse.json({ success: true, address: verifiedAddress });
       response.cookies.set(SESSION_COOKIE_NAME, sessionToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',

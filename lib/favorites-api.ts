@@ -11,6 +11,12 @@ export async function getFavorites(): Promise<FavoriteNFT[]> {
   const response = await fetch('/api/favorites', {
     credentials: 'include', // Include session cookie
   });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || `Failed to fetch favorites: ${response.status}`);
+  }
+
   const data = await response.json();
 
   if (!data.success) {
@@ -58,6 +64,11 @@ export async function addFavorite(
     }),
   });
 
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || `Failed to add favorite: ${response.status}`);
+  }
+
   const data = await response.json();
 
   if (!data.success) {
@@ -83,6 +94,11 @@ export async function removeFavorite(tokenId: string): Promise<void> {
     method: 'DELETE',
     credentials: 'include', // Include session cookie
   });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || `Failed to remove favorite: ${response.status}`);
+  }
 
   const data = await response.json();
 
