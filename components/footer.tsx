@@ -10,6 +10,7 @@ declare global {
   interface Window {
     Termly?: {
       displayPreferenceModal?: () => void;
+      displayBanner?: () => void;
     };
   }
 }
