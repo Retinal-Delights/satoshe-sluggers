@@ -1,0 +1,143 @@
+// app/api/favorites/route.ts
+// API route for managing favorites (GET and POST)
+// Uses SIWE session authentication instead of per-request signatures
+
+import { NextRequest, NextResponse } from 'next/server';
+import { supabaseServer } from '@/lib/supabase-server';
+import { requireAuth } from '@/lib/session-auth';
+
+// GET /api/favorites - Get all favorites for authenticated wallet
+export async function GET() {
+  try {
+    // Get authenticated wallet address from session
+    const walletAddress = await requireAuth();
+
+    // Query favorites from database
+    const { data: favorites, error } = await supabaseServer
+      .from('favorites')
+      .select('*')
+      .eq('wallet_address', walletAddress)
+      .order('added_at', { ascending: false });
+
+    if (error) {
+      console.error('Database error fetching favorites:', error);
+      return NextResponse.json(
+        { success: false, error: 'Failed to fetch favorites' },
+        { status: 500 }
+      );
+    }
+
+    // Transform database format to API format
+    const formattedFavorites = (favorites || []).map((fav) => ({
+      tokenId: fav.token_id,
+      name: fav.name,
+      image: fav.image,
+      rarity: fav.rarity,
+      rank: fav.rank,
+      rarityPercent: fav.rarity_percent,
+      addedAt: fav.added_at,
+    }));
+
+    return NextResponse.json({
+      success: true,
+      favorites: formattedFavorites,
+    });
+  } catch (error) {
+    console.error('Unexpected error in GET /api/favorites:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+
+// POST /api/favorites - Add a favorite
+export async function POST(request: NextRequest) {
+  try {
+    // Get authenticated wallet address from session
+    const walletAddress = await requireAuth();
+
+    const body = await request.json();
+    const {
+      tokenId,
+      name,
+      image,
+      rarity,
+      rank,
+      rarityPercent,
+    } = body;
+
+    // Validate required parameters
+    if (!tokenId || !name) {
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields: tokenId and name are required' },
+        { status: 400 }
+      );
+    }
+
+    // Check if favorite already exists
+    const { data: existing } = await supabaseServer
+      .from('favorites')
+      .select('id')
+      .eq('wallet_address', walletAddress)
+      .eq('token_id', tokenId)
+      .single();
+
+    if (existing) {
+      return NextResponse.json(
+        { success: false, error: 'NFT is already favorited' },
+        { status: 409 }
+      );
+    }
+
+    // Insert new favorite
+    const { data, error } = await supabaseServer
+      .from('favorites')
+      .insert({
+        wallet_address: walletAddress,
+        token_id: tokenId.toString(),
+        name: name || `Satoshe Slugger #${parseInt(tokenId) + 1}`,
+        image: image || '/nfts/placeholder-nft.webp',
+        rarity: rarity || 'Unknown',
+        rank: rank?.toString() || '—',
+        rarity_percent: rarityPercent?.toString() || '—',
+      })
+      .select()
+      .single();
+
+    if (error) {
+      // Handle unique constraint violation (race condition)
+      if (error.code === '23505') {
+        return NextResponse.json(
+          { success: false, error: 'NFT is already favorited' },
+          { status: 409 }
+        );
+      }
+      console.error('Database error adding favorite:', error);
+      return NextResponse.json(
+        { success: false, error: 'Failed to add favorite' },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      favorite: {
+        tokenId: data.token_id,
+        name: data.name,
+        image: data.image,
+        rarity: data.rarity,
+        rank: data.rank,
+        rarityPercent: data.rarity_percent,
+        addedAt: data.added_at,
+      },
+    });
+  } catch (error) {
+    console.error('Unexpected error in POST /api/favorites:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+

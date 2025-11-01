@@ -14,11 +14,64 @@ const wallets = [
   createWallet("com.trustwallet.app"),
 ];
 
-// Main ConnectButton component
+// Main ConnectButton component with SIWE authentication
 export default function SimpleConnectButton() {
   return (
     <ConnectButton
       client={client}
+      auth={{
+        async getLoginPayload({ address }) {
+          // Call backend to get SIWE message payload
+          // Address is extracted from params per Thirdweb docs
+          const response = await fetch(
+            `/api/auth/siwe?address=${encodeURIComponent(address)}`
+          );
+          const data = await response.json();
+          return data.payload;
+        },
+        async doLogin(params) {
+          // Call backend to verify signature and create session
+          // params contains: payload (the SIWE message) and signature
+          // Extract address from the SIWE message payload
+          const payload = typeof params.payload === 'string' 
+            ? params.payload 
+            : String(params.payload);
+          const signature = typeof params.signature === 'string'
+            ? params.signature
+            : String(params.signature);
+          
+          // Extract address from SIWE message (format: "domain wants...\n0x...\n...")
+          // SIWE format: second line contains the Ethereum address
+          const lines = payload.split('\n');
+          const address = lines.length > 1 && lines[1].trim().startsWith('0x')
+            ? lines[1].trim()
+            : '';
+          
+          const response = await fetch('/api/auth/siwe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: payload,
+              signature: signature,
+              address: address,
+            }),
+          });
+          const data = await response.json();
+          if (!data.success) {
+            throw new Error(data.error || 'Login failed');
+          }
+        },
+        async isLoggedIn() {
+          // Check if user has valid session
+          const response = await fetch('/api/auth/session');
+          const data = await response.json();
+          return data.isLoggedIn || false;
+        },
+        async doLogout() {
+          // Clear session on logout
+          await fetch('/api/auth/session', { method: 'DELETE' });
+        },
+      }}
       connectButton={{ label: "CONNECT" }}
       connectModal={{
         privacyPolicyUrl: "https://retinaldelights.io/privacy",
