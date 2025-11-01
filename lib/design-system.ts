@@ -7,6 +7,9 @@
  * with proper typography hierarchy, consistent spacing, and tokenized colors.
  */
 
+// Import cn from utils first (needed by functions below)
+import { cn as utilsCn } from './utils';
+
 // Import the comprehensive design tokens
 export * from './design-tokens';
 
@@ -327,10 +330,9 @@ export function getRarityColor(rarity: string): string {
 
 /**
  * Combine multiple design tokens into a single className string
+ * Re-exported from utils for backward compatibility
  */
-export function cn(...classes: (string | undefined | null | false)[]): string {
-  return classes.filter(Boolean).join(' ');
-}
+export const cn = utilsCn;
 
 /**
  * Get section header styles

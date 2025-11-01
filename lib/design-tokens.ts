@@ -1,6 +1,9 @@
 // lib/design-tokens.ts
 // Comprehensive Design System Tokens for Satoshe Sluggers
 
+// Import cn from utils (used at end of file)
+import { cn as utilsCn } from './utils';
+
 export const designTokens = {
   // ===== TYPOGRAPHY =====
   typography: {
@@ -221,9 +224,8 @@ export const components = {
 };
 
 // ===== UTILITY FUNCTIONS =====
-export function cn(...classes: (string | undefined | null | false)[]): string {
-  return classes.filter(Boolean).join(' ');
-}
+// Re-export cn from utils for consistent class merging (uses clsx + twMerge)
+export const cn = utilsCn;
 
 // Typography helper functions
 export const getHeading = (level: 1 | 2 | 3 | 4 | 5 | 6) => {
