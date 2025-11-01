@@ -707,32 +707,32 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
                 <ToggleGroupItem 
                   value="all" 
                   aria-label="Show all NFTs"
-                  className="h-7 px-2 text-xs data-[state=on]:bg-[#ff0099]/20 data-[state=on]:text-[#ff0099] data-[state=on]:border-[#ff0099] text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-neutral-200"
+                  className="h-7 px-2 text-xs rounded-sm data-[state=on]:bg-[#ff0099]/20 data-[state=on]:text-[#ff0099] data-[state=on]:border-[#ff0099] text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-neutral-200 flex items-center justify-center"
                 >
                   All
                 </ToggleGroupItem>
                 <ToggleGroupItem 
                   value="live" 
                   aria-label={`Show live NFTs (${isCheckingOwnership && checkedCount < totalToCheck ? (checkedCount > 0 ? onChainLiveCount : nfts.filter(n => n.isForSale).length) : onChainLiveCount})`}
-                  className="h-7 px-2 text-xs data-[state=on]:bg-blue-500/20 data-[state=on]:text-blue-400 data-[state=on]:border-blue-500 text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-blue-300"
+                  className="h-7 px-2 text-xs rounded-sm data-[state=on]:bg-blue-500/20 data-[state=on]:text-blue-400 data-[state=on]:border-blue-500 text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-blue-300 flex items-center justify-center"
                   disabled={!setShowLive}
                 >
                   {isCheckingOwnership && checkedCount < totalToCheck ? (
-                    <span className="text-neutral-500">{checkedCount > 0 ? onChainLiveCount : nfts.filter(n => n.isForSale).length} Live...</span>
+                    <span className="text-neutral-500">Live — {checkedCount > 0 ? onChainLiveCount : nfts.filter(n => n.isForSale).length}...</span>
                   ) : (
-                    `${onChainLiveCount} Live`
+                    `Live — ${onChainLiveCount}`
                   )}
                 </ToggleGroupItem>
                 <ToggleGroupItem 
                   value="sold" 
                   aria-label={`Show sold NFTs (${isCheckingOwnership && checkedCount < totalToCheck ? (checkedCount > 0 ? onChainSoldCount : nfts.filter(n => !n.isForSale).length) : onChainSoldCount})`}
-                  className="h-7 px-2 text-xs data-[state=on]:bg-green-500/20 data-[state=on]:text-green-400 data-[state=on]:border-green-500 text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-green-300"
+                  className="h-7 px-2 text-xs rounded-sm data-[state=on]:bg-green-500/20 data-[state=on]:text-green-400 data-[state=on]:border-green-500 text-neutral-400 border-neutral-600 hover:bg-neutral-800 hover:text-green-300 flex items-center justify-center"
                   disabled={!setShowSold}
                 >
                   {isCheckingOwnership && checkedCount < totalToCheck ? (
-                    <span className="text-neutral-500">{checkedCount > 0 ? onChainSoldCount : nfts.filter(n => !n.isForSale).length} Sold...</span>
+                    <span className="text-neutral-500">Sold — {checkedCount > 0 ? onChainSoldCount : nfts.filter(n => !n.isForSale).length}...</span>
                   ) : (
-                    `${onChainSoldCount} Sold`
+                    `Sold — ${onChainSoldCount}`
                   )}
                 </ToggleGroupItem>
               </ToggleGroup>
