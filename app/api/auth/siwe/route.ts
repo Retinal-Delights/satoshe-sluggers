@@ -39,18 +39,29 @@ export async function GET(request: NextRequest) {
     }
 
     // Generate SIWE message
-    const domain = request.headers.get('host') || 'satoshesluggers.com';
-    const origin = request.headers.get('origin') || `https://${domain}`;
+    // Get domain from request - handle Vercel preview URLs correctly
+    const host = request.headers.get('host') || 'satoshesluggers.com';
+    const protocol = request.headers.get('x-forwarded-proto') || 'https';
+    const origin = request.headers.get('origin') || `${protocol}://${host}`;
+    
+    // Clean domain (remove port if present for preview URLs)
+    const domain = host.split(':')[0];
+    
+    // Generate proper SIWE message with all required fields
     const issuedAt = new Date().toISOString();
     const expirationTime = new Date(Date.now() + 60 * 60 * 1000).toISOString(); // 1 hour
+    const nonce = Math.random().toString(36).substring(2, 15);
+    const version = '1';
+    const chainId = '8453'; // Base mainnet
 
+    // SIWE message format according to EIP-4361
     const message = `${domain} wants you to sign in with your Ethereum account:
 ${address}
 
 URI: ${origin}
-Version: 1
-Chain ID: 8453
-Nonce: ${Math.random().toString(36).substring(2, 15)}
+Version: ${version}
+Chain ID: ${chainId}
+Nonce: ${nonce}
 Issued At: ${issuedAt}
 Expiration Time: ${expirationTime}`;
 

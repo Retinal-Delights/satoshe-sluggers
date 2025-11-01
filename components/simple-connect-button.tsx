@@ -23,11 +23,27 @@ export default function SimpleConnectButton() {
         async getLoginPayload({ address }) {
           // Call backend to get SIWE message payload
           // Address is extracted from params per Thirdweb docs
-          const response = await fetch(
-            `/api/auth/siwe?address=${encodeURIComponent(address)}`
-          );
-          const data = await response.json();
-          return data.payload;
+          try {
+            const response = await fetch(
+              `/api/auth/siwe?address=${encodeURIComponent(address)}`
+            );
+            
+            if (!response.ok) {
+              const errorData = await response.json().catch(() => ({}));
+              throw new Error(errorData.error || `Failed to get login payload: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            if (!data.payload) {
+              throw new Error('Invalid response: payload is missing');
+            }
+            
+            return data.payload;
+          } catch (error) {
+            console.error('Error getting login payload:', error);
+            throw error;
+          }
         },
         async doLogin(params) {
           // Call backend to verify signature and create session
