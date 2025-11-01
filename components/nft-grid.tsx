@@ -225,8 +225,8 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
     return () => window.removeEventListener('nftPurchased', handler as EventListener);
   }, []);
 
-  // Favorites functionality
-  const { isFavorited, toggleFavorite } = useFavorites();
+  // Favorites functionality - call hook once at grid level
+  const { isFavorited, toggleFavorite, isConnected } = useFavorites();
 
   // Column sort handler
   const handleColumnSort = (field: string) => {
@@ -897,6 +897,9 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
                       isForSale={nft.isForSale}
                       tier={nft.tier}
                       viewMode={viewMode}
+                      isFavorited={isFavorited}
+                      toggleFavorite={toggleFavorite}
+                      isConnected={isConnected}
                     />
                   </div>
               ))}

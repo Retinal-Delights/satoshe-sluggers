@@ -406,6 +406,14 @@ function SubcategorySection({
   )
 }
 
+// Helper function to remove "Eyewear" prefix from display
+const formatEyewearDisplay = (value: string): string => {
+  if (value.startsWith("Eyewear ")) {
+    return value.replace("Eyewear ", "");
+  }
+  return value;
+};
+
 // Fallback options
 const FALLBACK_OPTIONS = {
   background: ["Field", "Dugout", "Stadium", "Sky", "Night"],
@@ -742,7 +750,10 @@ export default function NFTSidebar({
       <FilterSection
           title="Eyewear"
           color="cyan"
-        options={FALLBACK_OPTIONS.eyewear}
+        options={traitCounts["eyewear"] ? Object.keys(traitCounts["eyewear"]).sort().map(value => ({ value, display: formatEyewearDisplay(value) })) : FALLBACK_OPTIONS.eyewear.map(value => ({
+          value,
+          display: formatEyewearDisplay(value)
+        }))}
           selected={selectedFilters.eyewear || []}
         onChange={handleEyewearChange}
           traitCounts={traitCounts}
