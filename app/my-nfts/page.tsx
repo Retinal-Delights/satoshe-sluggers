@@ -208,7 +208,10 @@ function MyNFTsContent() {
         {!Array.isArray(activeNFTs) ? (
           <div className="text-center py-20">
             <p className="text-red-400 mb-4">Error loading NFTs. Please try refreshing the page.</p>
-            <Button onClick={() => window.location.reload()} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 text-xs font-medium rounded">
+            <Button 
+              onClick={() => window.location.reload()} 
+              className="px-6 py-2 border border-[#ff0099] bg-transparent text-[#ff0099] font-normal rounded-sm hover:bg-[#ff0099]/90 hover:text-white transition-all duration-200"
+            >
               Refresh Page
             </Button>
           </div>
@@ -221,7 +224,10 @@ function MyNFTsContent() {
               }
             </p>
             {(activeTab === "owned" || activeTab === "favorites") && (
-              <Button onClick={() => router.push("/nfts")} className="bg-blue-500 hover:bg-blue-600 text-offwhite px-3 py-1.5 text-xs font-medium rounded" style={{ padding: '6px 12px', fontSize: '12px', borderRadius: '2px' }}>
+              <Button 
+                onClick={() => router.push("/nfts")} 
+                className="px-6 py-2 border border-[#ff0099] bg-transparent text-[#ff0099] font-normal rounded-sm hover:bg-[#ff0099]/90 hover:text-white transition-all duration-200"
+              >
                 Browse NFTs
               </Button>
             )}
@@ -288,8 +294,7 @@ function MyNFTsContent() {
                   {activeTab === "owned" && (
                     <Button
                       onClick={() => router.push(`/nft/${nft.id}`)}
-                      className="w-full bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-[#FFFBEB] text-xs font-medium py-1.5 rounded-sm"
-                      style={{ padding: '6px 12px', fontSize: '12px', borderRadius: '2px' }}
+                      className="w-full border border-[#ff0099] bg-transparent text-[#ff0099] font-normal rounded-sm hover:bg-[#ff0099]/90 hover:text-white transition-all duration-200"
                     >
                       View Details
                     </Button>
