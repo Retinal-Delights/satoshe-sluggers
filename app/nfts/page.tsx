@@ -110,10 +110,10 @@ function NFTsPageContent() {
   }, [searchTerm, searchMode, selectedFilters, isInitialized, router])
 
   return (
-    <main id="main-content" className="min-h-screen bg-background text-[#FFFBEB] pt-24 sm:pt-28">
+    <main id="main-content" className="min-h-screen bg-background text-[#FFFBEB] pt-24 sm:pt-28 overflow-x-hidden w-full max-w-full">
       <Navigation activePage="nfts" />
 
-      <section className="w-full mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 sm:py-8 lg:py-10">
+      <section className="w-full max-w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-6 sm:py-8 lg:py-10 overflow-x-hidden">
         <div className="mb-8 lg:mb-12">
           <h1 id="collection-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center mb-3 text-[#FFFBEB]">
             SATO<span className="text-[#ff0099]">SHE</span> SLUGGERS

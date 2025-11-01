@@ -1,16 +1,42 @@
 // app/api/favorites/route.ts
 // API route for managing favorites (GET and POST)
-// Uses SIWE session authentication instead of per-request signatures
+// Uses wallet address directly (no authentication required for favorites storage)
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseServer } from '@/lib/supabase-server';
-import { requireAuth } from '@/lib/session-auth';
+import { ethers } from 'ethers';
 
-// GET /api/favorites - Get all favorites for authenticated wallet
-export async function GET() {
+/**
+ * Validate Ethereum address format
+ */
+function isValidAddress(address: string): boolean {
   try {
-    // Get authenticated wallet address from session
-    const walletAddress = await requireAuth();
+    return ethers.isAddress(address);
+  } catch {
+    return false;
+  }
+}
+
+// GET /api/favorites?walletAddress=0x... - Get all favorites for wallet
+export async function GET(request: NextRequest) {
+  try {
+    const walletAddress = request.nextUrl.searchParams.get('walletAddress');
+    
+    if (!walletAddress) {
+      return NextResponse.json(
+        { success: false, error: 'Missing walletAddress parameter' },
+        { status: 400 }
+      );
+    }
+
+    // Validate address format
+    const normalizedAddress = walletAddress.toLowerCase();
+    if (!isValidAddress(normalizedAddress)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid wallet address format' },
+        { status: 400 }
+      );
+    }
 
     // Query favorites from database
     const { data: favorites, error } = await supabaseServer
@@ -54,11 +80,9 @@ export async function GET() {
 // POST /api/favorites - Add a favorite
 export async function POST(request: NextRequest) {
   try {
-    // Get authenticated wallet address from session
-    const walletAddress = await requireAuth();
-
     const body = await request.json();
     const {
+      walletAddress,
       tokenId,
       name,
       image,
@@ -66,6 +90,22 @@ export async function POST(request: NextRequest) {
       rank,
       rarityPercent,
     } = body;
+
+    // Validate wallet address
+    if (!walletAddress) {
+      return NextResponse.json(
+        { success: false, error: 'Missing required field: walletAddress' },
+        { status: 400 }
+      );
+    }
+
+    const normalizedAddress = walletAddress.toLowerCase();
+    if (!isValidAddress(normalizedAddress)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid wallet address format' },
+        { status: 400 }
+      );
+    }
 
     // Validate required parameters
     if (!tokenId || !name) {
@@ -79,7 +119,7 @@ export async function POST(request: NextRequest) {
     const { data: existing } = await supabaseServer
       .from('favorites')
       .select('id')
-      .eq('wallet_address', walletAddress)
+      .eq('wallet_address', normalizedAddress)
       .eq('token_id', tokenId)
       .single();
 
@@ -94,7 +134,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await supabaseServer
       .from('favorites')
       .insert({
-        wallet_address: walletAddress,
+        wallet_address: normalizedAddress,
         token_id: tokenId.toString(),
         name: name || `Satoshe Slugger #${parseInt(tokenId) + 1}`,
         image: image || '/nfts/placeholder-nft.webp',

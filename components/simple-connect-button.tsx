@@ -14,98 +14,11 @@ const wallets = [
   createWallet("com.trustwallet.app"),
 ];
 
-// Main ConnectButton component with SIWE authentication
+// Simple ConnectButton component (no SIWE authentication)
 export default function SimpleConnectButton() {
   return (
     <ConnectButton
       client={client}
-      auth={{
-        async getLoginPayload({ address }) {
-          // Call backend to get SIWE message payload
-          // Address is extracted from params per Thirdweb docs
-          try {
-            if (!address) {
-              throw new Error('Wallet address is required');
-            }
-
-            const response = await fetch(
-              `/api/auth/siwe?address=${encodeURIComponent(address)}`
-            );
-            
-            if (!response.ok) {
-              const errorData = await response.json().catch(() => ({}));
-              const errorMessage = errorData.error || `Failed to get login payload: ${response.status}`;
-              console.error('API error:', errorMessage, { status: response.status, address });
-              throw new Error(errorMessage);
-            }
-            
-            const data = await response.json();
-            
-            if (!data || !data.payload) {
-              console.error('Invalid API response:', data);
-              throw new Error('Invalid response: payload is missing');
-            }
-            
-            return data.payload;
-          } catch (error) {
-            console.error('Error getting login payload:', error);
-            throw error;
-          }
-        },
-        async doLogin(params) {
-          // Thirdweb provides payload and signature - pass directly to backend
-          // Address is extracted from signature by backend
-          try {
-            if (!params.payload || !params.signature) {
-              throw new Error('Missing payload or signature from wallet');
-            }
-
-            const response = await fetch('/api/auth/siwe', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                message: params.payload,
-                signature: params.signature,
-              }),
-            });
-
-            if (!response.ok) {
-              const errorData = await response.json().catch(() => ({}));
-              throw new Error(errorData.error || `Login failed: ${response.status}`);
-            }
-
-            const data = await response.json();
-            if (!data.success) {
-              throw new Error(data.error || 'Login failed');
-            }
-          } catch (error) {
-            console.error('Error during login:', error);
-            throw error;
-          }
-        },
-        async isLoggedIn() {
-          // Check if user has valid session
-          try {
-            const response = await fetch('/api/auth/session', {
-              credentials: 'include', // Include cookies
-            });
-            
-            if (!response.ok) {
-              return false;
-            }
-            
-            const data = await response.json();
-            return data?.isLoggedIn === true;
-          } catch (error) {
-            console.error('Error checking session:', error);
-            return false;
-          }
-        },
-        async doLogout() {
-          // Clear session on logout
-          await fetch('/api/auth/session', { method: 'DELETE' });
-        },
-      }}
       connectButton={{ label: "CONNECT" }}
       connectModal={{
         privacyPolicyUrl: "https://retinaldelights.io/privacy",

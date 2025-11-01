@@ -1,16 +1,18 @@
 // lib/favorites-api.ts
 // Client-side utilities for calling the favorites API
-// Uses SIWE session authentication (no per-request signing required)
+// Uses wallet address directly (no authentication required)
 
 import type { FavoriteNFT } from '@/hooks/useFavorites';
 
 /**
- * Get all favorites for authenticated wallet (uses session cookie)
+ * Get all favorites for wallet address
  */
-export async function getFavorites(): Promise<FavoriteNFT[]> {
-  const response = await fetch('/api/favorites', {
-    credentials: 'include', // Include session cookie
-  });
+export async function getFavorites(walletAddress: string): Promise<FavoriteNFT[]> {
+  if (!walletAddress) {
+    throw new Error('Wallet address is required');
+  }
+
+  const response = await fetch(`/api/favorites?walletAddress=${encodeURIComponent(walletAddress)}`);
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
@@ -43,18 +45,23 @@ export async function getFavorites(): Promise<FavoriteNFT[]> {
 }
 
 /**
- * Add a favorite (uses session cookie for authentication)
+ * Add a favorite (requires wallet address)
  */
 export async function addFavorite(
+  walletAddress: string,
   nft: Omit<FavoriteNFT, 'addedAt'>
 ): Promise<FavoriteNFT> {
+  if (!walletAddress) {
+    throw new Error('Wallet address is required');
+  }
+
   const response = await fetch('/api/favorites', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    credentials: 'include', // Include session cookie
     body: JSON.stringify({
+      walletAddress,
       tokenId: nft.tokenId,
       name: nft.name,
       image: nft.image,
@@ -87,12 +94,15 @@ export async function addFavorite(
 }
 
 /**
- * Remove a favorite (uses session cookie for authentication)
+ * Remove a favorite (requires wallet address)
  */
-export async function removeFavorite(tokenId: string): Promise<void> {
-  const response = await fetch(`/api/favorites/${tokenId}`, {
+export async function removeFavorite(walletAddress: string, tokenId: string): Promise<void> {
+  if (!walletAddress) {
+    throw new Error('Wallet address is required');
+  }
+
+  const response = await fetch(`/api/favorites/${tokenId}?walletAddress=${encodeURIComponent(walletAddress)}`, {
     method: 'DELETE',
-    credentials: 'include', // Include session cookie
   });
 
   if (!response.ok) {

@@ -11,11 +11,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self' https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.thirdweb.com https://*.walletconnect.com https://*.walletconnect.org https://app.termly.io https://*.termly.io https://vitals.vercel-insights.com https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.thirdweb.com https://*.walletconnect.com https://*.walletconnect.org https://app.termly.io https://*.termly.io https://vitals.vercel-insights.com https://va.vercel-scripts.com https://*.coinbase.com https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com",
       "style-src 'self' 'unsafe-inline' https://*.thirdweb.com https://*.walletconnect.com https://app.termly.io https://*.termly.io https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com",
       "img-src 'self' https: data: blob: https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com",
       "font-src 'self' https: data: https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com",
-      "connect-src 'self' https://*.thirdweb.com https://*.walletconnect.com https://*.walletconnect.org https://rpc.ankr.com https://ipfs.io https://gateway.pinata.cloud https://cloudflare-ipfs.com https://vitals.vercel-insights.com https://vercel.live https://*.termly.io https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com wss:",
+      "connect-src 'self' https://*.thirdweb.com https://*.walletconnect.com https://*.walletconnect.org https://rpc.ankr.com https://ipfs.io https://gateway.pinata.cloud https://cloudflare-ipfs.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://vercel.live https://*.termly.io https://*.coinbase.com https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com wss:",
       "media-src 'self' https: data: blob: https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com",
       "frame-src 'self' https://*.thirdweb.com https://*.walletconnect.com https://app.termly.io https://*.termly.io https://retinaldelights.io https://www.retinaldelights.io https://satoshesluggers.com https://www.satoshesluggers.com",
       "frame-ancestors 'none'",
@@ -42,8 +42,7 @@ const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
-  { key: "Cross-Origin-Resource-Policy", value: "same-site" },
-  { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+  { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
   { key: "X-DNS-Prefetch-Control", value: "on" },
 ];
 

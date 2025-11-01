@@ -94,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark ${inter.variable} ${jetbrainsMono.variable} ${inconsolata.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`dark ${inter.variable} ${jetbrainsMono.variable} ${inconsolata.variable} overflow-x-hidden`} suppressHydrationWarning>
       <head>
         {/* Termly CMP: must be first to block unapproved resources */}
         <TermlyScript />

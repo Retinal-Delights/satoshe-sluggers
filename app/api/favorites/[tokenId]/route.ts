@@ -1,21 +1,45 @@
 // app/api/favorites/[tokenId]/route.ts
 // API route for deleting a specific favorite
-// Uses SIWE session authentication instead of per-request signatures
+// Uses wallet address directly (no authentication required)
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseServer } from '@/lib/supabase-server';
-import { requireAuth } from '@/lib/session-auth';
+import { ethers } from 'ethers';
 
-// DELETE /api/favorites/[tokenId] - Remove a favorite
+/**
+ * Validate Ethereum address format
+ */
+function isValidAddress(address: string): boolean {
+  try {
+    return ethers.isAddress(address);
+  } catch {
+    return false;
+  }
+}
+
+// DELETE /api/favorites/[tokenId]?walletAddress=0x... - Remove a favorite
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ tokenId: string }> }
 ) {
   try {
-    // Get authenticated wallet address from session
-    const walletAddress = await requireAuth();
-    
+    const walletAddress = request.nextUrl.searchParams.get('walletAddress');
     const { tokenId } = await params;
+
+    if (!walletAddress) {
+      return NextResponse.json(
+        { success: false, error: 'Missing walletAddress parameter' },
+        { status: 400 }
+      );
+    }
+
+    const normalizedAddress = walletAddress.toLowerCase();
+    if (!isValidAddress(normalizedAddress)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid wallet address format' },
+        { status: 400 }
+      );
+    }
 
     if (!tokenId) {
       return NextResponse.json(
@@ -28,7 +52,7 @@ export async function DELETE(
     const { error } = await supabaseServer
       .from('favorites')
       .delete()
-      .eq('wallet_address', walletAddress)
+      .eq('wallet_address', normalizedAddress)
       .eq('token_id', tokenId);
 
     if (error) {

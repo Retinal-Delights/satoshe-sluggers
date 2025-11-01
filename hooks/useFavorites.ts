@@ -45,9 +45,9 @@ export function useFavorites() {
       return;
     }
 
-    // Try to load from API (no longer needs walletAddress parameter - uses session)
+    // Try to load from API (pass wallet address)
     isLoadingRef.current = true;
-    getFavorites()
+    getFavorites(currentAddress)
       .then((apiFavorites) => {
         setFavorites(apiFavorites);
         // Sync to localStorage as backup
@@ -94,8 +94,8 @@ export function useFavorites() {
     setFavorites((prev) => [...prev, optimisticFavorite]);
 
     try {
-      // Sync to API (no longer needs walletAddress parameter - uses session)
-      const apiFavorite = await addFavorite(nft);
+      // Sync to API (pass wallet address)
+      const apiFavorite = await addFavorite(account.address, nft);
       
       // Update with server data
       setFavorites((prev) => {
@@ -146,8 +146,8 @@ export function useFavorites() {
     setFavorites(removedFavorites);
 
     try {
-      // Sync to API (no longer needs walletAddress parameter - uses session)
-      await removeFavorite(tokenId);
+      // Sync to API (pass wallet address)
+      await removeFavorite(account.address, tokenId);
 
       // Sync to localStorage as backup
       try {
