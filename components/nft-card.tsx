@@ -25,6 +25,7 @@ interface NFTCardProps {
   isFavorited?: (tokenId: string) => boolean;
   toggleFavorite?: (nft: { tokenId: string; name: string; image: string; rarity: string; rank: string | number; rarityPercent: string | number }) => Promise<boolean | void>;
   isConnected?: boolean;
+  priority?: boolean; // Priority loading for above-the-fold images
 }
 
 export default function NFTCard({
@@ -42,6 +43,7 @@ export default function NFTCard({
   isFavorited,
   toggleFavorite,
   isConnected = false,
+  priority = false,
 }: NFTCardProps) {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
@@ -112,7 +114,8 @@ export default function NFTCard({
               src={showPlaceholder ? placeholder : imageUrl}
               alt={`${name} - NFT #${cardNumber}, Rank ${rank}, ${rarity} rarity, Tier ${tier}`}
               fill
-              loading="lazy"
+              priority={priority}
+              loading={priority ? "eager" : "lazy"}
               className={`object-contain p-2 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
               onLoad={() => {
                 if (!showPlaceholder) {
@@ -153,7 +156,8 @@ export default function NFTCard({
               src={showPlaceholder ? placeholder : imageUrl}
               alt={`${name} - NFT #${cardNumber}, Rank ${rank}, ${rarity} rarity, Tier ${tier}`}
               fill
-              loading="lazy"
+              priority={priority}
+              loading={priority ? "eager" : "lazy"}
               className={`object-contain p-2 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
               onLoad={() => {
                 if (!showPlaceholder) {
@@ -256,7 +260,8 @@ export default function NFTCard({
             src={showPlaceholder ? placeholder : imageUrl}
             alt={name}
             fill
-            loading="lazy"
+            priority={priority}
+            loading={priority ? "eager" : "lazy"}
             className={`object-contain p-1 hover:scale-[1.02] hover:rotate-[5deg] hover:-translate-y-1 transition-all duration-300 ease-out relative z-20 ${showPlaceholder ? 'animate-pulse' : ''}`}
             onLoad={() => {
               if (!showPlaceholder) {

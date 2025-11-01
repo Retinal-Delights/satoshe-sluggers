@@ -876,7 +876,14 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
               viewMode === 'grid-medium' ? 'gap-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7' :
               'gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8'
             }`}>
-              {paginatedNFTs.map((nft, index) => (
+              {paginatedNFTs.map((nft, index) => {
+                // Prioritize loading first 12-16 images (first visible rows depending on view mode)
+                // This ensures above-the-fold images load immediately
+                const imagesPerRow = viewMode === 'grid-large' ? 5 : viewMode === 'grid-medium' ? 7 : 8;
+                const priorityThreshold = imagesPerRow * 2; // First 2 rows
+                const isPriority = index < priorityThreshold;
+                
+                return (
                   <div
                     key={nft.id}
                     tabIndex={0}
@@ -900,9 +907,11 @@ export default function NFTGrid({ searchTerm, searchMode, selectedFilters, showL
                       isFavorited={isFavorited}
                       toggleFavorite={toggleFavorite}
                       isConnected={isConnected}
+                      priority={isPriority}
                     />
                   </div>
-              ))}
+                );
+              })}
             </div>
           )}
 
