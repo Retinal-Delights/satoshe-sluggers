@@ -2,6 +2,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -108,12 +109,16 @@ export default function ContactPage() {
               <h2 id="submission-status" className="text-xl font-bold mb-2">
                 Message Sent!
               </h2>
-              <p className="text-neutral-300 mb-6">Thank you for reaching out. We&apos;ll get back to you as soon as possible.</p>
+              <p className="text-neutral-300 mb-6">
+                Thank you for reaching out.
+                <br />
+                We&apos;ll get back to you as soon as possible.
+              </p>
               <Button
-                onClick={() => setSubmitted(false)}
+                asChild
                 className="py-3 px-6 text-base font-normal transition-all duration-200 border bg-transparent text-[#FF0099] border-[#FF0099] hover:bg-[#FF0099]/90 hover:text-[#FFFBEB]"
               >
-                Send Another Message
+                <Link href="/">Return Home</Link>
               </Button>
             </div>
           ) : (
